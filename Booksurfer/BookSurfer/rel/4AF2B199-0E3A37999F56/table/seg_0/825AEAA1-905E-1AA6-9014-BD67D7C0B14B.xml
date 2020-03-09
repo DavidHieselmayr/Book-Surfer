@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="825AEAA1-905E-1AA6-9014-BD67D7C0B14B" name="Relation_7">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Kommentar_KommentarID" id="48231057-F962-D788-BFB2-1BA15C833B24">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E48F0AF1-242F-2406-5B46-00F373E50A24" referredColumn="0A52FB42-7B92-63C5-C023-7B3D66AE7DE8"/>
+</associations>
+</Column>
+<Column name="Buch_BuchID" id="971C60B2-701C-F5CE-3759-95C317D3DC12">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E877AABB-5CC5-ADDC-F0F4-57B797C246ED" referredColumn="FB600FBF-68CC-DF38-01EC-4994237B23C8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B00F8F07-2157-427B-E456-8B8ED1A9C46B" name="Relation_7_PK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48231057-F962-D788-BFB2-1BA15C833B24"/>
+<colUsage columnID="971C60B2-701C-F5CE-3759-95C317D3DC12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53D932D3-7574-D6D1-147D-AFD486D190F4" name="Relation_7_Kommentar_FK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>321B981D-FCE3-725A-9B3E-225782E26706</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48231057-F962-D788-BFB2-1BA15C833B24"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C2085463-3F61-7E7B-ABC5-829A17F21BB5" name="Relation_7_Buch_FK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>321B981D-FCE3-725A-9B3E-225782E26706</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="971C60B2-701C-F5CE-3759-95C317D3DC12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

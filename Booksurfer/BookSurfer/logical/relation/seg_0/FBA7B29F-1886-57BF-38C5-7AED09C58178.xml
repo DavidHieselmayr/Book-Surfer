@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_3" directorySegmentName="seg_0" id="FBA7B29F-1886-57BF-38C5-7AED09C58178">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:41:22 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>3D300C09-5696-F40F-8C63-B7070CB9BBA5</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2C930194-4EE8-ABAA-2B0D-978A96C8ABB9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="16147B2D-AE5E-CE76-DD96-62FF50A8D8E9" name="Buch">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>3D300C09-5696-F40F-8C63-B7070CB9BBA5</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Titel" id="39EF12A8-4984-639A-4CEE-A758CF0DAC6F">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>B6571DC7-B137-BFA3-C468-2A8B5F426C0D</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BuchID" id="FB600FBF-68CC-DF38-01EC-4994237B23C8">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>4477695F-A23B-F931-0656-8F4D8A97F005</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Klappentext" id="E319E102-57F3-0A79-2C81-A2D454F76A2E">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>D600459C-B295-C1FC-E2EF-517C6446CFD5</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1500</dataTypeSize>
+<ownDataTypeParameters>1500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ReleaseDatum" id="7C913A9F-8FA8-2D07-1D6B-B9A9A95B071B">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>8E3F186D-13F0-85FF-15ED-829E07F0C947</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SeitenAnzahl" id="3780C2AE-F506-3A0D-2851-620C8092D3D5">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>168360ED-07A0-A1C9-D4A4-D75C3027542A</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KapitelAnzahl" id="375FB03F-D191-A20E-1AF5-B6E4E278FE26">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>386938EC-70B0-1447-135F-FE3E4E9F4C43</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F05E6BD2-855F-B29B-8D74-A3281377D96F" name="Buch_PK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>BAA712F6-BF75-0619-CE5E-43F5078008D5</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB600FBF-68CC-DF38-01EC-4994237B23C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

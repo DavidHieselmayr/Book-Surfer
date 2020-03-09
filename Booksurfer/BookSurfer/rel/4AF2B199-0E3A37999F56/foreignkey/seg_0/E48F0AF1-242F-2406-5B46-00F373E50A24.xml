@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E48F0AF1-242F-2406-5B46-00F373E50A24" containerWithKeyObject="825AEAA1-905E-1AA6-9014-BD67D7C0B14B" localFKIndex="53D932D3-7574-D6D1-147D-AFD486D190F4" name="Relation_7_Kommentar_FK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>321B981D-FCE3-725A-9B3E-225782E26706</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<referredTableLongName>Kommentar</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CC3B050C-426C-7C6D-A927-C132B10C41E2</referredTableID>
+<keyObject>28A78F1F-B5A7-D060-9AE9-BFAFD94698AE</keyObject>
+<referredKeyID>28A78F1F-B5A7-D060-9AE9-BFAFD94698AE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>KommentarID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_1" directorySegmentName="seg_0" id="DCC421E3-993F-B383-228D-F345C2E90238">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:38:37 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>E39502A1-CDD5-A4CC-25C5-1CB673BF349F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3D300C09-5696-F40F-8C63-B7070CB9BBA5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="Kaufdatum" id="BB2AA802-FD5A-FF78-C130-26FC6DC5FD46">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:39:14 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT047</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+</attribute>
+</attributes>
+</Relation>

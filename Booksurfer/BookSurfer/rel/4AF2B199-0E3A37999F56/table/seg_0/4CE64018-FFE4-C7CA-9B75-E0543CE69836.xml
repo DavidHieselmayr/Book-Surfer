@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4CE64018-FFE4-C7CA-9B75-E0543CE69836" name="User">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>E39502A1-CDD5-A4CC-25C5-1CB673BF349F</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Benutzername" id="00CB16F9-4A8C-E2E3-0D07-DF239E634F08">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>3B792CFC-B21B-84A0-6389-A933E47AC666</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Passwort" id="14EEDD69-5CE7-754F-51F1-CE77D87F2134">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>AB3AED81-A095-496C-85F7-EA1EE84C075D</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="1CCBB9D9-78A3-71F0-48D3-D9F12C314287">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>BCCB17BB-813A-1D46-1350-164F378ED7C7</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UID" id="8EA0217E-A976-E863-E1E6-DF2EAEBB541B">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>1E1929CB-7A85-2F89-5B36-3A98C03F55DA</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CAD0C598-2936-7F9F-1E3C-78281E75828B" name="User_PK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>51227EFA-542A-21EE-A059-82AACF30D7BD</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8EA0217E-A976-E863-E1E6-DF2EAEBB541B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

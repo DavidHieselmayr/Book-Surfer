@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC3B050C-426C-7C6D-A927-C132B10C41E2" name="Kommentar">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>2CA1EDFD-D8C5-9409-1650-A4C95FFD58D6</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Text" id="A6CF5BA2-3107-AE10-762E-BCCC4EC607C0">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>D8B0BAFD-94D9-7DC4-416C-520799AC85A9</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Überschrift" id="F46DBCA4-28CD-DAD6-831D-AA95F9B0015E">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>B9C9A77F-9D4A-CEDD-2108-EF975F6E6FF0</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Sterne" id="A0C8773C-7FFC-DA15-B063-3A1BA2275CCA">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>66A30A9D-022F-FAE5-1820-682D27EEF47C</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KommentarID" id="0A52FB42-7B92-63C5-C023-7B3D66AE7DE8">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>177EAE0F-DE9A-0E36-68A0-D2912A040418</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_UID" id="BD4C0BFD-11AB-83ED-92A5-7A29949EBFAD">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>2D834099-038D-D020-E9DC-F46520B97E23</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="95D31213-1626-CC8A-6E79-8EA568D5198A" referredColumn="8EA0217E-A976-E863-E1E6-DF2EAEBB541B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="28A78F1F-B5A7-D060-9AE9-BFAFD94698AE" name="Kommentar_PK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>A0C3398A-0BF2-BDDD-44D4-F5183F5142F4</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A52FB42-7B92-63C5-C023-7B3D66AE7DE8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AF344995-8DE6-89AF-5EA6-E19FBE0B5069" name="Kommentar_User_FK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:15:12 UTC</createdTime>
+<generatorID>15F5A2D4-7192-F509-ECAC-C53C9F474A49</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD4C0BFD-11AB-83ED-92A5-7A29949EBFAD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

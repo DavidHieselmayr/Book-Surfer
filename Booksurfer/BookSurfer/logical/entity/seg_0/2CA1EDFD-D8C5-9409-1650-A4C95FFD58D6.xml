@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2CA1EDFD-D8C5-9409-1650-A4C95FFD58D6" name="Kommentar">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:13:26 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Text" id="D8B0BAFD-94D9-7DC4-416C-520799AC85A9">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:13:31 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Überschrift" id="B9C9A77F-9D4A-CEDD-2108-EF975F6E6FF0">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:13:35 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Sterne" id="66A30A9D-022F-FAE5-1820-682D27EEF47C">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:14:00 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="KommentarID" id="177EAE0F-DE9A-0E36-68A0-D2912A040418">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:14:13 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="UID" id="2D834099-038D-D020-E9DC-F46520B97E23">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:14:49 UTC</createdTime>
+<generatorID>15F5A2D4-7192-F509-ECAC-C53C9F474A49</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<referedAttribute>1E1929CB-7A85-2F89-5B36-3A98C03F55DA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A0C3398A-0BF2-BDDD-44D4-F5183F5142F4" name="Kommentar PK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 10:14:25 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<engineerTo>
+<item key="4AF2B199-2391-1844-C4A5-0E3A37999F56" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>177EAE0F-DE9A-0E36-68A0-D2912A040418</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C206EB44-A444-7E28-1320-83F739DD96B8" containerWithKeyObject="084B5E21-DE95-E5A7-D26A-2B86D94510FB" localFKIndex="1FA87B8F-5E57-3BDA-7267-D62278C2928F" name="Relation_2_Genre_FK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>E04863C3-24A9-E2FD-EC51-FDA102A504F9</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<referredTableLongName>Genre</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>495008DD-D2E8-8546-A677-CDCC8A48AE66</referredTableID>
+<keyObject>9EC1ACBE-C035-A22E-D4C8-4294CC379854</keyObject>
+<referredKeyID>9EC1ACBE-C035-A22E-D4C8-4294CC379854</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>GenreID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

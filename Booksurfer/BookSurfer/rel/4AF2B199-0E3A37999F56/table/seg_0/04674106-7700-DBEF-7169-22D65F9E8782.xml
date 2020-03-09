@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04674106-7700-DBEF-7169-22D65F9E8782" name="Kapitel">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>745FF8B4-2BFE-1AB4-3C72-4FFE1DAB119B</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Überschrift" id="EB227E5A-B3A6-0A39-2EAC-1173F24999DB">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>9AE56C5F-583C-BDE7-5F98-700D867F5AE5</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nummer" id="702DE6AD-B84B-75AB-EAD7-1E90E3679871">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>EFABFB05-B39C-0C1D-A7DF-FBC8A97CE244</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KapitelID" id="4081FB74-6BD8-79BA-245A-EACD25F2ADA5">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>E08418C3-A3EE-B056-57DA-F7F26796677A</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Buch_BuchID" id="1E91E433-E701-0E69-0EE7-0B4A649D2122">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>5E351A0B-BF2F-8C18-F1A1-CEEB4EB670E7</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6A50F0C9-AFA4-37C1-C3F0-548E47CDED31" referredColumn="FB600FBF-68CC-DF38-01EC-4994237B23C8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4AB2D2CF-B997-3F2F-86CF-C78487BBCA3F" name="Kapitel_PK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>972258AD-D4D7-C928-CF02-B4AD0024D630</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4081FB74-6BD8-79BA-245A-EACD25F2ADA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C149C0CC-203E-A9A3-C618-7C38127BA51F" name="Kapitel_Buch_FK">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:49:25 UTC</createdTime>
+<generatorID>A756CE1D-5DB1-02F1-0EE2-85034AE72B47</generatorID>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E91E433-E701-0E69-0EE7-0B4A649D2122"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="BookSurfer" id="53B5CB06-BAEA-F5EA-772D-74B7A897D215" version="3.5">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:25:14 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>53B5CB06-BAEA-F5EA-772D-74B7A897D215</designId>
+</OSDM_Design>

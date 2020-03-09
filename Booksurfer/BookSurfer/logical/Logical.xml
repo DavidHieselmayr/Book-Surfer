@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="118F9EE1-5A0B-7D3C-62A6-A658294E233E" mainViewID="93A7A5D1-A45F-3B41-D3CF-AA8D9F81C66E">
+<createdBy>fabia</createdBy>
+<createdTime>2020-03-09 09:25:14 UTC</createdTime>
+<ownerDesignName>BookSurfer</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>
