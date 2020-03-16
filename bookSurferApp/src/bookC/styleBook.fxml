@@ -6,6 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<<<<<<< HEAD
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleBookController" xmlns="http://javafx.com/javafx/8.0.1">
+=======
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleBookController" xmlns="http://javafx.com/javafx/11.0.1">
+>>>>>>> ccc20b25669484c3b2f87fd70a5ef1acc0a4b84d
     
 </AnchorPane>
