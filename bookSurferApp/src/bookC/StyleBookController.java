@@ -6,21 +6,11 @@
 package bookC;
 
 import java.io.IOException;
-<<<<<<< HEAD
-import java.sql.Statement;
 import java.text.NumberFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.fxml.FXMLLoader;
-=======
-import java.net.URL;
 import java.sql.Statement;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
->>>>>>> ccc20b25669484c3b2f87fd70a5ef1acc0a4b84d
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -30,7 +20,6 @@ import javafx.stage.Stage;
  *
  * @author Nexo
  */
-<<<<<<< HEAD
 public class StyleBookController {
   // Verbindung zur Datenbank
   private Statement statement;
@@ -98,51 +87,4 @@ public class StyleBookController {
       System.exit(2);
     }
   }
-
-
-
-=======
-public class StyleBookController implements Initializable {
-
-    public static void show(Stage stage, Statement statement) {
-        try {
-            // View und Controller erstellen
-            FXMLLoader loader = new FXMLLoader(StyleBookController.class.getResource("styleBook.fxml"));
-            Parent root = (Parent) loader.load();
-
-            // Scene erstellen
-            Scene scene = new Scene(root);
-
-            // Stage: Entweder übergebene Stage verwenden (Primary Stage) oder neue erzeugen
-            if (stage == null) {
-                stage = new Stage();
-            }
-            stage.setScene(scene);
-            stage.setTitle("Personenwartung");
-
-            // Controller ermitteln
-            StyleBookController personC = (StyleBookController) loader.getController();
-
-            // Datenbankzugriff merken
-            personC.statement = statement;
-
-            // View initialisieren
-            //     personC.init();
-            // alles anzeigen
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
-            System.err.println("Something wrong with bookV.fxml!");
-            ex.printStackTrace(System.err);
-            System.exit(1);
-        }
-    }
-    private Statement statement;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
->>>>>>> ccc20b25669484c3b2f87fd70a5ef1acc0a4b84d
-
 }
