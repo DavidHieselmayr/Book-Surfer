@@ -74,6 +74,7 @@ public class StyleBookController {
 
       // lles anzeigen
       stage.show();
+      
     }
     catch (IOException ex) {
       Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
