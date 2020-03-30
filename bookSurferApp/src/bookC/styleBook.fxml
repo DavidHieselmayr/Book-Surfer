@@ -34,12 +34,12 @@
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Konto" textAlignment="CENTER" wrappingWidth="430.0">
                            <font>
-                              <Font name="Corbel" size="58.0" />
+                              <Font name="Nunito Sans Light" size="58.0" />
                            </font>
                         </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bücher" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Corbel" size="29.0" />
+                              <Font name="Nunito Sans Light" size="30.0" />
                            </font>
                         </Text>
                      </children>
@@ -106,37 +106,37 @@
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Genres" textAlignment="CENTER" wrappingWidth="430.0">
                            <font>
-                              <Font name="Corbel" size="59.0" />
+                              <Font name="Nunito Sans Light" size="58.0" />
                            </font>
                         </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fantasy" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Corbel" size="26.0" />
+                              <Font name="Nunito Sans Light" size="40.0" />
                            </font>
                         </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Roman" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Corbel" size="26.0" />
+                              <Font name="Nunito Sans Light" size="40.0" />
                            </font>
                         </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Krimi" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="3">
                            <font>
-                              <Font name="Corbel" size="26.0" />
+                              <Font name="Nunito Sans Light" size="40.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="5">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Autoren" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="5">
                            <font>
-                              <Font name="Corbel" size="59.0" />
+                              <Font name="Nunito Sans Light" size="55.0" />
                            </font>
                         </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="J.K Rowling" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="6">
                            <font>
-                              <Font name="Corbel" size="26.0" />
+                              <Font name="Nunito Sans Light" size="40.0" />
                            </font>
                         </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Albert Einstein" textAlignment="CENTER" wrappingWidth="430.0" GridPane.rowIndex="7">
                            <font>
-                              <Font name="Corbel" size="26.0" />
+                              <Font name="Nunito Sans Light" size="40.0" />
                            </font>
                         </Text>
                      </children>
