@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane VBox.vgrow="ALWAYS">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="100.0" prefWidth="192.800048828125" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="553.599951171875" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="100.0" prefWidth="192.800048828125" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="500.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="ALWAYS" />
+                      <RowConstraints vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <VBox minHeight="-Infinity" prefHeight="245.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox minHeight="-Infinity" prefHeight="245.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox minHeight="-Infinity" prefHeight="245.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox minHeight="-Infinity" prefHeight="245.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox minHeight="-Infinity" prefHeight="245.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                        <VBox minHeight="-Infinity" prefHeight="245.0" prefWidth="100.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </VBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: orange;" GridPane.columnIndex="2">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="ALWAYS" />
+                      <RowConstraints vgrow="ALWAYS" />
+                      <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Genres">
+                           <font>
+                              <Font name="Nunito Sans Light" size="28.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Fantasy" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Nunito Sans Light" size="20.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Roman" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Nunito Sans Light" size="20.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Krimi" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Nunito Sans Light" size="20.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Autor" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Nunito Sans Light" size="28.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="100.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="J.K Rowling" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Nunito Sans Light" size="20.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Albert Einstein" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Nunito Sans Light" size="20.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: green;">
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="ALWAYS" />
+                      <RowConstraints vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Konto">
+                           <font>
+                              <Font name="Nunito Sans Light" size="31.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Bücher" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Nunito Sans Light" size="26.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="20.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

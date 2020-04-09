@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane VBox.vgrow="ALWAYS">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="794.4000244140625" minWidth="10.0" prefWidth="449.5999450683594" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="483.2000427246094" minWidth="10.0" prefWidth="450.4000549316406" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: gray;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+               <children>
+                  <GridPane prefHeight="310.0" prefWidth="450.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="220.20001220703125" minWidth="98.0" prefWidth="125.4" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.2000045776367" minWidth="10.0" prefWidth="324.6" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Ihr Name" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="42.0" prefWidth="287.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="220.20001220703125" minWidth="98.0" prefWidth="126.20001831054688" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="375.40001678466797" minWidth="10.0" prefWidth="322.9999816894532" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="E-Mail" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="42.0" prefWidth="298.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="3">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="220.20001220703125" minWidth="98.0" prefWidth="125.4" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.2000045776367" minWidth="10.0" prefWidth="324.6" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Passwort" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="42.0" prefWidth="287.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <Label text="Register" textFill="WHITE">
+                           <font>
+                              <Font name="Nunito Sans Light" size="25.0" />
+                           </font>
+                        </Label>
+                        <GridPane GridPane.rowIndex="4">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="220.20001220703125" minWidth="98.0" prefWidth="125.4" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.2000045776367" minWidth="10.0" prefWidth="324.6" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Passwort erneut" textFill="#f8f8f8">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="42.0" prefWidth="287.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" />
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: #99ffcc;" GridPane.columnIndex="1">
+               <children>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="261.1999816894531" minHeight="10.0" prefHeight="219.2" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="513.9999942779541" minHeight="10.0" prefHeight="313.59999999999997" valignment="TOP" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Welcome to BookSurfer" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Nunito Sans Light" size="35.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="246.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../../../white.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
