@@ -1,6 +1,6 @@
 Book Surfer 
 
-<img src="https://github.com/DavidHieselmayr/Book-Surfer/blob/master/logos/black.png" height="5vh">
+<img src="https://github.com/DavidHieselmayr/Book-Surfer/blob/master/logos/black.png" height="100px" width="100px">
 
 
 
