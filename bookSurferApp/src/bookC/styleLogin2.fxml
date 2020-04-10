@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane VBox.vgrow="ALWAYS">
@@ -42,7 +41,7 @@
                         </Label>
                         <ImageView fitHeight="246.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                            <image>
-                              <Image url="@../../../white.png" />
+                              <Image url="@../../../logos/white.png" />
                            </image>
                         </ImageView>
                      </children>
