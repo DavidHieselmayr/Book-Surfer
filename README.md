@@ -1,6 +1,6 @@
 Book Surfer 
-Logo: ![alt text](https://github.com/DavidHieselmayr/Book-Surfer/blob/master/logos/black.png)
 
+<img src="https://github.com/DavidHieselmayr/Book-Surfer/blob/master/logos/black.png" height="5vh">
 
 
 
