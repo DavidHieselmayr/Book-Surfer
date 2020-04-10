@@ -2,7 +2,7 @@
 
 <img src="https://github.com/DavidHieselmayr/Book-Surfer/blob/master/logos/black.png" height="200px" width="200px"><br>
 
-<2>Beschreibung: Online Bücher lesen</h2><br>
+<h2>Beschreibung: Online Bücher lesen</h2><br>
 <h2>Slogan: Book. The Power on your side</h2><br>
 <h3>Team: Fabian Häubl, David Hauser, David Hieselmayr</h3><br><br>
 
