@@ -9,7 +9,10 @@ package loginAndRegisterStuff;
  *
  * @author fabia
  */
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserLogin {
 
@@ -42,6 +45,11 @@ public class UserLogin {
     }
     private boolean checkIfUserInDB(Statement statement){
         String sql="Select * from User where benutzername ="+this.Username;
+        try {
+            statement.execute(sql);
+        } catch (SQLException ex) {
+           
+        }
         
         return true;
     }

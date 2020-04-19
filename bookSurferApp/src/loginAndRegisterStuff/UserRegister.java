@@ -9,6 +9,6 @@ package loginAndRegisterStuff;
  *
  * @author Nexo
  */
-public class Register {
+public class UserRegister {
     
 }

@@ -19,7 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.UserLogin;
-import loginAndRegisterStuff.Register;
+import loginAndRegisterStuff.UserRegister;
 
 /**
  * FXML Controller class
@@ -115,6 +115,6 @@ public class StyleBookController {
 
     @FXML
     private void actionRegister(ActionEvent event) {
-        Register regObject = new Register();
+        UserRegister regObject = new UserRegister();
     }
 }
