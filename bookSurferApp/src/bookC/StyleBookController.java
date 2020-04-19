@@ -18,7 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import loginAndRegisterStuff.Login;
+import loginAndRegisterStuff.UserLogin;
 import loginAndRegisterStuff.Register;
 
 /**
@@ -109,8 +109,8 @@ public class StyleBookController {
 
     @FXML
     private void actionLogin(ActionEvent event) {
-        Login loginObject = new Login();
-        
+        UserLogin loginObject = new UserLogin(Statement statement, tfUsername.getText(),tfPassword.getText());
+        loginObject.login(mystatement);
     }
 
     @FXML
