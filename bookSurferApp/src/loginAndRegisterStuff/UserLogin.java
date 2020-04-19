@@ -1,5 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package loginAndRegisterStuff;
 
+/**
+ *
+ * @author fabia
+ */
 import java.sql.Statement;
 
 public class UserLogin {
@@ -25,7 +34,7 @@ public class UserLogin {
     
     
     private  boolean checkUsername(Statement statement){
-        if(checkIfUserInDB(Statement statement)){
+        if(checkIfUserInDB(statement)){
     
         }
         
@@ -34,7 +43,9 @@ public class UserLogin {
     private boolean checkIfUserInDB(Statement statement){
         String sql="Select * from User where benutzername ="+this.Username;
         
+        return true;
     }
     
 
 }
+
