@@ -1,3 +1,4 @@
+--drop table author;
 CREATE TABLE author (
     vorname      VARCHAR(32),
     nachname     VARCHAR(32),
@@ -81,7 +82,7 @@ CREATE TABLE relation_7 (
 );
 
 ALTER TABLE relation_7 ADD CONSTRAINT relation_7_pk PRIMARY KEY ( kommentar_kommentarid,
-                                                                  buch_buchid )
+                                                                  buch_buchid );
 --drop table seite;
 CREATE TABLE seite (
     text                varchar(8000),
@@ -92,15 +93,22 @@ CREATE TABLE seite (
 
 ALTER TABLE seite ADD CONSTRAINT seite_pk PRIMARY KEY ( seitenid );
 
+--drop table "User";
+CREATE SEQUENCE seq_user
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1;
+
 CREATE TABLE "User" (
+    "UID"          decimal(6) NOT NULL,
     benutzername   varchar(32),
     passwort       varchar(32),
-    email          varchar(32),
-    "UID"          decimal(6) NOT NULL
+    email          varchar(32)
 );
 
+
+
 ALTER TABLE "User" ADD CONSTRAINT user_pk PRIMARY KEY ( "UID" );
---drop table "User";
 ALTER TABLE kapitel
     ADD CONSTRAINT kapitel_buch_fk FOREIGN KEY ( buch_buchid )
         REFERENCES buch ( buchid );

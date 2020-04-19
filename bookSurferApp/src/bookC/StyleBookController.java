@@ -116,5 +116,6 @@ public class StyleBookController {
     @FXML
     private void actionRegister(ActionEvent event) {
         UserRegister regObject = new UserRegister();
+        regObject.register(mystatement);
     }
 }
