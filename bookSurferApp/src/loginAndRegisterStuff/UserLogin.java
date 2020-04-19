@@ -16,44 +16,56 @@ import java.util.logging.Logger;
 
 public class UserLogin {
 
-    public UserLogin(){
-    
+    public UserLogin() {
     }
-    private String Username; // Zu zahlender Preis
-    private String Password; // nächste freie id
+    private String Username; 
+    private String Password; 
     private Statement statement;
 
     public UserLogin(Statement statement, String Username, String Password) {
-        this.statement=statement;
+        this.statement = statement;
         this.Username = Username;
         this.Password = Password;
     }
 
-    public void login(Statement statement) {
-            if(checkUsername(statement)){
-            
+    public void login() {
+        if (checkUsername()) {
+           // change fxml document
+        }else{
+        // send fehlernachricht
+        }
+    }
+
+    private boolean checkUsername() {
+        if (checkIfUserInDB()) {
+            if(checkUserPWD()){
+                return true;
+            }else{
+                return false;
             }
-    }
-    
-    
-    private  boolean checkUsername(Statement statement){
-        if(checkIfUserInDB(statement)){
-    
+        } else {
+            return false;
         }
-        
-        return false;
+
     }
-    private boolean checkIfUserInDB(Statement statement){
-        String sql="Select * from User where benutzername ="+this.Username;
+
+    private boolean checkIfUserInDB() {
+        String sql = "Select * from APP.\"User\" where benutzername =" + this.Username;
         try {
-            statement.execute(sql);
+            return statement.execute(sql);
         } catch (SQLException ex) {
-           
+            return false;
         }
-        
-        return true;
+
     }
-    
+
+        private boolean checkUserPWD(){
+        String sql = "Select * from APP.\"User\" where passwort ="+this.Password;
+        try {
+            return statement.execute(sql);
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
 
 }
-

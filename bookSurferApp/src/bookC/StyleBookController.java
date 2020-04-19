@@ -110,7 +110,7 @@ public class StyleBookController {
     @FXML
     private void actionLogin(ActionEvent event) {
         UserLogin loginObject = new UserLogin( statement, tfUsername.getText(),tfPassword.getText());
-        loginObject.login(mystatement);
+        loginObject.login();
     }
 
     @FXML
