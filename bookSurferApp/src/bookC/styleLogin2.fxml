@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleBookController">
    <children>
       <GridPane VBox.vgrow="ALWAYS">
         <columnConstraints>
@@ -41,7 +41,7 @@
                         </Label>
                         <ImageView fitHeight="246.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                            <image>
-                              <Image url="@../../../logos/white.png" />
+                              <Image url="@white.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -75,7 +75,7 @@
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
                               </Label>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="tfUsername" GridPane.columnIndex="1">
                                  <font>
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
@@ -99,7 +99,7 @@
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
                               </Label>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="tfPassword" GridPane.columnIndex="1">
                                  <font>
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
@@ -114,11 +114,27 @@
                               <Font name="Nunito Sans Light" size="25.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #99ffcc;" text="Login" textFill="WHITE" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Nunito Sans Light" size="20.0" />
-                           </font>
-                        </Button>
+                        <GridPane GridPane.rowIndex="3">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="btLogin" mnemonicParsing="false" onAction="#actionLogin" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #99ffcc;" text="Login" textFill="WHITE">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btRegister" mnemonicParsing="false" onAction="#actionRegister" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #99ffcc;" text="Register" textFill="WHITE" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Nunito Sans Light" size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
                      </children>
                   </GridPane>
                </children>

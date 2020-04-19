@@ -10,24 +10,40 @@ import java.text.NumberFormat;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import loginAndRegisterStuff.Login;
+import loginAndRegisterStuff.Register;
 
 /**
  * FXML Controller class
  *
  * @author Nexo
  */
+
 public class StyleBookController {
   // Verbindung zur Datenbank
   private Statement statement;
-
+  @FXML
+    private TextField tfUsername;
+    @FXML
+    private TextField tfPassword;
+    @FXML
+    private Button btLogin;
+    @FXML
+    private Button btRegister;
+    
+  
   // Helper
-  private final static String VIEWNAME = "styleBook.fxml";
+  private final static String VIEWNAME = "styleLogin2.fxml";
   private static final NumberFormat NUMBERFORMAT_2DEC;
-
+  private  static Statement mystatement;
 
   static {
     NUMBERFORMAT_2DEC = NumberFormat.getNumberInstance();
@@ -50,6 +66,7 @@ public class StyleBookController {
    */
   public static void show(Stage stage, Statement statement) {
     try {
+        StyleBookController.mystatement = statement;
       // View & Controller erstellen
       FXMLLoader loader = new FXMLLoader(StyleBookController.class.getResource(VIEWNAME));
       Parent root = (Parent) loader.load();
@@ -88,4 +105,16 @@ public class StyleBookController {
       System.exit(2);
     }
   }
+  
+
+    @FXML
+    private void actionLogin(ActionEvent event) {
+        Login loginObject = new Login();
+        
+    }
+
+    @FXML
+    private void actionRegister(ActionEvent event) {
+        Register regObject = new Register();
+    }
 }
