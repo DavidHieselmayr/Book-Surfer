@@ -25,7 +25,7 @@ public class UserLogin {
     private TextField tfUsername;
     private TextField tfPasswort;
 
-    public UserLogin(Statement statement,TextField tfUsername, TextField tfPasswort) {
+    public UserLogin(Statement statement, TextField tfUsername, TextField tfPasswort) {
         this.statement = statement;
         this.username = tfUsername.getText();
         this.password = tfPasswort.getText();
@@ -34,24 +34,16 @@ public class UserLogin {
     }
 
     public void login() {
-        if (checkUsername()) {
-            // change fxml document
-        } else {
-            // send fehlernachricht
-        }
-    }
-
-    private boolean checkUsername() {
         if (checkIfUserInDB()) {
             if (checkUserPWD()) {
-                return true;
+
             } else {
                 sendErrorMessage(tfUsername, "Benutzer oder Passwort falsch!");
-                return false;
+
             }
         } else {
-            sendErrorMessage(tfUsername,"Benutzer nicht gefunden!");
-            return false;
+            sendErrorMessage(tfUsername, "Benutzer nicht gefunden!");
+
         }
 
     }
