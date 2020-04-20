@@ -17,8 +17,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import loginAndRegisterStuff.InputException;
 import loginAndRegisterStuff.UserLogin;
+import loginAndRegisterStuff.UserLoginRegister;
 import loginAndRegisterStuff.UserRegister;
 
 /**
@@ -38,6 +41,8 @@ public class StyleBookController {
     private Button btLogin;
     @FXML
     private Button btRegister;
+    @FXML
+    private TextField tfErrorMsg;
     
   
   // Helper
@@ -105,17 +110,20 @@ public class StyleBookController {
       System.exit(2);
     }
   }
+    
   
 
     @FXML
     private void actionLogin(ActionEvent event) {
-        UserLogin loginObject = new UserLogin( statement, tfUsername,tfPassword);
-        loginObject.login();
+        try{
+            UserLoginRegister.login(statement, tfUsername.getText(), tfPassword.getText());
+        }catch(InputException ex){
+            tfErrorMsg.setText(ex.getMessage());
+        }   
     }
 
     @FXML
     private void actionRegister(ActionEvent event) {
-        UserRegister regObject = new UserRegister();
-        regObject.register(mystatement);
+        //neues Register FXML laden
     }
 }
