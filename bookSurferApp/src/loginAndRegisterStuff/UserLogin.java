@@ -46,7 +46,7 @@ public class UserLogin {
             if (checkUserPWD()) {
                 return true;
             } else {
-                sendErrorMessage(tfPasswort, "Benutzer oder Passwort falsch!");
+                sendErrorMessage(tfUsername, "Benutzer oder Passwort falsch!");
                 return false;
             }
         } else {
@@ -77,6 +77,7 @@ public class UserLogin {
 
     private void sendErrorMessage(TextField field, String errorMessage) {
         field.setPromptText(errorMessage);
+        field.setText("");
     }
 
 }
