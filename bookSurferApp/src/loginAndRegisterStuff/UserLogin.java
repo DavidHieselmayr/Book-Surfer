@@ -13,44 +13,51 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.TextField;
 
 public class UserLogin {
 
     public UserLogin() {
     }
-    private String Username; 
-    private String Password; 
+    private String username;
+    private String password;
     private Statement statement;
+    private TextField tfUsername;
+    private TextField tfPasswort;
 
-    public UserLogin(Statement statement, String Username, String Password) {
+    public UserLogin(Statement statement,TextField tfUsername, TextField tfPasswort) {
         this.statement = statement;
-        this.Username = Username;
-        this.Password = Password;
+        this.username = tfUsername.getText();
+        this.password = tfPasswort.getText();
+        this.tfUsername = tfUsername;
+        this.tfPasswort = tfPasswort;
     }
 
     public void login() {
         if (checkUsername()) {
-           // change fxml document
-        }else{
-        // send fehlernachricht
+            // change fxml document
+        } else {
+            // send fehlernachricht
         }
     }
 
     private boolean checkUsername() {
         if (checkIfUserInDB()) {
-            if(checkUserPWD()){
+            if (checkUserPWD()) {
                 return true;
-            }else{
+            } else {
+                sendErrorMessage(tfPasswort, "Benutzer oder Passwort falsch!");
                 return false;
             }
         } else {
+            sendErrorMessage(tfUsername,"Benutzer nicht gefunden!");
             return false;
         }
 
     }
 
     private boolean checkIfUserInDB() {
-        String sql = "Select * from APP.\"User\" where benutzername =" + this.Username;
+        String sql = "Select * from APP.\"User\" where benutzername =" + this.username;
         try {
             return statement.execute(sql);
         } catch (SQLException ex) {
@@ -59,13 +66,17 @@ public class UserLogin {
 
     }
 
-        private boolean checkUserPWD(){
-        String sql = "Select * from APP.\"User\" where passwort ="+this.Password;
+    private boolean checkUserPWD() {
+        String sql = "Select * from APP.\"User\" where passwort =" + this.password;
         try {
             return statement.execute(sql);
         } catch (SQLException ex) {
             return false;
         }
+    }
+
+    private void sendErrorMessage(TextField field, String errorMessage) {
+        field.setPromptText(errorMessage);
     }
 
 }
