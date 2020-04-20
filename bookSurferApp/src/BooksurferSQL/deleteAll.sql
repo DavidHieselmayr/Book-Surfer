@@ -19,4 +19,4 @@ drop table relation_3;
 drop table relation_7;
 drop table seite;
 drop table "User";
-drop sequence seq_user;
+drop sequence seq_user restrict;

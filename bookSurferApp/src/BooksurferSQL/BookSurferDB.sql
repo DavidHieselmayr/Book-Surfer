@@ -93,11 +93,9 @@ CREATE TABLE seite (
 
 ALTER TABLE seite ADD CONSTRAINT seite_pk PRIMARY KEY ( seitenid );
 
---drop table "User";
 CREATE SEQUENCE seq_user
-MINVALUE 1
-START WITH 1
-INCREMENT BY 1;
+AS BIGINT
+START WITH 1;
 
 CREATE TABLE "User" (
     "UID"          decimal(6) NOT NULL,

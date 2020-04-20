@@ -7,6 +7,8 @@ package loginAndRegisterStuff;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,7 +43,13 @@ public class UserRegister {
     }
     
     public void registerUser(){
-        String sql = "Insert into APP.\"User\"(benutzername, passwort, email, uid) as (seq_user.nextval, "+this.Username+", "+this.Password+", null)";
+        String sql = "Insert into APP.\"User\"(\"uid\",benutzername, passwort, email) values (seq_user.nextval, "+this.Username+", "+this.Password+", null)";
+        
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserRegister.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void login(Statement statement) {
