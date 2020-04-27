@@ -9,6 +9,9 @@ CREATE TABLE author (
 
 ALTER TABLE author ADD CONSTRAINT author_pk PRIMARY KEY ( authorid );
 
+CREATE SEQUENCE seq_author
+AS BIGINT
+START WITH 1;
 
 --drop table buch;
 CREATE TABLE buch (
@@ -22,6 +25,9 @@ CREATE TABLE buch (
 
 ALTER TABLE buch ADD CONSTRAINT buch_pk PRIMARY KEY ( buchid );
 
+CREATE SEQUENCE seq_buch
+AS BIGINT
+START WITH 1;
 
 --drop table genre;
 CREATE TABLE genre (
@@ -38,6 +44,10 @@ CREATE TABLE kapitel (
     kapitelid     decimal(6) NOT NULL,
     buch_buchid   decimal(6) NOT NULL
 );
+
+CREATE SEQUENCE seq_genre
+AS BIGINT
+START WITH 1;
 
 ALTER TABLE kapitel ADD CONSTRAINT kapitel_pk PRIMARY KEY ( kapitelid );
 --drop table kommentar;
