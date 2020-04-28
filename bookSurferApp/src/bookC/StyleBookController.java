@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import loginAndRegisterStuff.InputException;
 import loginAndRegisterStuff.UserLogin;
 import loginAndRegisterStuff.UserLoginRegister;
-import loginAndRegisterStuff.UserRegister;
+//import loginAndRegisterStuff.UserRegister;
 
 /**
  * FXML Controller class

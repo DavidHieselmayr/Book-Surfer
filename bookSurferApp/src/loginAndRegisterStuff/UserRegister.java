@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package loginAndRegisterStuff;
 
 import java.sql.SQLException;
@@ -10,10 +11,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Nexo
- */
+
 public class UserRegister {
     
     private String username; // Zu zahlender Preis
@@ -121,3 +119,4 @@ public class UserRegister {
     }
     
 }
+*/
