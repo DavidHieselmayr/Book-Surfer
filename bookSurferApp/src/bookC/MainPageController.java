@@ -10,43 +10,22 @@ import java.sql.Statement;
 import java.text.NumberFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import loginAndRegisterStuff.InputException;
-import loginAndRegisterStuff.UserLoginRegister;
 
 /**
  *
  * @author fabia
  */
-public class RegisterController {
-
-    private final static String VIEWNAME = "styleRegister.fxml";
+public class MainPageController {
+    
+   private final static String VIEWNAME = "styleMainPage.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
-    private static Statement mystatement;
     private static Stage stage;
     private static Statement statement;
     
-    @FXML
-    private TextField tfErrorMsg;
-    @FXML
-    private Button btLogin;
-    @FXML
-    private Button btRegister;
-    @FXML
-    private TextField tfUsername;
-    @FXML
-    private TextField tfPassword;
-    @FXML
-    private TextField tfPassword1;
-
     static {
         NUMBERFORMAT_2DEC = NumberFormat.getNumberInstance();
         NUMBERFORMAT_2DEC.setMaximumFractionDigits(2);
@@ -55,9 +34,8 @@ public class RegisterController {
 
     public static void show(Stage stage, Statement statement) {
         try {
-            RegisterController.mystatement = statement;
             // View & Controller erstellen
-            FXMLLoader loader = new FXMLLoader(RegisterController.class.getResource(VIEWNAME));
+            FXMLLoader loader = new FXMLLoader(MainPageController.class.getResource(VIEWNAME));
             Parent root = (Parent) loader.load();
 
             // Scene erstellen
@@ -74,9 +52,9 @@ public class RegisterController {
             RegisterController bookSurferRegisterC = (RegisterController) loader.getController();
 
             // Datenbankzugriff merken
-            bookSurferRegisterC.statement = statement;
+            MainPageController.statement = statement;
 
-            bookSurferRegisterC.stage = stage;
+            MainPageController.stage = stage;
 
             // View initialisieren
             // lles anzeigen
@@ -94,18 +72,5 @@ public class RegisterController {
         }
     }
 
-    @FXML
-    private void actionLogin(ActionEvent event) {
-        StyleBookController.show(stage, statement);
-    }
-
-    @FXML
-    private void actionRegister(ActionEvent event) {
-        try {
-            UserLoginRegister.register(statement, tfUsername.getText(), tfPassword.getText(),tfPassword1.getText());
-            StyleBookController.show(stage, statement);
-        } catch (InputException ex) {
-            tfErrorMsg.setText(ex.getMessage());
-        }
-    }
+    
 }

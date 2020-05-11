@@ -35,11 +35,12 @@ public class UserLoginRegister {
     }
 
     public boolean registerUser() {
-        String sql = "Insert into APP.\"User\"(\"uid\",benutzername, passwort, email) values (next value for seq_user, '" + this.username + "', '" + this.password + "', null)";
+        String sql = "Insert into APP.\"User\"(\"UID\",benutzername, passwort, email) values (next value for seq_user, '" + this.username + "', '" + this.password + "', null)";
 
         try {
             statement.executeUpdate(sql);
         } catch (SQLException ex) {
+            System.out.println("Exception Message: " + ex.getMessage());
             return false;
         }
         
@@ -71,7 +72,7 @@ public class UserLoginRegister {
         String sql = "Select * from APP.\"User\" where benutzername = '" + this.username + "'";
         try {
             ResultSet rs = statement.executeQuery(sql);
-            if(rs != null){
+            if(rs.next()){
                 return true;
             } else return false;
         } catch (SQLException ex) {
