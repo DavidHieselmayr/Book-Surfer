@@ -111,6 +111,7 @@ public class StyleBookController {
     private void actionLogin(ActionEvent event) {
         try {
             UserLoginRegister.login(statement, tfUsername.getText(), tfPassword.getText());
+            MainPageController.show(stage, statement);
         } catch (InputException ex) {
             tfErrorMsg.setText(ex.getMessage());
         }
