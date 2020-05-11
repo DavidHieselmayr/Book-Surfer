@@ -15,9 +15,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TreeItem;
 import javafx.stage.Stage;
 import searchDbs.mainpageSearch;
 //import loginAndRegisterStuff.UserRegister;
+
 /**
  * FXML Controller class
  *
@@ -86,7 +88,11 @@ public class StyleMainPageController {
 
     @FXML
     private void actionSearchUserInput(ActionEvent event) {
-        mainpageSearch search = new mainpageSearch(tfSearchUser.getText(),statement);
-        
+        mainpageSearch  search= new mainpageSearch(tfSearchUser.getText(), statement);
+
+        for (String entry : search.findAll()) {
+
+        }
+
     }
 }

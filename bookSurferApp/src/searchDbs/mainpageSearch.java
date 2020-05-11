@@ -11,28 +11,37 @@ import java.util.logging.Logger;
 public class mainpageSearch {
 
     private String searchValue;
-    private Statement statement;
+    private static Statement statement;
     private String sql;
     private ResultSet rSet;
+    List<String> eintraegeGenre = new LinkedList<>();
+    List<String> eintraegeBuecher = new LinkedList<>();
+    List<String> eintraegAuthor = new LinkedList<>();
 
     public mainpageSearch(String userInput, Statement statement) {
         this.setSearchValue(userInput);
         this.setStatement(statement);
     }
 
-    private String searchMain() {
+    public List<String> findAll() {
+        searchAuthor();
+        searchBook();
+        searchGenre();
 
-        return "test";
+        return eintraege;
     }
 
     private void searchAuthor() {
-        this.sql = "Select * from APP.\"user\" where vorname like %this.value% or vorname like %this.value%";
+        sql = "Select * from APP.\"user\" where vorname like %this.value% or vorname like %this.value%";
 
         try {
             rSet = statement.executeQuery(sql);
+
             while (rSet.next()) {
-                rSet.getString("name");
-                rSet.getString("beschreibung");
+                eintraegAuthor.add(rSet.getString("vorname"));
+                eintraegAuthor.add(rSet.getString("nachname"));
+                eintraegAuthor.add(rSet.getString("gebdatum"));
+                eintraegAuthor.add(rSet.getString("biographie"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(mainpageSearch.class.getName()).log(Level.SEVERE, null, ex);
@@ -45,8 +54,11 @@ public class mainpageSearch {
         try {
             rSet = statement.executeQuery(sql);
             while (rSet.next()) {
-                rSet.getString("name");
-                rSet.getString("beschreibung");
+                eintraegeBuecher.add(rSet.getString("titel"));
+                eintraegeBuecher.add(rSet.getString("klappentext"));
+                eintraegeBuecher.add(rSet.getString("releasedatum"));
+                eintraegeBuecher.add(rSet.getString("seitenanzahl"));
+                eintraegeBuecher.add(rSet.getString("kapitelanzahl"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(mainpageSearch.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,12 +68,12 @@ public class mainpageSearch {
 
     private void searchGenre() {
         sql = "Select * from APP.\"genre\" where name like '%this.searchValue%'";
-        
+
         try {
             rSet = statement.executeQuery(sql);
             while (rSet.next()) {
-                rSet.getString("name");
-                rSet.getString("beschreibung");
+                eintraegeGenre.add(rSet.getString("name"));
+                eintraegeGenre.add(rSet.getString("beschreibung"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(mainpageSearch.class.getName()).log(Level.SEVERE, null, ex);
