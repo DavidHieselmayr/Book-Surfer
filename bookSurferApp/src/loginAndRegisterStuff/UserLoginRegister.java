@@ -1,5 +1,6 @@
 package loginAndRegisterStuff;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -34,14 +35,15 @@ public class UserLoginRegister {
     }
 
     public boolean registerUser() {
-        String sql = "Insert into APP.\"User\"(\"uid\",benutzername, passwort, email) values (next value for seq_user, " + this.username + ", " + this.password + ", null)";
+        String sql = "Insert into APP.\"User\"(\"uid\",benutzername, passwort, email) values (next value for seq_user, '" + this.username + "', '" + this.password + "', null)";
 
         try {
             statement.executeUpdate(sql);
         } catch (SQLException ex) {
-            Logger.getLogger(UserRegister.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+        
+        System.out.println("User wurde zu Datenbank hinzugefügt");
         return true;
     }
 
@@ -49,6 +51,7 @@ public class UserLoginRegister {
             UserLoginRegister login = new UserLoginRegister(statement, username, password);
             if (login.checkUsername()) {
                 // change fxml document
+                System.out.println("Login succesful");
             }
     }
 
@@ -65,19 +68,26 @@ public class UserLoginRegister {
     }
 
     public boolean checkIfUserInDB() {
-        String sql = "Select * from APP.\"User\" where benutzername =" + this.username;
+        String sql = "Select * from APP.\"User\" where benutzername = '" + this.username + "'";
         try {
-            return statement.execute(sql);
+            ResultSet rs = statement.executeQuery(sql);
+            if(rs != null){
+                return true;
+            } else return false;
         } catch (SQLException ex) {
+            System.out.println("Exception: " + ex.getMessage());
             return false;
         }
 
     }
 
     public boolean checkUserPWD() {
-        String sql = "Select * from APP.\"User\" where passwort =" + this.password;
+        String sql = "Select * from APP.\"User\" where passwort = '" + this.password + "'";
         try {
-            return statement.execute(sql);
+            ResultSet rs = statement.executeQuery(sql);
+            if(rs != null){
+                return true;
+            } else return false;
         } catch (SQLException ex) {
             return false;
         }

@@ -52,18 +52,19 @@
                <children>
                   <TextField fx:id="tfErrorMsg" alignment="CENTER" editable="false" style="-fx-text-inner-color: red; -fx-background-color: transparent;">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <GridPane prefHeight="214.0" prefWidth="450.0">
+                  <GridPane prefHeight="462.0" prefWidth="458.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="141.00000610351563" minHeight="10.0" prefHeight="137.00000610351563" valignment="CENTER" vgrow="ALWAYS" />
+                      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
+                      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
+                      <RowConstraints maxHeight="71.60001220703126" minHeight="10.0" prefHeight="48.400000000000006" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="139.6000244140625" minHeight="10.0" prefHeight="117.19999999999999" vgrow="ALWAYS" />
                     </rowConstraints>
                      <children>
                         <GridPane GridPane.rowIndex="1">
@@ -80,7 +81,7 @@
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tfUsername" GridPane.columnIndex="1">
+                              <TextField fx:id="tfUsername" alignment="TOP_LEFT" GridPane.columnIndex="1">
                                  <font>
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
@@ -104,7 +105,7 @@
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="tfPassword" GridPane.columnIndex="1">
+                              <TextField fx:id="tfPassword" alignment="TOP_LEFT" GridPane.columnIndex="1">
                                  <font>
                                     <Font name="Nunito Sans Light" size="20.0" />
                                  </font>
@@ -119,27 +120,16 @@
                               <Font name="Nunito Sans Light" size="25.0" />
                            </font>
                         </Label>
-                        <GridPane GridPane.rowIndex="3">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Button fx:id="btLogin" mnemonicParsing="false" onAction="#actionLogin" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #99ffcc;" text="Login" textFill="WHITE">
-                                 <font>
-                                    <Font name="Nunito Sans Light" size="20.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btRegister" mnemonicParsing="false" onAction="#actionRegister" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #99ffcc;" text="Register" textFill="WHITE" GridPane.columnIndex="1">
-                                 <font>
-                                    <Font name="Nunito Sans Light" size="20.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </GridPane>
+                        <Button fx:id="btLogin" mnemonicParsing="false" onAction="#actionLogin" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #99ffcc;" text="Login" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Nunito Sans Light" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btRegister" mnemonicParsing="false" onAction="#actionRegister" prefHeight="44.0" prefWidth="302.0" style="-fx-background-color: transparent;" text="noch nicht registriert?" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
                      </children>
                   </GridPane>
                </children>
