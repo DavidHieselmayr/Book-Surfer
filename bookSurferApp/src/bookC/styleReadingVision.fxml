@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="900.0" style="-fx-background-color: #99ffcc;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleReadingVisionController">
+   <children>
+      <GridPane prefHeight="594.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" minWidth="600.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="70.40001220703125" minHeight="60.0" prefHeight="44.80000610351563" valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="529.6" minHeight="10.0" prefHeight="484.7999938964844" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" minWidth="600.0" prefHeight="60.0" prefWidth="905.0" style="-fx-background-color: gray;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#actionFirstPage" text="&lt;&lt;" />
+                  <Button mnemonicParsing="false" onAction="#actionBackPage" text="&lt;" />
+                  <TextField fx:id="tfSeite" prefHeight="26.0" prefWidth="78.0" />
+                  <Button mnemonicParsing="false" onAction="#actionForward" text="&gt;" />
+                  <Button mnemonicParsing="false" onAction="#actionLastPage" text="&gt;&gt;" />
+                  <Button mnemonicParsing="false" onAction="#actionMakeFullScreen" text="full screen" />
+                  <Button mnemonicParsing="false" onAction="#actionExit" text="exit" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
