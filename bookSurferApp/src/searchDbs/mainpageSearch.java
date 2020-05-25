@@ -22,16 +22,15 @@ public class mainpageSearch {
         this.setSearchValue(userInput);
         this.setStatement(statement);
     }
-
+    
     public List<String> findAll() {
         searchAuthor();
         searchBook();
         searchGenre();
 
-        return eintraege;
-    }
-
-    private void searchAuthor() {
+     return eintraege;
+  }
+      private void searchAuthor() {
         sql = "Select * from APP.\"user\" where vorname like %this.value% or vorname like %this.value%";
 
         try {
