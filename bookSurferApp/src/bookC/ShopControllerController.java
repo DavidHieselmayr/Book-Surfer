@@ -12,14 +12,20 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import modelBookSurfer.Autor;
+import modelBookSurfer.Buch;
+import modelBookSurfer.Genre;
 import searchDbs.MainpageSearch;
 
 /**
@@ -54,7 +60,7 @@ public class ShopControllerController implements Initializable {
                 stage = new Stage();
             }
             stage.setScene(scene);
-            stage.setTitle("BookSurfer-Register");
+            stage.setTitle("BookSurfer-Suchergebnisse");
 
             // Controller ermitteln
             ShopControllerController shopController = (ShopControllerController) loader.getController();
@@ -82,7 +88,60 @@ public class ShopControllerController implements Initializable {
             System.exit(2);
         }
     }
-
+    @FXML
+    private TextField tfSearch1;
+    @FXML
+    private Button btSearch1;
+    @FXML
+    private GridPane contentBuecher;
+    @FXML
+    private GridPane contentGenres;
+    @FXML
+    private GridPane contentAutoren;
+    
+    public void printSearchResult(){
+        int index = 0;
+        
+        for(Autor autor : ms.getAutoren()){
+            
+            Button bt = new Button(autor.getVorname() +" "+ autor.getNachname());
+            bt.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                //weiter zur Detailseite
+            }
+            });
+            
+            contentAutoren.addColumn(index, bt);
+            index++;
+        }
+        index = 0;
+        for(Buch buch : ms.getBuecher()){
+            
+            Button bt = new Button(buch.getTitel());
+            
+            bt.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                //weiter zur Detailseite
+            }
+            });
+            
+            contentBuecher.addColumn(index, bt);
+            index++;
+        }
+        index = 0;
+        for(Genre genre : ms.getGenres()){
+            
+            Button bt = new Button(genre.getName());
+            bt.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                //weiter zur Detailseite
+            }
+            });
+            
+            contentAutoren.addColumn(index, bt);
+            index++;
+        }
+    }
 
     /**
      * Initializes the controller class.
@@ -95,7 +154,4 @@ public class ShopControllerController implements Initializable {
     @FXML
     private void onActionBtSearch(ActionEvent event) {
     }
-
-
-    
 }
