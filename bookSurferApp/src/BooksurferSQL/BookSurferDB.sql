@@ -51,6 +51,10 @@ CREATE SEQUENCE seq_genre
 AS BIGINT
 START WITH 1;
 
+CREATE SEQUENCE seq_kapitel
+AS BIGINT
+START WITH 1;
+
 ALTER TABLE kapitel ADD CONSTRAINT kapitel_pk PRIMARY KEY ( kapitelid );
 --drop table kommentar;
 CREATE TABLE kommentar (
