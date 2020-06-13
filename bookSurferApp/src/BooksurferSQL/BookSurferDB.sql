@@ -1,15 +1,15 @@
 --drop table author;
-CREATE TABLE author (
+CREATE TABLE autor (
     vorname      VARCHAR(32),
     nachname     VARCHAR(32),
     gebdatum     DATE,
-    authorid     decimal(6) NOT NULL,
+    autorid     decimal(6) NOT NULL,
     biographie   VARCHAR(4000),
 );
 
-ALTER TABLE author ADD CONSTRAINT author_pk PRIMARY KEY ( authorid );
+ALTER TABLE autor ADD CONSTRAINT autor_pk PRIMARY KEY ( autorid );
 
-CREATE SEQUENCE seq_author
+CREATE SEQUENCE seq_autor
 AS BIGINT
 START WITH 1;
 
@@ -82,11 +82,11 @@ ALTER TABLE relation_2 ADD CONSTRAINT relation_2_pk PRIMARY KEY ( buch_buchid,
 --drop table relation_3;
 CREATE TABLE relation_3 (
     buch_buchid       decimal(6) NOT NULL,
-    author_authorid   decimal(6) NOT NULL
+    autor_autorid   decimal(6) NOT NULL
 );
 
 ALTER TABLE relation_3 ADD CONSTRAINT relation_3_pk PRIMARY KEY ( buch_buchid,
-                                                                  author_authorid );
+                                                                  autor_autorid );
 --drop table relation_7;
 CREATE TABLE relation_7 (
     kommentar_kommentarid   decimal(6) NOT NULL,
@@ -145,8 +145,8 @@ ALTER TABLE relation_2
         REFERENCES genre ( genreid );
 
 ALTER TABLE relation_3
-    ADD CONSTRAINT relation_3_author_fk FOREIGN KEY ( author_authorid )
-        REFERENCES author ( authorid );
+    ADD CONSTRAINT relation_3_autor_fk FOREIGN KEY ( autor_autorid )
+        REFERENCES autor ( autorid );
 
 ALTER TABLE relation_3
     ADD CONSTRAINT relation_3_buch_fk FOREIGN KEY ( buch_buchid )

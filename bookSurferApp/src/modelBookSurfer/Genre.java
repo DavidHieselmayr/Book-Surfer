@@ -17,5 +17,13 @@ import java.util.regex.*;
  * @author fabia
  */
 public class Genre {
+    /*
+    name           varchar(32),
+    beschreibung   varchar(1024),
+    genreid        decimal(6) NOT NULL
+    */
     
+    private String name;
+    private String beschreibung;
+    private int genreid;
 }
