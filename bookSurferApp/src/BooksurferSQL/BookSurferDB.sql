@@ -5,7 +5,6 @@ CREATE TABLE author (
     gebdatum     DATE,
     authorid     decimal(6) NOT NULL,
     biographie   VARCHAR(4000),
-    bilddateiurl varchar(100)
 );
 
 ALTER TABLE author ADD CONSTRAINT author_pk PRIMARY KEY ( authorid );
@@ -22,7 +21,6 @@ CREATE TABLE buch (
     releasedatum    DATE,
     seitenanzahl    decimal(4),
     kapitelanzahl   decimal(2),
-    bilddateiurl    varchar(100),
     preis           decimal(5,2)
 );
 
