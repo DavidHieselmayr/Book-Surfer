@@ -11,51 +11,33 @@
 /*
 Author Daten einfügen
 */
-INSERT INTO author (vorname, nachname, gebdatum, authorid, biographie) VALUES ('Joanne K.', 'Rowling', '31.07.1965', next value for seq_author, 'Die Schriftstellerin J.K. Rowling 
-wurde in der englischen Kleinstadt Yate unter dem vollständigen Namen Joanne Kathleen Rowling geboren. Im zarten Alter von sechs Jahren erfand sie schließlich
- ihre erste Geschichte, die von einem an Masern erkrankten Kaninchen handelte. In der Schule war J.K. Rowling eher ein strebsames Mauerblümchen, was sich 
-später auf ihre Roman-Figur „Hermine Granger“ abfärbte. 1987 schloss sie ihr Studium in Französisch und Klassischer Altertumswissenschaft an der 
-„University of Exter“ ab. Nur drei Jahre später erfand sie die Romanfigur Harry Potter während einer Zugfahrt. Erst 1995 vollendete sie den ersten Band
-des Zauberlehrlings unter dem Namen Harry Potter und der Stein der Weisen. Als die Schriftstellerin schließlich ihren Roman veröffentlichen wollte, wiesen 
-viele Verlage ihr Manuskript ab. Denn sie befürchteten, dass Jungen ungern von einer Frau geschriebene Bücher lesen würden. Daher beschloss Joanne K. Rowling
-ihren Namen in „J.K“ abzukürzen. 1997 wurde der erste Teil der Harry Potter-Bücher schließlich mit einer mageren Startauflage von 500 Exemplaren veröffentlicht.');
+INSERT INTO autor (vorname, nachname, gebdatum, autorid, biographie) VALUES ('Amalie Wilhelmine', 'Sieveking', '25.07.1794', next value for seq_autor, 'Amalie Wilhelmine 
+Sieveking wurde am 25. Juli 1794 in Hamburg geboren und starb am 1. April 1859 ebendort. Sie war eine Philanthropin und Mitbegründerin der organisierten Diakonie in 
+Deutschland. Mit dem von ihr gegründeten Weiblichen Verein für Armen- und Krankenpflege, ihren Initiativen zur Arbeitsbeschaffung und Berufsausbildung für Arme und Aktionen
+ für den Bau von Wohnungen und Krankenhäusern gilt sie als eine Vorreiterin der modernen Sozialarbeit in Deutschland. Außerdem verfaßte sie Schriften zur Sozialarbeit 
+sowie theologische Abhandlungen.');
 
-INSERT INTO author (vorname, nachname, gebdatum, authorid, biographie) VALUES ('Sebastian', 'Fitzek', '13.10.1971', next value for seq_author, 'Fitzek wird am 13. Oktober
- 1971 in Berlin geboren. Nach seinem Schulabschluss beginnt er ein Jurastudium, das er nach dem ersten Staatsexamen abbricht. In Urheberrecht promovierte er jedoch. 
-Anschließend arbeitet er als Programmdirektor beim Radiosender 104,6 RTL. Später wird er auch Chefredakteur und Programmdirektor von anderen deutschen Radiosendern.
-Erste Erfahrungen als Autor sammelt Fitzek bereits 2005 als Co-Autor von Jürgen Udolph, der das Sachbuch "Professor Udolphs Buch der Namen" bei Bertelsmann veröffentlicht.
-Ein Jahr später schreibt Fitzek seinen ersten Psychothriller "Die Therapie", der im Knaur Verlag erscheint. Die Odeon Film AG sichert sich direkt die Filmrechte an dem Werk.
-2007 wird Fitzeks Buch als bestes Krimi-Debüt für den Friedrich-Glauser-Preis nominiert. Im gleichen Jahr erscheint sein nächster Thriller namens "Amokspiel", 
-dessen Filmrechte sich die Goldkind Film AG sichert. 2013 mietet Fitzek als erster Autor überhaupt allein einen Stand auf der Frankfurter Buchmesse. Er macht sich zudem einen
- Namen mit ungewöhnlichen Buchvorlesungen in einer Studenten-WG, einer Trauerhalle eines Bestattungsunternehmens, einem Hospiz oder einer Zahnarztpraxis.');
+INSERT INTO autor (vorname, nachname, gebdatum, autorid, biographie) VALUES ('Arthur', 'Schnitzler', '15.05.1862', next value for seq_autor, 'Geboren am 15.5.1862
+in Wien; gestorben am 21.10.1931 in Wien. Sein Vater Johann Schnitzler, aus einer einfachen jüdischen Familie stammend, kam über Budapest nach Wien, heiratete in eine
+prominente Familie ein und wurde ein angesehener Arzt als Leiter der Allgemeinen Poliklinik. Sein Sohn Arthur besuchte von 1871 bis 1879 das Akademische Gymnasium und 
+studierte ebenfalls Medizin (Promotion 1885). Er arbeitete an der Zeitschrift "Internationale Klinische Rundschau" mit und interessierte sich schon früh für Psychologie. 
+Als Sekundararzt bei dem Psychiater Theodor Meynert setzte er Hypnose und Suggestion experimentell ein.');
 
-INSERT INTO author (vorname, nachname, gebdatum, authorid, biographie) VALUES ('Stefan', 'Zweig', '28.11.1881', next value for seq_author, 'Zweig verfasste vor allem 
-Erzählungen und Novellen sowie zahlreiche Essays und Monografien, einige Dramen und ein Opernlibretto. Zu seinen bekanntesten Werken zählen die »Schachnovelle« (1941) 
-sowie die autobiografischen Schilderungen »Die Welt von gestern« (1942). Der Sohn aus großbürgerlichem Hause war ein umtriebiger Geist, als Autor äußerst produktiv 
-und im ständigen Austausch mit Schriftstellern, Intellektuellen und Musikgrößen seiner Zeit.
-Zeit seines Lebens war Stefan Zweig ein Reisender. Immer wieder gab er seiner »Wanderlust« nach, wechselte zwischen literarischen Gattungen ebenso wie zwischen Orten:
- Ausgedehnte Reisen führten ihn quer durch Europa, nach Hinterindien und in die Neue Welt. Mit dem Ausspruch »Meine Koffer gähnen mich leer an: ich muß ihnen jetzt 
-das Maul stopfen« bereitete er im Februar 1911 seine erste Reise nach Amerika vor.');
+INSERT INTO autor (vorname, nachname, gebdatum, autorid, biographie) VALUES ('Henrik', 'Ibsen', '15.05.1862', next value for seq_autor, 'Geboren am 20.3.1828 in Skien. Sohn
+ eines reichen Kaufmanns, der bei seinem Bankrott aus der Gesellschaft ausgestoßen wurde; diese bittere Erfahrung des 8jährigen wurde später für ihn zum Hauptthema vieler 
+Dramen. Er beschloß, zum »Broterwerb« Apotheker zu werden, und schrieb 1848 - dem Revolutionsjahr - neben revolutionären Gedichten das Schauspiel »Catilina«, eine Abrechnung
+ mit der Gesellschaft Roms. 1850 Stud. med. in Oslo. Starkes politisches Engagement. Freundschaft mit Björnson. 1851 künstlerischer Leiter des neuen Theaters in Bergen, 
+in dem seine Stücke aufgeführt wurden, wodurch er praktische Erfahrungen in der Dramaturgie sammelte. 1852 Studienreise nach Dresden. 1857-1862 Direktor des »Norske 
+Teatret«, Oslo, dessen Zusammenbruch ihn auch wirtschaftlich schwer belastete. 1858 Heirat mit Susannah Thoresen. 1864 erhielt er durch die Vermittlung Björnsons ein 
+Stipendium für eine Studienreise ins Ausland und blieb bis 1891 in Rom, Dresden und München. Mit seinem Thesen- und Diskussionstheater wurde er besonders mit den Stücken 
+aus dieser Periode zum Begründer einer modernen Schauspielkunst. Bei seinem Tode am 23.5.1906 in Oslo hielt man ihn für den größten »modernen« Dichter.');
 
-INSERT INTO author (vorname, nachname, gebdatum, authorid, biographie) VALUES ('Frank', 'Schätznig', '28.05.1957', next value for seq_author, 'Frank Schätzing studierte
- Kommunikationswissenschaft und war lange in der Werbebranche bei Warner als Creative Director tätig. Unter anderem war er Geschäftsführer der von ihm mitbegründeten
- Kölner Werbeagentur Intevi.
-Seit Beginn der 1990er Jahre ist er als Schriftsteller in Erscheinung getreten. Nach einigen Novellen und Satiren veröffentlichte er 1995 erstmals einen historischen
- Roman mit dem Titel Tod und Teufel. 2000 folgte der Politthriller Lautlos. 
-Nachdem fünf seiner Bücher unter dem Etikett Köln-Krimi im Emons Verlag veröffentlicht wurden, wechselte er mit dem Konzept des Wissenschaftsthrillers Der Schwarm zu
- Kiepenheuer & Witsch. 
-Mit Der Schwarm, in dem eine unbekannte intelligente Lebensform aus der Tiefsee die Lebensgrundlagen der Menschheit bedroht, feierte Schätzing 2004 seinen bisher
- größten Erfolg. Plagiatsvorwürfe, nach denen Schätzing Teile seines Buches wortwörtlich abgeschrieben haben soll, konnten nicht nachgewiesen werden, entsprechende
- Ermittlungen wurden eingestellt. Im Frühjahr 2006 sicherten sich Uma Thurman sowie Ica und Michael Souvignier die Filmrechte an dem Buch. Die Verfilmung soll 2011
- erscheinen. Produzenten sind Dino de Laurentiis (King Kong) und seine Tochter Martha. Das Drehbuch verfasst Ted Tally (Das Schweigen der Lämmer).
-Schätzings Werken war bis zum Erscheinen von Der Schwarm eher geringer und lokaler Erfolg im Raum Köln beschieden. Nach dem Erfolg dieses Romans hat jedoch der 
-Goldmann Verlag die Taschenbuch-Rechte an den vorherigen Werken für eine Neuauflage erworben. Seine Bücher Die dunkle Seite und Mordshunger wurden im Auftrag von 
-RTL verfilmt und dort auch ausgestrahlt. Inzwischen sind sie auch auf DVD erhältlich. 
-Laut eigener Aussage entspricht die Idee zum thematischen Aufbau seiner Bücher oft persönlichen Interessengebieten und langjährigen Hobbys, seien es das Meer und
- das Tauchen, die Geschichte seiner Heimatstadt Köln oder internationale Politik. Außerdem unterstützt Schätzing mit Benefiz-Lesungen und als Beirat von Deepwave 
-e. V., einer Initiative zum Schutz der Hoch- und Tiefsee und einigen Delfinschutzprojekten, zahlreiche Umweltprojekte. 
-2010 warb Frank Schätzing als Model für den Dessous- und Wäschehersteller Mey. 
-Frank Schätzing ist verheiratet mit Sabina Valkieser-Schätzing (die in der Hörbuchfassung von Der Schwarm Tina Lund spricht) und lebt in Köln.');
+INSERT INTO autor (vorname, nachname, gebdatum, autorid, biographie) VALUES ('Hermann', 'Essig', '15.05.1862', next value for seq_autor, 'Geboren am 28.8.1878 in 
+Truchtelfingen/Schwäbische Alb, gestorben am 21.6.1918 in Berlin. Der Sohn eines protestantischen Pfarrers besuchte die Lateinschule in Weinsberg und das Gymnasium 
+in Heilbronn; anschließend studierte er an der Technischen Hochschule in Stuttgart. 1902 zog er sich eine langwierige und lebensgefährliche Lungenkrankheit zu und mußte 
+das Ingenieurstudium aufgeben. Nach der Genesung wandte er sich 1904 nach Berlin, wo ihm ein Studienkolleg Arbeit angeboten hatte. 1905 heiratete er seine Zimmerwirtin, 
+die junge Witwe des sozialdemokratischen Reichstagsabgeordneten und Dramatikers Emil Rosenow. Seine eigenen dramatischen Arbeiten erhielten literarische Anerkennung, an 
+den Bühnen jedoch fand er mit seinen exzentrischen Volksstücken (hauptsächlich wegen der Zensur) keine Aufnahme. 1913 und 1914 erhielt er den Kleist-Preis.');
 
 /*
 Genre Daten einfügen
@@ -77,26 +59,33 @@ Obwohl viele Liebesromane der Trivialliteratur zuzurechnen sind (siehe weiter un
 historischen Vorläufern des modernen Liebesromans – sowohl in seiner trivialliterarischen als auch in seiner hochliterarischen Form – zählen der barocke Schäferroman, 
 der galante Roman und der englische Sittenroman des 18. und 19. Jahrhunderts.', next value for seq_genre);
 
+INSERT INTO genre (name, beschreibung, genreid) VALUES ('Fiktion', 'Fiktion bezeichnet die Schaffung einer eigenen Welt durch Literatur, Film, Malerei oder andere Formen
+ der Darstellung sowie den Umgang mit einer solchen Welt. Bei der Fiktion handelt es sich um eine bedeutende Kulturtechnik, die in weiten Teilen der Kunst zum Einsatz 
+kommt.', next value for seq_genre);
+
+INSERT INTO genre (name, beschreibung, genreid) VALUES ('Schauspiel', 'Der Begriff Schauspiel im Theater wird entweder für ein überwiegend gesprochenes Drama verwendet 
+oder für eine Sparte der Bühnenkünste, die von Schauspielern ausgeübt wird. Im klassischen Mehrspartentheater bezeichnet er die mehrheitlich gesprochenen Theateraufführungen
+im Unterschied zu Musiktheater und Tanztheater.', next value for seq_genre);
+
+INSERT INTO genre (name, beschreibung, genreid) VALUES ('Drama', 'Drama ist ein Oberbegriff für Texte mit verteilten Rollen. Die Dramatik ist neben der Epik und der Lyrik 
+eine der drei grundlegenden literarischen Gattungen.', next value for seq_genre);
+
 /*
 Buch Daten einfügen
 */
-INSERT INTO buch (titel, buchid, klappentext, releasedatum, seitenanzahl, kapitelanzahl) VALUES ('Harry Potter und der Stein der Weisen', next value for seq_buch, 'Nach dem 
-Tod seiner Eltern wuchs Harry Potter bei Verwandten auf und musste unter der Treppe schlafen, während sein verwöhnter Cousin zwei eigene Zimmer hatte. Im Alter von elf Jahren
-erfährt er, dass er der Sohn eines Zauberers und einer Hexe ist, die der dunkle Magier Lord Voldemort tötete. In der Zauberschule Hogwarts, die Harry Potter nun besucht, 
-findet er heraus, dass Lord Voldemort hinter dem Stein der Weisen her ist, um seine alte Macht wiederzuerlangen. Harry Potter muss handeln ...','28.07.1998',366,17);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Der Schweinepriester', next value for seq_buch, '01.01.1912',4);
 
-INSERT INTO buch (titel, buchid, klappentext, releasedatum, seitenanzahl, kapitelanzahl) VALUES ('Das Paket', next value for seq_buch, 'Seit die junge Psychiaterin Emma 
-Stein in einem Hotelzimmer vergewaltigt wurde, verlässt sie das Haus nicht mehr. Sie war das dritte Opfer eines Psychopathen, den die Presse den »Friseur« nennt – weil 
-er den misshandelten Frauen die Haare vom Kopf schert, bevor er sie ermordet. Emma, die als Einzige mit dem Leben davonkam, fürchtet, der »Friseur« könnte sie erneut 
-heimsuchen, um seine grauenhafte Tat zu vollenden. In ihrer Paranoia glaubt sie in jedem Mann ihren Peiniger wiederzuerkennen, dabei hat sie den Täter nie zu Gesicht 
-bekommen. Nur in ihrem kleinen Haus am Rande des Berliner Grunewalds fühlt sie sich noch sicher – bis der Postbote sie eines Tages bittet, ein Paket für ihren Nachbarn 
-anzunehmen.
-Einen Mann, dessen Namen sie nicht kennt und den sie noch nie gesehen hat, obwohl sie schon seit Jahren in ihrer Straße lebt …','09.01.2016',368,48);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Gespenster', next value for seq_buch, '20.05.1882',3);
 
-INSERT INTO buch (titel, buchid, klappentext, releasedatum, seitenanzahl, kapitelanzahl) VALUES ('Schachnovelle', next value for seq_buch, 'Das Unwahrscheinliche hatte 
-sich ereignet, der Weltmeister, der Champion zahlloser Turniere hatte die Fahne gestrichen vor einem Unbekannten, einem Manne, der zwanzig oder fünfundzwanzig Jahre kein 
-Schachbrett angerührt. Unser Freund, der Anonymus, der Ignotus, hatte den stärksten Schachspieler der Erde in offenem Kampfe besiegt!«
-Das Erstaunen ist groß, als der unscheinbare Dr. B., österreichischer Emigrant auf einem Passagierdampfer von New York nach Buenos Aires, eher zufällig gegen den 
-amtierenden Schachweltmeister Mirko Czentovic antritt und seinen mechanisch routinierten Gegner mit verspielter Leichtigkeit besiegt. Doch das Schachspiel fördert 
-Erinnerungen an den Terror seiner Inhaftierung im Nationalsozialismus zutage und reißt eine seelische Wunde wieder auf, die erneut Dr. B.s geistige Gesundheit 
-bedroht.','07.12.1942',112,1);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Komoedie der Liebe', next value for seq_buch, '24.11.1873',3);
+
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Nora oder Ein Puppenheim', next value for seq_buch, '21.12.1879',3);
+
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Vermächtnis für meine jungen Freundinnen', next value for seq_buch, '01.01.1865',1);
+
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Zwischenspiel', next value for seq_buch, '12.10.1905',3);
+
+/*
+Kapitel Daten einfügen
+*/
+INSERT INTO genre (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Aufzug', 1, next value for seq_kapitel, 1, 'Der Schweineprieser/inhalt.txt');

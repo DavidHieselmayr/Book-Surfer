@@ -19,9 +19,10 @@ drop table relation_3;
 drop table relation_7;
 drop table seite;
 drop table "User";
+drop table author;
 drop sequence seq_user restrict;
 drop sequence seq_autor restrict;
 drop sequence seq_buch restrict;
 drop sequence seq_genre restrict;
 drop sequence seq_kommentar restrict;
-
+drop sequence seq_kapitel restrict;

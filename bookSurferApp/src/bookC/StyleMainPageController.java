@@ -6,7 +6,9 @@
 package bookC;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import searchDbs.MainpageSearch;
@@ -28,7 +31,9 @@ public class StyleMainPageController {
 
     Statement statement;
     @FXML
-    private TextField tfSearchUser;
+    private TextField tfSearch;
+    @FXML
+    private Button btSearch;
 
     // Helper
     private final static String VIEWNAME = "styleHausaMain.fxml";
@@ -85,12 +90,7 @@ public class StyleMainPageController {
     }
 
     @FXML
-    private void actionSearchUserInput(ActionEvent event) {
-        MainpageSearch  search= new MainpageSearch(tfSearchUser.getText(), statement);
-
-        for (String entry : search.findAll()) {
-
-        }
-
+    private void onActionBtSearch(ActionEvent event) {
+        MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
     }
 }
