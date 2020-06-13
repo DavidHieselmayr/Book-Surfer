@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
+import java.util.regex.*;
 
 public class UserLoginRegister {
 
@@ -21,14 +22,14 @@ public class UserLoginRegister {
 
     public static void register(Statement statement, String username, String password1, String password2) throws InputException {
         if (password1.equals(password2)) {
-                UserLoginRegister register = new UserLoginRegister(statement, username, password1);
-                if (register.checkIfUserInDB()) {
-                    throw new InputException("User exisitert bereits.");
-                } else {
-                    if (!register.registerUser()) {
-                        throw new InputException("Verbindung zur Datenbank konnte nicht hergestellt werden.");
-                    }
+            UserLoginRegister register = new UserLoginRegister(statement, username, password1);
+            if (register.checkIfUserInDB()) {
+                throw new InputException("User exisitert bereits.");
+            } else {
+                if (!register.registerUser()) {
+                    throw new InputException("Verbindung zur Datenbank konnte nicht hergestellt werden.");
                 }
+            }
         } else {
             throw new InputException("Passwortbestätigung ungleich Passwort!");
         }
@@ -43,17 +44,17 @@ public class UserLoginRegister {
             System.out.println("Exception Message: " + ex.getMessage());
             return false;
         }
-        
+
         System.out.println("User wurde zu Datenbank hinzugefügt");
         return true;
     }
 
     public static void login(Statement statement, String username, String password) throws InputException {
-            UserLoginRegister login = new UserLoginRegister(statement, username, password);
-            if (login.checkUsername()) {
-                // change fxml document
-                System.out.println("Login succesful");
-            }
+        UserLoginRegister login = new UserLoginRegister(statement, username, password);
+        if (login.checkUsername()) {
+            // change fxml document
+            System.out.println("Login succesful");
+        }
     }
 
     public boolean checkUsername() throws InputException {
@@ -72,9 +73,11 @@ public class UserLoginRegister {
         String sql = "Select * from APP.\"User\" where benutzername = '" + this.username + "'";
         try {
             ResultSet rs = statement.executeQuery(sql);
-            if(rs.next()){
+            if (rs.next()) {
                 return true;
-            } else return false;
+            } else {
+                return false;
+            }
         } catch (SQLException ex) {
             System.out.println("Exception: " + ex.getMessage());
             return false;
@@ -86,9 +89,11 @@ public class UserLoginRegister {
         String sql = "Select * from APP.\"User\" where passwort = '" + this.password + "'";
         try {
             ResultSet rs = statement.executeQuery(sql);
-            if(rs != null){
+            if (rs != null) {
                 return true;
-            } else return false;
+            } else {
+                return false;
+            }
         } catch (SQLException ex) {
             return false;
         }
@@ -99,7 +104,7 @@ public class UserLoginRegister {
     }
 
     public void setUsername(String username) throws InputException {
-        if (username != null && !username.trim().equals("")) {
+        if (username != null && !username.trim().equals("")&&username.length()>1&&checkRegularExpressionUsername()) {
             this.username = username;
         } else {
             throw new InputException("Der Username muss eingegeben werden.");
@@ -111,7 +116,7 @@ public class UserLoginRegister {
     }
 
     public void setPassword(String password) throws InputException {
-        if (password != null && !password.trim().equals("")) {
+        if (password != null && !password.trim().equals("") && password.length() > 9&&checkRegularExpressionPwd()) {
             this.password = password;
         } else {
             throw new InputException("Das Passwort muss eingegeben werden.");
@@ -124,5 +129,26 @@ public class UserLoginRegister {
 
     public void setStatement(Statement statement) {
         this.statement = statement;
+    }
+
+    private boolean checkRegularExpressionPwd() {
+        Pattern pattern = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])");
+        /* 
+            At least one upper case English letter, (?=.*?[A-Z])
+            At least one lower case English letter, (?=.*?[a-z])
+            At least one digit, (?=.*?[0-9])
+            At least one special character, (?=.*?[#?!@$%^&*-])
+            Minimum eight in length .{8,} (with the anchors)
+         */
+        Matcher mat = pattern.matcher(this.password);
+        return mat.matches();
+
+    }
+
+    private boolean checkRegularExpressionUsername() {
+        Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
+        // check if String include special letters 
+        Matcher mat = pattern.matcher(this.username);
+        return !mat.matches();
     }
 }
