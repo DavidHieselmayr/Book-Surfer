@@ -73,19 +73,46 @@ eine der drei grundlegenden literarischen Gattungen.', next value for seq_genre)
 /*
 Buch Daten einfügen
 */
-INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Der Schweinepriester', next value for seq_buch, '01.01.1912',4);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Der Schweinepriester', next value for seq_buch, '01.01.1912',4, 10.00);
 
-INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Gespenster', next value for seq_buch, '20.05.1882',3);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Gespenster', next value for seq_buch, '20.05.1882',3, 13.95);
 
-INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Komoedie der Liebe', next value for seq_buch, '24.11.1873',3);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Komoedie der Liebe', next value for seq_buch, '24.11.1873',3, 19.99);
 
-INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Nora oder Ein Puppenheim', next value for seq_buch, '21.12.1879',3);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Nora oder Ein Puppenheim', next value for seq_buch, '21.12.1879',3, 14.75);
 
-INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Vermächtnis für meine jungen Freundinnen', next value for seq_buch, '01.01.1865',1);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Vermächtnis für meine jungen Freundinnen', next value for seq_buch, '01.01.1865',1, 16.90);
 
-INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl) VALUES ('Zwischenspiel', next value for seq_buch, '12.10.1905',3);
+INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Zwischenspiel', next value for seq_buch, '12.10.1905',3, 17.80);
 
 /*
 Kapitel Daten einfügen
 */
-INSERT INTO genre (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Aufzug', 1, next value for seq_kapitel, 1, 'Der Schweineprieser/inhalt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 1, 'Der Schweinepriester/inhalt.rtfd/TXT.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Aufzug', 2, next value for seq_kapitel, 1, 'Der Schweinepriester/Erster_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Aufzug', 3, next value for seq_kapitel, 1, 'Der Schweinepriester/Zweiter_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Aufzug', 4, next value for seq_kapitel, 1, 'Der Schweinepriester/Dritter_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Vierter Aufzug', 5, next value for seq_kapitel, 1, 'Der Schweinepriester/Vierter_Aufzug.txt');
+
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 2, 'Gespenster/Inhalt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Akt', 2, next value for seq_kapitel, 2, 'Gespenster/Erster_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Akt', 3, next value for seq_kapitel, 2, 'Gespenster/Zweiter_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Akt', 4, next value for seq_kapitel, 2, 'Gespenster/Dritter_Akt.txt');
+
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 3, 'Komoedie_der_Liebe/Inhalt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Akt', 2, next value for seq_kapitel, 3, 'Komoedie_der_Liebe/Erster_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Akt', 3, next value for seq_kapitel, 3, 'Komoedie_der_Liebe/Zweiter_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Akt', 4, next value for seq_kapitel, 3, 'Komoedie_der_Liebe/Dritter_Akt.txt');
+
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 4, 'Nora oder Ein Puppenheim/Inhalt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Akt', 2, next value for seq_kapitel, 4, 'Nora oder Ein Puppenheim/Erster_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Akt', 3, next value for seq_kapitel, 4, 'Nora oder Ein Puppenheim/Zweiter_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Akt', 4, next value for seq_kapitel, 4, 'Nora oder Ein Puppenheim/Dritter_Akt.txt');
+
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 5, 'Vermächtnis_für_meine_jungen_Freundinnen/Inhalt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Kapitel', 2, next value for seq_kapitel, 5, 'Vermächtnis_für_meine_jungen_Freundinnen/Kapitel.txt');
+
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 6, 'Zwischenspiel/Inhalt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Akt', 2, next value for seq_kapitel, 6, 'Zwischenspiel/Erster_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Akt', 3, next value for seq_kapitel, 6, 'Zwischenspiel/Zweiter_Akt.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Akt', 4, next value for seq_kapitel, 6, 'Zwischenspiel/Dritter_Akt.txt');
