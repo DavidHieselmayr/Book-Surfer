@@ -13,6 +13,7 @@ public class UserLoginRegister {
     private String username; // Zu zahlender Preis
     private String password; // nächste freie id
     private Statement statement;
+    private double guthaben;
 
     public UserLoginRegister(Statement statement, String username, String password) throws InputException {
         this.setStatement(statement);
@@ -54,6 +55,8 @@ public class UserLoginRegister {
         if (login.checkUsername()) {
             // change fxml document
             CurrentUser.setCurrentUser(login);
+
+            // set guthaben 
             System.out.println("Login succesful");
         }
     }
@@ -105,7 +108,7 @@ public class UserLoginRegister {
     }
 
     public void setUsername(String username) throws InputException {
-        if (username != null && !username.trim().equals("")&&username.length()>1&&checkRegularExpressionUsername()) {
+        if (username != null && !username.trim().equals("") && username.length() > 1 && checkRegularExpressionUsername()) {
             this.username = username;
         } else {
             throw new InputException("Der Username muss eingegeben werden.");
@@ -117,7 +120,7 @@ public class UserLoginRegister {
     }
 
     public void setPassword(String password) throws InputException {
-        if (password != null && !password.trim().equals("") && password.length() > 9&&checkRegularExpressionPwd()) {
+        if (password != null && !password.trim().equals("") && password.length() > 9 && checkRegularExpressionPwd()) {
             this.password = password;
         } else {
             throw new InputException("Das Passwort muss eingegeben werden.");
@@ -151,5 +154,28 @@ public class UserLoginRegister {
         // check if String include special letters 
         Matcher mat = pattern.matcher(this.username);
         return !mat.matches();
+    }
+
+    public void setGuthaben(double abzug) throws InputException {
+        this.guthaben = guthaben - abzug;
+        String sql = "Update into APP.\"USER\" set geld = " + this.guthaben + " where username = " + this.username;
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException ex) {
+            System.out.println("Exception Message: " + ex.getMessage());
+            throw new InputException("Guthaben konnte nicht aktualisiert werden!");
+        }
+    }
+
+    public double getGuthaben() throws InputException {
+        String sql = "Select geld from APP.\"USER\" where username = " + this.username;
+        try {
+            ResultSet rs = statement.executeQuery(sql);
+            return rs.getDouble("geld");
+        } catch (SQLException ex) {
+            throw new InputException("Guthabenabfrage hat nicht funktioniert!");
+
+        }
     }
 }
