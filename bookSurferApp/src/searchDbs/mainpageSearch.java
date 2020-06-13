@@ -27,6 +27,7 @@ public class mainpageSearch {
         searchAuthor();
         searchBook();
         searchGenre();
+        List<String> eintraege = null;
 
      return eintraege;
   }
