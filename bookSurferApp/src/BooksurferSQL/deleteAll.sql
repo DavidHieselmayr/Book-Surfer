@@ -8,7 +8,7 @@
  * Created: 19.04.2020
  */
 
-drop table author;
+drop table autor;
 drop table buch;
 drop table genre;
 drop table kapitel;
