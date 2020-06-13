@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
@@ -42,6 +44,22 @@ public class Autor {
         this.setGebdatum(gebdatum);
         this.setAutorid(autorid);
         this.setBiographie(biographie);
+    }
+    
+    static public List<Autor> getAutorsByUserInput(String userInput, Statement statement){
+        List<Autor> autoren = new LinkedList<>();
+        String sql = "Select * from APP.autor where vorname like %"+userInput+"% or nachname like %"+userInput+"%";
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                autoren.add(new Autor(statement, rSet.getInt("autorid"), rSet.getString("vorname"), rSet.getString("nachname"), rSet.getDate("gebdatum"), rSet.getString("biographie")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return autoren;
     }
 
     public String getVorname() {

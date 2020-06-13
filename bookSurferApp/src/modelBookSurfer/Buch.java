@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
@@ -43,6 +45,22 @@ public class Buch {
         this.setSeitenanzahl(seitenanzahl);
         this.setStatement(statement);
         this.setTitel(titel);
+    }
+    
+    static public List<Buch> getBuecherByUserInput(String userInput, Statement statement){
+        List<Buch> buecher = new LinkedList<>();
+        String sql = "Select * from APP.buch where titel like %"+userInput+"%;";
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                buecher.add(new Buch(statement, rSet.getInt("buchid"), rSet.getString("titel"), rSet.getString("klappentext"), rSet.getDate("releasedatum"), rSet.getInt("seitenanzahl"), rSet.getInt("kapitelanzahl")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return buecher;
     }
 
     public String getTitel() {

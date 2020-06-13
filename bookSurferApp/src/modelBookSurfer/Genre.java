@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
@@ -35,7 +37,21 @@ public class Genre {
         this.setStatement(statement);
     }
     
-    
+    static public List<Genre> getGenresByUserInput(String userInput, Statement statement){
+        List<Genre> genres = new LinkedList<>();
+        String sql = "Select * from APP.genre where name like %"+userInput+"%";
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                genres.add(new Genre(rSet.getString("name"),rSet.getString("beschreibung"),rSet.getInt("genreid"),  statement));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return genres;
+    }
 
     public String getName() {
         return name;
