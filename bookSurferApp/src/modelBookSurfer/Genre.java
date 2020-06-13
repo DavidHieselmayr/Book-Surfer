@@ -26,4 +26,48 @@ public class Genre {
     private String name;
     private String beschreibung;
     private int genreid;
+    private Statement statement;
+
+    public Genre(String name, String beschreibung, int genreid, Statement statement) {
+        this.setBeschreibung(beschreibung);
+        this.setGenreid(genreid);
+        this.setName(name);
+        this.setStatement(statement);
+    }
+    
+    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public int getGenreid() {
+        return genreid;
+    }
+
+    public void setGenreid(int genreid) {
+        this.genreid = genreid;
+    }
+
+    public Statement getStatement() {
+        return statement;
+    }
+
+    public void setStatement(Statement statement) {
+        this.statement = statement;
+    }
+    
+    
 }

@@ -40,7 +40,7 @@ CREATE TABLE genre (
 ALTER TABLE genre ADD CONSTRAINT genre_pk PRIMARY KEY ( genreid );
 --drop table kapitel;
 CREATE TABLE kapitel (
-    überschrift   varchar(100),
+    ueberschrift   varchar(100),
     nummer        decimal(2) NOT NULL,
     kapitelid     decimal(6) NOT NULL,
     buch_buchid   decimal(6) NOT NULL,
