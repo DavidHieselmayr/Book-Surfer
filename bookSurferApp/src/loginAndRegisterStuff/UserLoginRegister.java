@@ -53,6 +53,7 @@ public class UserLoginRegister {
         UserLoginRegister login = new UserLoginRegister(statement, username, password);
         if (login.checkUsername()) {
             // change fxml document
+            CurrentUser.setCurrentUser(login);
             System.out.println("Login succesful");
         }
     }

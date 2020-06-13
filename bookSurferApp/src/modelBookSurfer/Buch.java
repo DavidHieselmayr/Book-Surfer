@@ -36,7 +36,13 @@ public class Buch {
     private Statement statement;
     
     public Buch(Statement statement, int buchid,String titel,  String klappentext, Date releasedatum, int seitenanzahl, int kapitelanzahl){
-        
+        this.setBuchid(buchid);
+        this.setKapitelanzahl(kapitelanzahl);
+        this.setKlappentext(klappentext);
+        this.setRelasedatum(relasedatum);
+        this.setSeitenanzahl(seitenanzahl);
+        this.setStatement(statement);
+        this.setTitel(titel);
     }
 
     public String getTitel() {
