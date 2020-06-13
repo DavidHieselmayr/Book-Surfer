@@ -55,7 +55,7 @@ ALTER TABLE kapitel ADD CONSTRAINT kapitel_pk PRIMARY KEY ( kapitelid );
 --drop table kommentar;
 CREATE TABLE kommentar (
     text          varchar(1000),
-    überschrift   varchar(32),
+    ueberschrift   varchar(32),
     sterne        decimal(2),
     kommentarid   decimal(6) NOT NULL,
     user_uid      decimal(6) NOT NULL
