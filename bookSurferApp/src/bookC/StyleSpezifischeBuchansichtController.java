@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -38,7 +39,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     private Button btSearch;
     private Buch buch;
     
-    private final static String VIEWNAME = "styleLogin2.fxml";
+    private final static String VIEWNAME = "StyleSpezifischeBuchansicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
     private static Statement statement;
     private static Stage stage;
@@ -63,7 +64,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     public static void show(Stage stage, Statement statement, Buch buch) {
         try {
             // View & Controller erstellen
-            FXMLLoader loader = new FXMLLoader(StyleBookController.class.getResource(VIEWNAME));
+            FXMLLoader loader = new FXMLLoader(StyleSpezifischeBuchansichtController.class.getResource(VIEWNAME));
             Parent root = (Parent) loader.load();
 
             // Scene erstellen
@@ -85,6 +86,8 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
             StyleSpezifischeBuchansichtController.stage = stage;
             
             ssbController.buch = buch;
+            
+            ssbController.displayInformation();
 
             // View initialisieren
             // lles anzeigen
@@ -118,7 +121,13 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     
     public void displayInformation(){
         lbTitel.setText(buch.getTitel());
-        lbReleaseDatum.setText(buch.getRelasedatum().toString());
+        lbReleaseDatum.setText(buch.getReleasedatum().toString());
+        lbKapitelanzahl.setText(String.valueOf(buch.getKapitelanzahl()));
+        lbPreis.setText(String.valueOf(buch.getPreis()));
+        System.out.println(buch.getBuchid());
+        Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
+        //Image i = new Image("file:../../data/bilder/buch/2.jpg");
+        ivCover.setImage(i);
     }
 
     /**

@@ -32,30 +32,32 @@ public class Buch {
     private String titel;
     private int buchid;
     private String klappentext;
-    private Date relasedatum;
+    private Date releasedatum;
     private int seitenanzahl;
     private int kapitelanzahl;
+    private int preis;
     private Statement statement;
     
-    public Buch(Statement statement, int buchid,String titel,  String klappentext, Date releasedatum, int seitenanzahl, int kapitelanzahl){
+    public Buch(Statement statement, int buchid,String titel,  String klappentext, Date releasedatum, int seitenanzahl, int kapitelanzahl, int preis){
         this.setBuchid(buchid);
         this.setKapitelanzahl(kapitelanzahl);
         this.setKlappentext(klappentext);
-        this.setRelasedatum(relasedatum);
+        this.setReleasedatum(releasedatum);
         this.setSeitenanzahl(seitenanzahl);
         this.setStatement(statement);
         this.setTitel(titel);
+        this.setPreis(preis);
     }
     
     static public List<Buch> getBuecherByUserInput(String userInput, Statement statement){
         List<Buch> buecher = new LinkedList<>();
-        String sql = "Select * from APP.buch where titel like %"+userInput+"%;";
+        String sql = "Select * from APP.buch where titel like '%"+userInput+"%'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);
 
             while (rSet.next()) {
-                buecher.add(new Buch(statement, rSet.getInt("buchid"), rSet.getString("titel"), rSet.getString("klappentext"), rSet.getDate("releasedatum"), rSet.getInt("seitenanzahl"), rSet.getInt("kapitelanzahl")));
+                buecher.add(new Buch(statement, rSet.getInt("buchid"), rSet.getString("titel"), rSet.getString("klappentext"), rSet.getDate("releasedatum"), rSet.getInt("seitenanzahl"), rSet.getInt("kapitelanzahl"), rSet.getInt("preis")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,12 +89,12 @@ public class Buch {
         this.klappentext = klappentext;
     }
 
-    public Date getRelasedatum() {
-        return relasedatum;
+    public Date getReleasedatum() {
+        return releasedatum;
     }
 
-    public void setRelasedatum(Date relasedatum) {
-        this.relasedatum = relasedatum;
+    public void setReleasedatum(Date relasedatum) {
+        this.releasedatum = relasedatum;
     }
 
     public int getSeitenanzahl() {
@@ -117,6 +119,14 @@ public class Buch {
 
     public void setStatement(Statement statement) {
         this.statement = statement;
+    }
+
+    public int getPreis() {
+        return preis;
+    }
+
+    public void setPreis(int preis) {
+        this.preis = preis;
     }
     
     

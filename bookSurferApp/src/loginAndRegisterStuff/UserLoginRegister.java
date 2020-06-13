@@ -108,7 +108,7 @@ public class UserLoginRegister {
     }
 
     public void setUsername(String username) throws InputException {
-        if (username != null && !username.trim().equals("") && username.length() > 1 && checkRegularExpressionUsername()) {
+        if (username != null && !username.trim().equals("") && username.length() > 1 && checkRegularExpressionUsername(username)) {
             this.username = username;
         } else {
             throw new InputException("Der Username muss eingegeben werden.");
@@ -120,7 +120,7 @@ public class UserLoginRegister {
     }
 
     public void setPassword(String password) throws InputException {
-        if (password != null && !password.trim().equals("") && password.length() > 9 && checkRegularExpressionPwd()) {
+        if (password != null && !password.trim().equals("") && password.length() > 1 && checkRegularExpressionPwd(password)) {
             this.password = password;
         } else {
             throw new InputException("Das Passwort muss eingegeben werden.");
@@ -135,24 +135,27 @@ public class UserLoginRegister {
         this.statement = statement;
     }
 
-    private boolean checkRegularExpressionPwd() {
-        Pattern pattern = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])");
-        /* 
-            At least one upper case English letter, (?=.*?[A-Z])
-            At least one lower case English letter, (?=.*?[a-z])
-            At least one digit, (?=.*?[0-9])
-            At least one special character, (?=.*?[#?!@$%^&*-])
-            Minimum eight in length .{8,} (with the anchors)
-         */
-        Matcher mat = pattern.matcher(this.password);
-        return mat.matches();
+    private boolean checkRegularExpressionPwd(String password) {
+//        Pattern pattern = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])");
+//        /* 
+//            At least one upper case English letter, (?=.*?[A-Z])
+//            At least one lower case English letter, (?=.*?[a-z])
+//            At least one digit, (?=.*?[0-9])
+//            At least one special character, (?=.*?[#?!@$%^&*-])
+//            Minimum eight in length .{8,} (with the anchors)
+//         */
+//        Matcher mat = pattern.matcher(password);
+//        System.out.println(mat.matches());
+//        return mat.matches();
+
+    return true;
 
     }
 
-    private boolean checkRegularExpressionUsername() {
+    private boolean checkRegularExpressionUsername(String username) {
         Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
         // check if String include special letters 
-        Matcher mat = pattern.matcher(this.username);
+        Matcher mat = pattern.matcher(username);
         return !mat.matches();
     }
 

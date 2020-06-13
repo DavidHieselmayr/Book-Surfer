@@ -67,7 +67,10 @@ public class ShopControllerController implements Initializable {
             
             
             shopController.ms = ms;
+            
             shopController.tfSearch.setText(userInput);
+            
+            shopController.printSearchResult();
             // Datenbankzugriff merken
             ShopControllerController.statement = statement;
 
@@ -89,10 +92,6 @@ public class ShopControllerController implements Initializable {
         }
     }
     @FXML
-    private TextField tfSearch1;
-    @FXML
-    private Button btSearch1;
-    @FXML
     private GridPane contentBuecher;
     @FXML
     private GridPane contentGenres;
@@ -110,8 +109,7 @@ public class ShopControllerController implements Initializable {
                 //weiter zur Detailseite
             }
             });
-            
-            contentAutoren.addColumn(index, bt);
+            contentAutoren.addRow(index, bt);
             index++;
         }
         index = 0;
@@ -119,13 +117,9 @@ public class ShopControllerController implements Initializable {
             
             Button bt = new Button(buch.getTitel());
             
-            bt.setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent e) {
-                //weiter zur Detailseite
-            }
-            });
+            bt.setOnAction(e -> StyleSpezifischeBuchansichtController.show(stage, statement, buch));
             
-            contentBuecher.addColumn(index, bt);
+            contentBuecher.addRow(index, bt);
             index++;
         }
         index = 0;
@@ -138,7 +132,7 @@ public class ShopControllerController implements Initializable {
             }
             });
             
-            contentAutoren.addColumn(index, bt);
+            contentGenres.addRow(index, bt);
             index++;
         }
     }

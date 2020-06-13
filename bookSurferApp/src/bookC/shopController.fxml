@@ -32,12 +32,12 @@
                         <Image url="@white.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="tfSearch1" alignment="CENTER" prefHeight="30.0" prefWidth="285.0" GridPane.columnIndex="1">
+                  <TextField fx:id="tfSearch" alignment="CENTER" prefHeight="30.0" prefWidth="285.0" GridPane.columnIndex="1">
                      <font>
                         <Font name="Nunito Sans Light" size="12.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btSearch1" alignment="CENTER" mnemonicParsing="false" onAction="#onActionBtSearch" text="Suchen" GridPane.columnIndex="2" />
+                  <Button fx:id="btSearch" alignment="CENTER" mnemonicParsing="false" onAction="#onActionBtSearch" text="Suchen" GridPane.columnIndex="2" />
                </children>
             </GridPane>
          </children>
@@ -52,33 +52,6 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #99ffcc;">
-               <children>
-                  <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="745.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.20001220703125" minWidth="10.0" prefWidth="115.40000610351562" />
-                      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="555.9999511718751" minWidth="10.0" prefWidth="530.200048828125" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="161.20001220703125" minWidth="10.0" prefWidth="88.39995117187505" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <ImageView fitHeight="124.0" fitWidth="273.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../logos/white.png" />
-                           </image>
-                        </ImageView>
-                        <TextField fx:id="tfSearch" alignment="CENTER" maxHeight="30.0" prefHeight="30.0" prefWidth="495.0" GridPane.columnIndex="1">
-                           <font>
-                              <Font name="Nunito Sans Light" size="12.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="btSearch" alignment="CENTER" mnemonicParsing="false" onAction="#onActionBtSearch" text="Suchen" GridPane.columnIndex="2" />
-                     </children>
-                  </GridPane>
-               </children>
-            </HBox>
             <ScrollPane prefHeight="200.0" prefWidth="200.0">
                <content>
                   <GridPane prefHeight="381.0" prefWidth="882.0">
@@ -105,9 +78,6 @@
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
                               </GridPane>
                            </children>
                         </GridPane>
@@ -125,9 +95,6 @@
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
                               </GridPane>
                            </children>
                         </GridPane>
@@ -145,9 +112,6 @@
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
                               </GridPane>
                            </children>
                         </GridPane>

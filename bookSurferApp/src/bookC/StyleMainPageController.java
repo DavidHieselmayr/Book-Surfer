@@ -29,15 +29,16 @@ import searchDbs.MainpageSearch;
 public class StyleMainPageController {
     // Verbindung zur Datenbank
 
-    Statement statement;
+    private Statement statement;
     @FXML
     private TextField tfSearch;
     @FXML
     private Button btSearch;
+    
+    private Stage stage;
 
     // Helper
     private final static String VIEWNAME = "styleHausaMain.fxml";
-    static Statement mystatement;
 
     /**
      * Anzeige der View.
@@ -52,7 +53,6 @@ public class StyleMainPageController {
      */
     public static void show(Stage stage, Statement statement) {
         try {
-            StyleMainPageController.mystatement = statement;
             // View & Controller erstellen
             FXMLLoader loader = new FXMLLoader(StyleMainPageController.class.getResource(VIEWNAME));
             Parent root = (Parent) loader.load();
@@ -65,14 +65,14 @@ public class StyleMainPageController {
                 stage = new Stage();
             }
             stage.setScene(scene);
-            stage.setTitle("BookSurfer");
+            stage.setTitle("Hauptseite");
 
             // Controller ermitteln
             StyleMainPageController bookSurferC = (StyleMainPageController) loader.getController();
 
             // Datenbankzugriff merken
             bookSurferC.statement = statement;
-
+            bookSurferC.stage = stage;
             // View initialisieren
             // lles anzeigen
             stage.show();
@@ -92,5 +92,7 @@ public class StyleMainPageController {
     @FXML
     private void onActionBtSearch(ActionEvent event) {
         MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
+        System.out.println(ms.getAutoren().size());
+        ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
     }
 }

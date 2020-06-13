@@ -39,7 +39,7 @@ public class Genre {
     
     static public List<Genre> getGenresByUserInput(String userInput, Statement statement){
         List<Genre> genres = new LinkedList<>();
-        String sql = "Select * from APP.genre where name like %"+userInput+"%";
+        String sql = "Select * from APP.genre where name like '%"+userInput+"%'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);
