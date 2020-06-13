@@ -25,4 +25,4 @@ drop sequence seq_autor restrict;
 drop sequence seq_buch restrict;
 drop sequence seq_genre restrict;
 drop sequence seq_kommentar restrict;
-
+drop sequence seq_kapitel restrict;
