@@ -32,7 +32,7 @@ public class StyleMainPageController {
     private TextField tfSearchUser;
 
     // Helper
-    private final static String VIEWNAME = "styleMainPage.fxml";
+    private final static String VIEWNAME = "styleHausaMain.fxml";
     static Statement mystatement;
 
     /**

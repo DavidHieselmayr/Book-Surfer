@@ -4,7 +4,7 @@ CREATE TABLE autor (
     nachname     VARCHAR(32),
     gebdatum     DATE,
     autorid     decimal(6) NOT NULL,
-    biographie   VARCHAR(4000),
+    biographie   VARCHAR(4000)
 );
 
 ALTER TABLE autor ADD CONSTRAINT autor_pk PRIMARY KEY ( autorid );
@@ -62,6 +62,9 @@ CREATE TABLE kommentar (
 );
 
 ALTER TABLE kommentar ADD CONSTRAINT kommentar_pk PRIMARY KEY ( kommentarid );
+CREATE SEQUENCE seq_kommentar
+AS BIGINT
+START WITH 1;
 --drop table relation_1;
 CREATE TABLE relation_1 (
     user_uid      decimal(6) NOT NULL,
@@ -114,7 +117,7 @@ CREATE TABLE "User" (
     benutzername   varchar(32),
     passwort       varchar(32),
     email          varchar(32),
-    geld           decimal (100, 2)
+    geld           decimal (10, 2)
 );
 
 
