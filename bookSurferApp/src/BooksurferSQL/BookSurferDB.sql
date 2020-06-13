@@ -4,7 +4,8 @@ CREATE TABLE author (
     nachname     VARCHAR(32),
     gebdatum     DATE,
     authorid     decimal(6) NOT NULL,
-    biographie   VARCHAR(4000)
+    biographie   VARCHAR(4000),
+    bilddateiurl varchar(100)
 );
 
 ALTER TABLE author ADD CONSTRAINT author_pk PRIMARY KEY ( authorid );
@@ -20,7 +21,9 @@ CREATE TABLE buch (
     klappentext     varchar(1500),
     releasedatum    DATE,
     seitenanzahl    decimal(4),
-    kapitelanzahl   decimal(2)
+    kapitelanzahl   decimal(2),
+    bilddateiurl    varchar(100),
+    preis           decimal(5,2)
 );
 
 ALTER TABLE buch ADD CONSTRAINT buch_pk PRIMARY KEY ( buchid );
@@ -42,7 +45,8 @@ CREATE TABLE kapitel (
     überschrift   varchar(100),
     nummer        decimal(2) NOT NULL,
     kapitelid     decimal(6) NOT NULL,
-    buch_buchid   decimal(6) NOT NULL
+    buch_buchid   decimal(6) NOT NULL,
+    textdateiurl   varchar(100)
 );
 
 CREATE SEQUENCE seq_genre
@@ -111,7 +115,8 @@ CREATE TABLE "User" (
     "UID"          decimal(6) NOT NULL,
     benutzername   varchar(32),
     passwort       varchar(32),
-    email          varchar(32)
+    email          varchar(32),
+    geld           decimal (100, 2)
 );
 
 
