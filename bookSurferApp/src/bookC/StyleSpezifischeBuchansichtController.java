@@ -227,6 +227,9 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     private void onActionBtKaufen(ActionEvent event) {
         CurrentUser.getCurrentUser().buyBook(buch.getBuchid(), buch.getPreis());
         btKaufen.setText("Lesen");
+        btKaufen.setDisable(false);
+        buch.storageBuchLocal();
+        btKaufen.setDisable(true);
     }
 
 }

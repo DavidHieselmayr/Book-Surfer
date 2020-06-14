@@ -5,6 +5,16 @@
  */
 package modelBookSurfer;
 
+import ClientThread.ClientThread;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +25,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
 import java.util.regex.*;
+
 /**
  *
  * @author fabia
  */
 public class Buch {
+
     /*
      titel           varchar(64),
     buchid          decimal(6) NOT NULL,
@@ -27,8 +39,8 @@ public class Buch {
     releasedatum    DATE,
     seitenanzahl    decimal(4),
     kapitelanzahl   decimal(2)
-    */
-    
+     */
+
     private String titel;
     private int buchid;
     private String klappentext;
@@ -37,8 +49,8 @@ public class Buch {
     private int kapitelanzahl;
     private int preis;
     private Statement statement;
-    
-    public Buch(Statement statement, int buchid,String titel,  String klappentext, Date releasedatum, int seitenanzahl, int kapitelanzahl, int preis){
+
+    public Buch(Statement statement, int buchid, String titel, String klappentext, Date releasedatum, int seitenanzahl, int kapitelanzahl, int preis) {
         this.setBuchid(buchid);
         this.setKapitelanzahl(kapitelanzahl);
         this.setKlappentext(klappentext);
@@ -48,10 +60,25 @@ public class Buch {
         this.setTitel(titel);
         this.setPreis(preis);
     }
-    
-    static public List<Buch> getBuecherOfAutor(Statement statement, int autorid){
-         List<Buch> buecher = new LinkedList<>();
-         List<Integer> buecherid = new LinkedList<>();
+
+    public void storageBuchLocal() {
+        List<Kapitel> kapitel = Kapitel.getKapitelToBuch(buchid, statement);
+        Socket echoServerSocket = null;
+        String hostName = "127.0.0.1";
+        int portNumber = 6014;
+
+       
+            
+            for (Kapitel k : kapitel) {
+                Thread t = new Thread(new ClientThread(k));
+                t.start();
+            }
+
+    }
+
+    static public List<Buch> getBuecherOfAutor(Statement statement, int autorid) {
+        List<Buch> buecher = new LinkedList<>();
+        List<Integer> buecherid = new LinkedList<>();
         String sql = "Select buch_buchid from APP.relation_3 where autor_autorid = " + autorid;
 
         try {
@@ -63,15 +90,15 @@ public class Buch {
         } catch (SQLException ex) {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(int buchid:buecherid){
+        for (int buchid : buecherid) {
             buecher.add(Buch.getBuchByID(statement, buchid));
         }
         return buecher;
     }
-    
-    static public List<Buch> getBuecherOfGenre(Statement statement, int genreid){
-         List<Buch> buecher = new LinkedList<>();
-         List<Integer> buecherids = new LinkedList<>();
+
+    static public List<Buch> getBuecherOfGenre(Statement statement, int genreid) {
+        List<Buch> buecher = new LinkedList<>();
+        List<Integer> buecherids = new LinkedList<>();
         String sql = "Select buch_buchid from APP.relation_2 where genre_genreid = " + genreid;
 
         try {
@@ -83,13 +110,13 @@ public class Buch {
         } catch (SQLException ex) {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(int buchid:buecherids){
+        for (int buchid : buecherids) {
             buecher.add(Buch.getBuchByID(statement, buchid));
         }
         return buecher;
     }
-    
-    static public Buch getBuchByID(Statement statement, int buchid){
+
+    static public Buch getBuchByID(Statement statement, int buchid) {
         String sql = "Select * from APP.buch where buchid = " + buchid;
         Buch buch;
         try {
@@ -104,10 +131,10 @@ public class Buch {
         }
         return null;
     }
-    
-    static public List<Buch> getBuecherByUserInput(String userInput, Statement statement){
+
+    static public List<Buch> getBuecherByUserInput(String userInput, Statement statement) {
         List<Buch> buecher = new LinkedList<>();
-        String sql = "Select * from APP.buch where lower(titel) like '%"+userInput.toLowerCase()+"%'";
+        String sql = "Select * from APP.buch where lower(titel) like '%" + userInput.toLowerCase() + "%'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);
@@ -184,6 +211,5 @@ public class Buch {
     public void setPreis(int preis) {
         this.preis = preis;
     }
-    
-    
+
 }

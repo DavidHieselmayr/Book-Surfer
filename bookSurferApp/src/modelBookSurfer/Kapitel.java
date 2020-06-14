@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
@@ -39,6 +41,23 @@ public class Kapitel {
         this.setStatement(statement);
         this.setTextdateiurl(textdateiurl);
         this.setUeberschrift(ueberschrift);
+    }
+    
+    public static List<Kapitel> getKapitelToBuch(int buchid, Statement statement){
+        List<Kapitel> kapitel = new LinkedList<>();
+        String sql = "Select * from APP.kapitel where buch_buchid = " + buchid;
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                kapitel.add(new Kapitel(rSet.getString("ueberschrift"), rSet.getInt("nummer"),rSet.getInt("kapitelid"), rSet.getInt("buch_buchid"), rSet.getString("textdateiurl"), statement));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return kapitel;
     }
     
 

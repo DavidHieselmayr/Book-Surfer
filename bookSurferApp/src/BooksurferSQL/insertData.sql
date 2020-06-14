@@ -90,11 +90,11 @@ INSERT INTO buch (titel, buchid, releasedatum, kapitelanzahl, preis) VALUES ('Zw
 /*
 Kapitel Daten einfügen
 */
-INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 1, 'Der Schweinepriester/inhalt.rtfd/TXT.txt');
-INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Aufzug', 2, next value for seq_kapitel, 1, 'Der Schweinepriester/Erster_Aufzug.txt');
-INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Aufzug', 3, next value for seq_kapitel, 1, 'Der Schweinepriester/Zweiter_Aufzug.txt');
-INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Aufzug', 4, next value for seq_kapitel, 1, 'Der Schweinepriester/Dritter_Aufzug.txt');
-INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Vierter Aufzug', 5, next value for seq_kapitel, 1, 'Der Schweinepriester/Vierter_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 1, 'Der_Schweinepriester/inhalt.rtfd/TXT.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Aufzug', 2, next value for seq_kapitel, 1, 'Der_Schweinepriester/Erster_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Aufzug', 3, next value for seq_kapitel, 1, 'Der_Schweinepriester/Zweiter_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Aufzug', 4, next value for seq_kapitel, 1, 'Der_Schweinepriester/Dritter_Aufzug.txt');
+INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Vierter Aufzug', 5, next value for seq_kapitel, 1, 'Der_Schweinepriester/Vierter_Aufzug.txt');
 
 INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Inhalt', 1, next value for seq_kapitel, 2, 'Gespenster/Inhalt.txt');
 INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Akt', 2, next value for seq_kapitel, 2, 'Gespenster/Erster_Akt.txt');
