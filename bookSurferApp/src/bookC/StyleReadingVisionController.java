@@ -16,6 +16,8 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.net.URL;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +31,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.CurrentUser;
+import modelBookSurfer.Buch;
+import modelBookSurfer.Kapitel;
 
 /**
  * FXML Controller class
@@ -40,7 +44,8 @@ public class StyleReadingVisionController implements Initializable {
     private static Stage stage;
     private static Statement statement;
     private static final String VIEWNAME = "StyleUserInterface.fxml";
-    private Integer kapitel=1;
+    private Integer kapitel = 1;
+    private static Buch buch;
 
     @FXML
     private TextField tfSeite;
@@ -56,48 +61,54 @@ public class StyleReadingVisionController implements Initializable {
     }
 
     public void setKapitel(Integer kapitel) {
-        if((this.kapitel=+kapitel) > 1){
-            this.kapitel =+kapitel;
-        }else{
+        if ((this.kapitel = +kapitel) > 1 && buch.getKapitelanzahl() <= (this.kapitel = +kapitel)) {
+            this.kapitel = +kapitel;
+        } else {
             return;
         }
-        
+
     }
 
     @FXML
     private void actionFirstPage(ActionEvent event) {
         setKapitel(1);
-        insertIntoTextBook(this.kapitel);
+        insertIntoTextBook();
     }
 
     @FXML
     private void actionBackPage(ActionEvent event) {
         setKapitel(-1);
-        insertIntoTextBook(this.kapitel);
+        insertIntoTextBook();
     }
 
     @FXML
     private void actionForward(ActionEvent event) {
         setKapitel(1);
-        insertIntoTextBook(this.kapitel);
+        insertIntoTextBook();
     }
 
     @FXML
     private void actionLastPage(ActionEvent event) {
-        
+        setKapitel(buch.getKapitelanzahl());
+        insertIntoTextBook();
     }
 
     @FXML
     private void actionMakeFullScreen(ActionEvent event) {
-        stage.setFullScreen(true);
+        if (stage.isFullScreen()) {
+            stage.setFullScreen(false);
+        } else {
+            stage.setFullScreen(true);
+        }
+
     }
 
     @FXML
     private void actionExit(ActionEvent event) {
-         StyleMainPageController.show(stage, statement);
+        StyleMainPageController.show(stage, statement);
     }
 
-    public static void show(Stage stage, Statement statement) {
+    public static void show(Stage stage, Statement statement, Buch buch) {
         try {
             // View & Controller erstellen
             FXMLLoader loader = new FXMLLoader(StyleReadingVisionController.class.getResource(VIEWNAME));
@@ -121,28 +132,43 @@ public class StyleReadingVisionController implements Initializable {
 
             StyleReadingVisionController.stage = stage;
 
-            ssbController.insertIntoTextBook(1);
+            ssbController.setBuch(buch);
+            ssbController.setKapitel(1);
+            ssbController.insertIntoTextBook();
 
             // View initialisieren
             // lles anzeigen
             stage.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StyleReadingVisionController.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("Something wrong with " + VIEWNAME + "!");
             ex.printStackTrace(System.err);
             System.exit(1);
         } catch (Exception ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StyleReadingVisionController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace(System.err);
             System.exit(2);
         }
     }
 
-    public void insertIntoTextBook(int kapitel) {
+    public void insertIntoTextBook() {
         BufferedReader br = null;
+        List<Kapitel> kapitel = new LinkedList<>();
+
+        kapitel = Kapitel.getKapitelToBuch(buch.getBuchid(), statement);
+
+        Kapitel richtigesKapitel = null;
+        for (Kapitel k : kapitel) {
+            if (k.getNummer() == this.kapitel) {
+                richtigesKapitel = k;
+            }
+        }
+
+        String url = richtigesKapitel.getTextdateiurl();
+
         try {
-            File file = new File("C:\\Users\\Desktop\\test"+kapitel+".txt"); //Pfad noch ändern
+            File file = new File("data/buecher/"+url); //Pfad noch ändern
             br = new BufferedReader(new FileReader(file));
             String string;
             while ((string = br.readLine()) != null) {
@@ -159,6 +185,10 @@ public class StyleReadingVisionController implements Initializable {
                 Logger.getLogger(StyleReadingVisionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public void setBuch(Buch buch) {
+        this.buch = buch;
     }
 
 }

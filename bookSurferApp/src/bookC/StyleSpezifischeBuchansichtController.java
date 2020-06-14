@@ -109,7 +109,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
             ssbController.buch = buch;
 
             ssbController.displayInformation();
-            
+
             ssbController.displayKommentare();
 
             // View initialisieren
@@ -156,7 +156,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
                 User user = User.getUserByUserID(statement, kommentar.getUserid());
                 Label lbUser = new Label();
                 lbUser.setFont(Font.font("verdana", FontWeight.BOLD, 24));
-                lbUser.setText("  "+user.getUsername()+": ");
+                lbUser.setText("  " + user.getUsername() + ": ");
                 Text tKommentar = new Text();
                 tKommentar.setFont(Font.font("verdana", FontWeight.MEDIUM, 20));
                 tKommentar.setText(kommentar.getText());
@@ -164,7 +164,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
                 gP.add(lbUser, 0, 0);
                 gP.add(tKommentar, 1, 0);
                 gP.setPrefWidth(this.gPKommentare.getWidth());
-                gP.getChildren().forEach(cnsmr->{
+                gP.getChildren().forEach(cnsmr -> {
                     cnsmr.autosize();
                 });
                 gP.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
@@ -172,10 +172,10 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
                 this.gPKommentare.add(gP, 0, index);
                 //this.gPKommentare.getColumnConstraints().add(alwaysGrow);
                 this.gPKommentare.autosize();
-                this.gPKommentare.getChildren().forEach(cnsmr->{
+                this.gPKommentare.getChildren().forEach(cnsmr -> {
                     cnsmr.autosize();
                 });
-                gP.getChildren().forEach(cnsmr->{
+                gP.getChildren().forEach(cnsmr -> {
                     cnsmr.autosize();
                 });
                 index++;
@@ -184,7 +184,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     }
 
     public void displayInformation() {
-        if(CurrentUser.getCurrentUser().isAlreadyBuyed(buch.getBuchid())){
+        if (CurrentUser.getCurrentUser().isAlreadyBuyed(buch.getBuchid())) {
             btKaufen.setText("Lesen");
         }
         lbTitel.setText(buch.getTitel());
@@ -225,11 +225,18 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
 
     @FXML
     private void onActionBtKaufen(ActionEvent event) {
-        CurrentUser.getCurrentUser().buyBook(buch.getBuchid(), buch.getPreis());
-        btKaufen.setText("Lesen");
-        btKaufen.setDisable(false);
-        buch.storageBuchLocal();
-        btKaufen.setDisable(true);
+        if (btKaufen.getText().equals("Lesen")) {
+                StyleReadingVisionController.show(stage, statement,buch);
+                
+          
+        } else {
+            CurrentUser.getCurrentUser().buyBook(buch.getBuchid(), buch.getPreis());
+            btKaufen.setText("Lesen");
+            btKaufen.setDisable(false);
+            buch.storageBuchLocal();
+            btKaufen.setDisable(true);
+
+        }
     }
 
 }
