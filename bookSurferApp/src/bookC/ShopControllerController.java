@@ -104,11 +104,7 @@ public class ShopControllerController implements Initializable {
         for(Autor autor : ms.getAutoren()){
             
             Button bt = new Button(autor.getVorname() +" "+ autor.getNachname());
-            bt.setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent e) {
-                //weiter zur Detailseite
-            }
-            });
+            bt.setOnAction(e->StyleSpezifischeAutorAnsichtController.show(stage, statement, autor));
             contentAutoren.addRow(index, bt);
             index++;
         }
@@ -126,11 +122,7 @@ public class ShopControllerController implements Initializable {
         for(Genre genre : ms.getGenres()){
             
             Button bt = new Button(genre.getName());
-            bt.setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent e) {
-                //weiter zur Detailseite
-            }
-            });
+            bt.setOnAction(e->StyleSpezifischeGenreAnsichtController.show(stage, statement, genre));
             
             contentGenres.addRow(index, bt);
             index++;

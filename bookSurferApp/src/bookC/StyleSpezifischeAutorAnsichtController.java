@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Statement;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelBookSurfer.Autor;
@@ -116,6 +119,8 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     private Text lbPreis;
     @FXML
     private ImageView ivCover;
+    @FXML
+    private GridPane gPBuecher;
     
     public void displayInformation(){
         lbTitel.setText(autor.getVorname());
@@ -125,6 +130,20 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
         
         Image i = new Image("file:../../data/bilder/buch/" + autor.getAutorid()+".jpg");
         ivCover.setImage(i);
+        
+        List<Buch> buecher= Buch.getBuecherOfAutor(statement, autor.getAutorid());
+        int index = 0;
+        for(Buch buch : buecher){
+            Button b = new Button(buch.getTitel());
+                b.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                //weiter zur Detailseite
+                    StyleSpezifischeBuchansichtController.show(stage, statement, buch);
+                }
+            });
+            gPBuecher.add(b, 0, index);
+            index++;
+        }
     }
 
     /**
