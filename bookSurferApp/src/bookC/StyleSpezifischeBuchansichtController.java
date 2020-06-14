@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Statement;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,12 +20,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import loginAndRegisterStuff.User;
 import modelBookSurfer.Buch;
+import modelBookSurfer.Kommentar;
+import searchDbs.MainpageSearch;
 
 /**
  * FXML Controller class
@@ -38,7 +48,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     @FXML
     private Button btSearch;
     private Buch buch;
-    
+
     private final static String VIEWNAME = "StyleSpezifischeBuchansicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
     private static Statement statement;
@@ -84,10 +94,12 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
             StyleSpezifischeBuchansichtController.statement = statement;
 
             StyleSpezifischeBuchansichtController.stage = stage;
-            
+
             ssbController.buch = buch;
-            
+
             ssbController.displayInformation();
+            
+            ssbController.displayKommentare();
 
             // View initialisieren
             // lles anzeigen
@@ -118,14 +130,40 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     private Button btKommentar;
     @FXML
     private ImageView ivCover;
-    
-    public void displayInformation(){
+    @FXML
+    private GridPane gPKommentare;
+
+    public void displayKommentare() {
+        List<Kommentar> kommentare = Kommentar.getKommentareVonBuch(this.buch.getBuchid(), statement);
+        if (kommentare.size() > 0) {
+            for(int i = 0; i < gPKommentare.getChildren().size(); i++){
+                gPKommentare.getChildren().remove(i);
+            }
+            int index = 0;
+            for (Kommentar kommentar : kommentare) {
+                GridPane gP = new GridPane();
+                User user = User.getUserByUserID(statement, kommentar.getUserid());
+                Label lbUser = new Label();
+                lbUser.setFont(Font.font("verdana", FontWeight.BOLD, 24));
+                lbUser.setText("  "+user.getUsername()+": ");
+                Text tKommentar = new Text();
+                tKommentar.setFont(Font.font("verdana", FontWeight.MEDIUM, 20));
+                tKommentar.setText(kommentar.getText());
+                gP.add(lbUser, 0, 0);
+                gP.add(tKommentar, 1, 0);
+                this.gPKommentare.add(gP, 0, index);
+                index++;
+            }
+        }
+    }
+
+    public void displayInformation() {
         lbTitel.setText(buch.getTitel());
         lbReleaseDatum.setText(buch.getReleasedatum().toString());
         lbKapitelanzahl.setText(String.valueOf(buch.getKapitelanzahl()));
         lbPreis.setText(String.valueOf(buch.getPreis()));
         System.out.println(buch.getBuchid());
-        Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
+        Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid() + ".jpg");
         //Image i = new Image("file:../../data/bilder/buch/2.jpg");
         ivCover.setImage(i);
     }
@@ -136,14 +174,18 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {
+        MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
+        ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
     }
 
     @FXML
     private void onActionBtKommentar(ActionEvent event) {
+        Kommentar.addKommentarToDB(statement, this.tfKommentar.getText(), this.buch.getBuchid());
+        this.displayKommentare();
     }
-    
+
 }

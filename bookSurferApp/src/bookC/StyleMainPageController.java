@@ -92,7 +92,6 @@ public class StyleMainPageController {
     @FXML
     private void onActionBtSearch(ActionEvent event) {
         MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
-        System.out.println(ms.getAutoren().size());
         ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
     }
 }

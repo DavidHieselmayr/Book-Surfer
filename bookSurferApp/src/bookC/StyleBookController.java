@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.InputException;
 import loginAndRegisterStuff.UserLogin;
-import loginAndRegisterStuff.UserLoginRegister;
+import loginAndRegisterStuff.User;
 /**
  * FXML Controller class
  *
@@ -110,7 +110,7 @@ public class StyleBookController {
     @FXML
     private void actionLogin(ActionEvent event) {
         try {
-            UserLoginRegister.login(statement, tfUsername.getText(), tfPassword.getText());
+            User.login(statement, tfUsername.getText(), tfPassword.getText());
             StyleMainPageController.show(stage, statement);
         } catch (InputException ex) {
             tfErrorMsg.setText(ex.getMessage());

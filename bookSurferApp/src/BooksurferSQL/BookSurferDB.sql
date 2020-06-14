@@ -62,7 +62,9 @@ CREATE TABLE kommentar (
     ueberschrift   varchar(32),
     sterne        decimal(2),
     kommentarid   decimal(6) NOT NULL,
-    user_uid      decimal(6) NOT NULL
+    user_uid      decimal(6) NOT NULL,
+    buchid        decimal(6) NOT NULL,
+    erstelldatum  timestamp
 );
 
 ALTER TABLE kommentar ADD CONSTRAINT kommentar_pk PRIMARY KEY ( kommentarid );

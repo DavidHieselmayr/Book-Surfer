@@ -3,27 +3,51 @@ package loginAndRegisterStuff;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
 import java.util.regex.*;
+import modelBookSurfer.Autor;
+import modelBookSurfer.Kommentar;
 
-public class UserLoginRegister {
+public class User {
 
     private String username; // Zu zahlender Preis
     private String password; // nächste freie id
     private Statement statement;
     private double guthaben;
+    private int userid;
 
-    public UserLoginRegister(Statement statement, String username, String password) throws InputException {
+    public User(Statement statement, String username, String password) throws InputException {
         this.setStatement(statement);
         this.setPassword(password);
         this.setUsername(username);
     }
+    
+    public static User getUserByUserID(Statement statement, int userid){
+        User user;
+        String sql = "Select * from APP.\"User\" where \"UID\" = "+userid;
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                user = new User(statement, rSet.getString("benutzername"), rSet.getString("passwort"));
+                return user;  
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InputException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public static void register(Statement statement, String username, String password1, String password2) throws InputException {
         if (password1.equals(password2)) {
-            UserLoginRegister register = new UserLoginRegister(statement, username, password1);
+            User register = new User(statement, username, password1);
             if (register.checkIfUserInDB()) {
                 throw new InputException("User exisitert bereits.");
             } else {
@@ -51,11 +75,11 @@ public class UserLoginRegister {
     }
 
     public static void login(Statement statement, String username, String password) throws InputException {
-        UserLoginRegister login = new UserLoginRegister(statement, username, password);
+        User login = new User(statement, username, password);
         if (login.checkUsername()) {
             // change fxml document
+            login.setUserid();
             CurrentUser.setCurrentUser(login);
-
             // set guthaben 
             System.out.println("Login succesful");
         }
@@ -161,7 +185,7 @@ public class UserLoginRegister {
 
     public void setGuthaben(double abzug) throws InputException {
         this.guthaben = guthaben - abzug;
-        String sql = "Update into APP.\"USER\" set geld = " + this.guthaben + " where username = " + this.username;
+        String sql = "Update into APP.\"USER\" set geld = " + this.guthaben + " where username = '" + this.username+"'";
 
         try {
             statement.executeUpdate(sql);
@@ -172,7 +196,7 @@ public class UserLoginRegister {
     }
 
     public double getGuthaben() throws InputException {
-        String sql = "Select geld from APP.\"USER\" where username = " + this.username;
+        String sql = "Select geld from APP.\"USER\" where benutzername = '" + this.username+"'";
         try {
             ResultSet rs = statement.executeQuery(sql);
             return rs.getDouble("geld");
@@ -181,4 +205,24 @@ public class UserLoginRegister {
 
         }
     }
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid() {
+        String sql = "Select \"UID\" from APP.\"User\" where benutzername = '" + this.username+"'";
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                this.userid = rSet.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 }

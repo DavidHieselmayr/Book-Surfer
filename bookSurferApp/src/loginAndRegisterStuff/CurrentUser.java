@@ -11,13 +11,13 @@ package loginAndRegisterStuff;
  */
 public class CurrentUser {
     
-    private static UserLoginRegister currentUser;
+    private static User currentUser;
 
-    public static UserLoginRegister getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
     }
 
-    public static void setCurrentUser(UserLoginRegister currentUser) {
+    public static void setCurrentUser(User currentUser) {
         CurrentUser.currentUser = currentUser;
     }
 }

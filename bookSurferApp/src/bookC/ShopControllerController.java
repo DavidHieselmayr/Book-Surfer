@@ -147,5 +147,7 @@ public class ShopControllerController implements Initializable {
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {
+        MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
+        ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
     }
 }

@@ -48,7 +48,7 @@ public class Autor {
     
     static public List<Autor> getAutorsByUserInput(String userInput, Statement statement){
         List<Autor> autoren = new LinkedList<>();
-        String sql = "Select * from APP.autor where vorname like '%"+userInput+"%' or nachname like '%"+userInput+"%'";
+        String sql = "Select * from APP.autor where lower(vorname) like '%"+userInput.toLowerCase()+"%' or lower(nachname) like '%"+userInput.toLowerCase()+"%'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);

@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.InputException;
-import loginAndRegisterStuff.UserLoginRegister;
+import loginAndRegisterStuff.User;
 
 /**
  *
@@ -102,7 +102,7 @@ public class RegisterController {
     @FXML
     private void actionRegister(ActionEvent event) {
         try {
-            UserLoginRegister.register(statement, tfUsername.getText(), tfPassword.getText(),tfPassword1.getText());
+            User.register(statement, tfUsername.getText(), tfPassword.getText(),tfPassword1.getText());
             StyleBookController.show(stage, statement);
         } catch (InputException ex) {
             tfErrorMsg.setText(ex.getMessage());
