@@ -49,7 +49,35 @@ public class Buch {
         this.setPreis(preis);
     }
     
-    static public List<Buch> getBuecherOfGenre(){
+    static public List<Buch> getBuecherOfGenre(Statement statement, int genreid){
+         List<Buch> buecher = new LinkedList<>();
+        String sql = "Select buch_buchid from APP.relation_2 where genre_genreid = " + genreid;
+
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                buecher.add(Buch.getBuchByID(statement, rSet.getInt(1)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return buecher;
+    }
+    
+    static public Buch getBuchByID(Statement statement, int buchid){
+        String sql = "Select * from APP.buch where buchid = " + buchid;
+        Buch buch;
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+
+            while (rSet.next()) {
+                buch = new Buch(statement, rSet.getInt("buchid"), rSet.getString("titel"), rSet.getString("klappentext"), rSet.getDate("releasedatum"), rSet.getInt("seitenanzahl"), rSet.getInt("kapitelanzahl"), rSet.getInt("preis"));
+                return buch;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
     
