@@ -21,12 +21,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -125,7 +134,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     @FXML
     private Text lbPreis;
     @FXML
-    private TextField tfKommentar;
+    private TextArea tfKommentar;
     @FXML
     private Button btKommentar;
     @FXML
@@ -136,9 +145,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     public void displayKommentare() {
         List<Kommentar> kommentare = Kommentar.getKommentareVonBuch(this.buch.getBuchid(), statement);
         if (kommentare.size() > 0) {
-            for(int i = 0; i < gPKommentare.getChildren().size(); i++){
-                gPKommentare.getChildren().remove(i);
-            }
+            gPKommentare.getChildren().remove(0, gPKommentare.getChildren().size());
             int index = 0;
             for (Kommentar kommentar : kommentare) {
                 GridPane gP = new GridPane();
@@ -149,9 +156,24 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
                 Text tKommentar = new Text();
                 tKommentar.setFont(Font.font("verdana", FontWeight.MEDIUM, 20));
                 tKommentar.setText(kommentar.getText());
+                //tKommentar.autosize();
                 gP.add(lbUser, 0, 0);
                 gP.add(tKommentar, 1, 0);
+                gP.setPrefWidth(this.gPKommentare.getWidth());
+                gP.getChildren().forEach(cnsmr->{
+                    cnsmr.autosize();
+                });
+                gP.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                gP.autosize();
                 this.gPKommentare.add(gP, 0, index);
+                //this.gPKommentare.getColumnConstraints().add(alwaysGrow);
+                this.gPKommentare.autosize();
+                this.gPKommentare.getChildren().forEach(cnsmr->{
+                    cnsmr.autosize();
+                });
+                gP.getChildren().forEach(cnsmr->{
+                    cnsmr.autosize();
+                });
                 index++;
             }
         }
@@ -185,6 +207,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     @FXML
     private void onActionBtKommentar(ActionEvent event) {
         Kommentar.addKommentarToDB(statement, this.tfKommentar.getText(), this.buch.getBuchid());
+        tfKommentar.setText("");
         this.displayKommentare();
     }
 

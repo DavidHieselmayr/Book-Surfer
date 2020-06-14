@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,7 +21,7 @@
 </AnchorPane>
 -->
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleSpezifischeBuchansichtController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="530.0" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleSpezifischeBuchansichtController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #99ffcc;" BorderPane.alignment="CENTER">
          <children>
@@ -46,12 +47,12 @@
          </children>
       </HBox>
    </top>
-   <right>
-      <ScrollPane BorderPane.alignment="CENTER">
+   <center>
+      <ScrollPane prefHeight="380.0" prefWidth="920.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefWidth="891.0" style="-fx-background-color: gray;">
+            <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: gray;">
                <children>
-                  <GridPane prefHeight="338.0" prefWidth="844.0">
+                  <GridPane prefHeight="415.0" prefWidth="909.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.5999755859375" minWidth="10.0" prefWidth="223.5999755859375" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="676.4000244140625" minWidth="10.0" prefWidth="676.4000244140625" />
@@ -72,7 +73,7 @@
                               <Insets top="15.0" />
                            </GridPane.margin>
                         </VBox>
-                        <GridPane prefHeight="414.0" prefWidth="474.0" GridPane.columnIndex="1">
+                        <GridPane prefHeight="408.0" prefWidth="627.0" GridPane.columnIndex="1">
                           <columnConstraints>
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -96,13 +97,13 @@
                         </GridPane>
                      </children>
                   </GridPane>
-                  <GridPane prefHeight="293.0" prefWidth="884.0">
+                  <GridPane minHeight="300.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="123.60001220703126" minHeight="10.0" prefHeight="44.0000244140625" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="227.59992446899415" minHeight="10.0" prefHeight="213.59997558593753" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="100.0" />
+                      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <GridPane style="-fx-border-style: solid; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #e0e0eb;">
@@ -115,24 +116,18 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField fx:id="tfKommentar" GridPane.columnIndex="1">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                              <Button fx:id="btKommentar" mnemonicParsing="false" onAction="#onActionBtKommentar" text="Button" GridPane.columnIndex="2">
+                              <Button fx:id="btKommentar" mnemonicParsing="false" onAction="#onActionBtKommentar" text="Absenden" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Button>
+                              <TextArea fx:id="tfKommentar" prefHeight="86.0" prefWidth="272.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <GridPane fx:id="gPKommentare" prefHeight="228.0" prefWidth="1406.0" GridPane.rowIndex="1">
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                        <GridPane fx:id="gPKommentare" prefHeight="182.0" prefWidth="801.0" GridPane.rowIndex="1">
+                           <rowConstraints>
+                              <RowConstraints />
+                           </rowConstraints>
                         </GridPane>
                      </children>
                   </GridPane>
@@ -140,5 +135,5 @@
             </VBox>
          </content>
       </ScrollPane>
-   </right>
+   </center>
 </BorderPane>
