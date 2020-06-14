@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -128,20 +129,15 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
         lbKapitelanzahl.setText(autor.getGebdatum().toString());
         lbPreis.setText(autor.getBiographie());
         
-        Image i = new Image("file:../../data/bilder/buch/" + autor.getAutorid()+".jpg");
+        Image i = new Image("file:../../data/bilder/autor/" + autor.getAutorid()+".jpg");
         ivCover.setImage(i);
         
         List<Buch> buecher= Buch.getBuecherOfAutor(statement, autor.getAutorid());
         int index = 0;
         for(Buch buch : buecher){
-            Button b = new Button(buch.getTitel());
-                b.setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent e) {
-                //weiter zur Detailseite
-                    StyleSpezifischeBuchansichtController.show(stage, statement, buch);
-                }
-            });
-            gPBuecher.add(b, 0, index);
+            Button bt = new Button(buch.getTitel());
+            bt.setOnAction(e->StyleSpezifischeBuchansichtController.show(stage, statement, buch));
+            gPBuecher.add(bt, 0, index);
             index++;
         }
     }
@@ -158,5 +154,10 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     private void onActionBtSearch(ActionEvent event) {
         MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
         ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
+    }
+
+    @FXML
+    private void onMouseClickedLogo(MouseEvent event) {
+        StyleMainPageController.show(stage, statement);
     }
 }

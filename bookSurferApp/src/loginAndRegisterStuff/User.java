@@ -3,6 +3,7 @@ package loginAndRegisterStuff;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -10,6 +11,7 @@ import java.util.logging.Logger;
 import javafx.scene.control.TextField;
 import java.util.regex.*;
 import modelBookSurfer.Autor;
+import modelBookSurfer.Buch;
 import modelBookSurfer.Kommentar;
 
 public class User {
@@ -24,6 +26,66 @@ public class User {
         this.setStatement(statement);
         this.setPassword(password);
         this.setUsername(username);
+    }
+    
+    public boolean isAlreadyBuyed(int buchid){
+        String sql = "SELECT buch_buchid FROM relation_1 where user_uid = " + this.userid;
+        
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+            while(rSet.next()){
+                if(rSet.getInt(1) == buchid){
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public List<Buch> getGekaufteBuecher(){
+        List <Buch> buecher = new LinkedList<>();
+        List <Integer> buchids = new LinkedList<>(); 
+        
+        String sql = "SELECT buch_buchid FROM relation_1 where user_uid = " + this.userid;
+        
+        try {
+            ResultSet rSet = statement.executeQuery(sql);
+            while(rSet.next()){
+                buchids.add(rSet.getInt(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for(int buchid: buchids){
+            buecher.add(Buch.getBuchByID(statement, buchid));
+        }
+        return buecher;
+    }
+    
+    public void buyBook(int buchid, double kaufbetrag){
+        try {
+            /*
+            user_uid      decimal(6) NOT NULL,
+            buch_buchid   decimal(6) NOT NULL,
+            kaufdatum     timestamp
+            */
+            CurrentUser.getCurrentUser().setGuthaben(kaufbetrag);
+        } catch (InputException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Timestamp t = new Timestamp(System.currentTimeMillis());
+        
+        String sql = "INSERT INTO relation_1(user_uid, buch_buchid, kaufdatum) VALUES ("+CurrentUser.getCurrentUser().getUserid()+", "+buchid+", '"+t.toString()+"')";
+
+        try {
+            statement.execute(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static User getUserByUserID(Statement statement, int userid){
@@ -185,10 +247,10 @@ public class User {
 
     public void setGuthaben(double abzug) throws InputException {
         this.guthaben = guthaben - abzug;
-        String sql = "Update into APP.\"USER\" set geld = " + this.guthaben + " where username = '" + this.username+"'";
+        String sql = "UPDATE APP.\"User\" SET geld = " + this.guthaben + " where benutzername = '" + this.username+"'";
 
         try {
-            statement.executeUpdate(sql);
+            statement.execute(sql);
         } catch (SQLException ex) {
             System.out.println("Exception Message: " + ex.getMessage());
             throw new InputException("Guthaben konnte nicht aktualisiert werden!");
@@ -196,14 +258,15 @@ public class User {
     }
 
     public double getGuthaben() throws InputException {
-        String sql = "Select geld from APP.\"USER\" where benutzername = '" + this.username+"'";
+        String sql = "Select geld from APP.\"User\" where benutzername = '" + this.username+"'";
         try {
             ResultSet rs = statement.executeQuery(sql);
-            return rs.getDouble("geld");
+            while(rs.next())
+                return rs.getDouble(1);
         } catch (SQLException ex) {
             throw new InputException("Guthabenabfrage hat nicht funktioniert!");
-
         }
+        return -1;
     }
 
     public int getUserid() {

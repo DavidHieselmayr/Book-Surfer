@@ -8,6 +8,7 @@ package bookC;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Statement;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,8 +18,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import loginAndRegisterStuff.CurrentUser;
+import modelBookSurfer.Buch;
 import searchDbs.MainpageSearch;
 //import loginAndRegisterStuff.UserRegister;
 /**
@@ -69,7 +79,7 @@ public class StyleMainPageController {
 
             // Controller ermitteln
             StyleMainPageController bookSurferC = (StyleMainPageController) loader.getController();
-
+            bookSurferC.displayGekaufteBuecher();
             // Datenbankzugriff merken
             bookSurferC.statement = statement;
             bookSurferC.stage = stage;
@@ -88,10 +98,46 @@ public class StyleMainPageController {
             System.exit(2);
         }
     }
+    @FXML
+    private Label tKonto;
+    @FXML
+    private ImageView ivLogo;
+    @FXML
+    private GridPane gPGekaufteBuecher;
+    
+    private void displayGekaufteBuecher(){
+        List<Buch> buecher = CurrentUser.getCurrentUser().getGekaufteBuecher();
+        int index = 0;
+        for(Buch buch : buecher){
+            ImageView iv = new ImageView();
+            
+            Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
+            iv.setFitHeight(200);
+            iv.setFitWidth(150);
+            iv.setImage(i);
+            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, e->StyleSpezifischeBuchansichtController.show(stage, statement, buch));
+            gPGekaufteBuecher.add(iv, index%2, (int)Math.floor(index/2));
+            index++;
+        }
+        if(buecher.isEmpty()){
+            Text t = new Text();
+            t.setText("Noch kein Buch gekauft.");
+            gPGekaufteBuecher.add(t, 0, 0);
+        }
+    }
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {
         MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
         ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
+    }
+
+    @FXML
+    private void onMouseClickedTKonto(MouseEvent event) {
+        StyleUserInterfaceController.show(stage, statement);
+    }
+
+    @FXML
+    private void onMouseClickedLogo(MouseEvent event) {
     }
 }

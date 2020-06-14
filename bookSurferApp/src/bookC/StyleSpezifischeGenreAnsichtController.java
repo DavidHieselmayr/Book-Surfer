@@ -17,12 +17,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelBookSurfer.Buch;
@@ -41,8 +50,7 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
     @FXML
     private Button btSearch;
     private Genre genre;
-    
-    private List<Buch> buecher;
+   
     
     private final static String VIEWNAME = "StyleSpezifischeGenreAnsicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
@@ -90,8 +98,6 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
 
             StyleSpezifischeGenreAnsichtController.stage = stage;
             
-            ssbController.buecher = Buch.getBuecherOfGenre(statement, genre.getGenreid());
-            
             ssbController.genre = genre;
             
             ssbController.displayInformation();
@@ -112,31 +118,29 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
         }
     }
     @FXML
-    private Text lbTitel;
+    private Text tTitel;
     @FXML
-    private Text lbReleaseDatum;
+    private Text tBeschreibung;
     @FXML
-    private Text lbKapitelanzahl;
-    @FXML
-    private Text lbPreis;
-    @FXML
-    private TextField tfKommentar;
-    @FXML
-    private Button btKommentar;
-    @FXML
-    private ImageView ivCover;
+    private GridPane gPGenre;
     
     public void displayInformation(){
-        
-        
-//        lbTitel.setText(buch.getTitel());
-//        lbReleaseDatum.setText(buch.getReleasedatum().toString());
-//        lbKapitelanzahl.setText(String.valueOf(buch.getKapitelanzahl()));
-//        lbPreis.setText(String.valueOf(buch.getPreis()));
-//        System.out.println(buch.getBuchid());
-//        Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
-//        //Image i = new Image("file:../../data/bilder/buch/2.jpg");
-//        ivCover.setImage(i);
+        tTitel.setText(this.genre.getName());
+        this.tBeschreibung.setText(genre.getBeschreibung());
+        List<Buch> buecher = Buch.getBuecherOfGenre(statement, genre.getGenreid());
+        int index = 0;
+        for(Buch buch:buecher){
+            ImageView iv = new ImageView();
+            
+            Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
+            iv.setFitHeight(200);
+            iv.setFitWidth(150);
+            iv.setImage(i);
+            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, e->StyleSpezifischeBuchansichtController.show(stage, statement, buch));
+            gPGenre.add(iv, index%2, (int)Math.floor(index/2));
+            //gPGenre.add(iv, 0, index);
+            index++;
+        }
     }
 
     /**
@@ -151,5 +155,10 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
     private void onActionBtSearch(ActionEvent event) {
         MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
         ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
+    }
+
+    @FXML
+    private void onMouseClickedLogo(MouseEvent event) {
+        StyleMainPageController.show(stage, statement);
     }
 }

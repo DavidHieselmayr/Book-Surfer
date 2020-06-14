@@ -27,7 +27,7 @@
          <children>
             <BorderPane prefHeight="100.0" prefWidth="900.0">
                <left>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#onMouseClickedLogo" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                      <image>
                         <Image url="@white.png" />
                      </image>
@@ -39,7 +39,7 @@
                <right>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btSearch" mnemonicParsing="false" onAction="#onActionBtSearch" text="Button" />
+                        <Button fx:id="btSearch" mnemonicParsing="false" onAction="#onActionBtSearch" text="Suchen" />
                      </children>
                   </VBox>
                </right>
@@ -47,12 +47,12 @@
          </children>
       </HBox>
    </top>
-   <bottom>
-      <ScrollPane BorderPane.alignment="CENTER">
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
          <content>
             <VBox alignment="CENTER" prefWidth="885.0" style="-fx-background-color: gray;">
                <children>
-                  <GridPane>
+                  <GridPane maxWidth="886.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -61,12 +61,12 @@
                       <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titel">
+                        <Text fx:id="tTitel" strokeType="OUTSIDE" strokeWidth="0.0" text="Titel">
                            <font>
                               <Font name="Nunito Sans Light" size="18.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" GridPane.rowIndex="1">
+                        <Text fx:id="tBeschreibung" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" textAlignment="CENTER" wrappingWidth="885.0" GridPane.rowIndex="1">
                            <font>
                               <Font name="Nunito Sans Light" size="15.0" />
                            </font>
@@ -81,108 +81,11 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <GridPane fx:id="gPGenre" prefHeight="412.0">
+                        <GridPane fx:id="gPGenre">
                           <columnConstraints>
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
                           </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" style="-fx-border-style: solid;">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../data/bilder/buch/1.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" style="-fx-border-style: solid;" GridPane.columnIndex="1">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../data/bilder/buch/2.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" style="-fx-border-style: solid;" GridPane.rowIndex="1">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../data/bilder/buch/3.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" style="-fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../data/bilder/buch/4.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" style="-fx-border-style: solid;" GridPane.rowIndex="2">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../data/bilder/buch/5.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" style="-fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../data/bilder/buch/6.jpg" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets bottom="5.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </HBox>
-                           </children>
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -192,9 +95,6 @@
                </children>
             </VBox>
          </content>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
       </ScrollPane>
-   </bottom>
+   </center>
 </BorderPane>

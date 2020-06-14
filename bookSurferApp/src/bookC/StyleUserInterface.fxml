@@ -16,15 +16,14 @@
    
 </AnchorPane>-->
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleUserInterfaceController">
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #99ffcc;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#onMouseClickedLogo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@white.png" />
                </image>
@@ -64,12 +63,12 @@
                   <Image url="@../../data/bilder/sonstiges/money.png" />
                </image>
             </ImageView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2">
+            <Text fx:id="tBenutzername" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2">
                <font>
                   <Font name="Nunito Sans Light" size="18.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Text fx:id="tGuthaben" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Nunito Sans Light" size="18.0" />
                </font>

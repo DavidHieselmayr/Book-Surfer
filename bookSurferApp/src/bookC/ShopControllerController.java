@@ -16,11 +16,13 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import modelBookSurfer.Autor;
@@ -101,11 +103,13 @@ public class ShopControllerController implements Initializable {
     public void printSearchResult(){
         int index = 0;
         
+        String padding = "-fx-padding: 10px; -fx-border-insets: 10px; -fx-background-insets: 10px;";
+        
         for(Autor autor : ms.getAutoren()){
             
             Button bt = new Button(autor.getVorname() +" "+ autor.getNachname());
             bt.setOnAction(e->StyleSpezifischeAutorAnsichtController.show(stage, statement, autor));
-            contentAutoren.addRow(index, bt);
+            contentAutoren.add(bt, 0, index );
             index++;
         }
         index = 0;
@@ -115,7 +119,7 @@ public class ShopControllerController implements Initializable {
             
             bt.setOnAction(e -> StyleSpezifischeBuchansichtController.show(stage, statement, buch));
             
-            contentBuecher.addRow(index, bt);
+            contentBuecher.add(bt, 0, index );
             index++;
         }
         index = 0;
@@ -124,9 +128,20 @@ public class ShopControllerController implements Initializable {
             Button bt = new Button(genre.getName());
             bt.setOnAction(e->StyleSpezifischeGenreAnsichtController.show(stage, statement, genre));
             
-            contentGenres.addRow(index, bt);
+            contentGenres.add(bt, 0, index );
             index++;
         }
+        
+        for(Node child: contentGenres.getChildren()){
+            child.setStyle(padding);
+        }
+        for(Node child: contentBuecher.getChildren()){
+            child.setStyle(padding);
+        }
+        for(Node child: contentAutoren.getChildren()){
+            child.setStyle(padding);
+        }
+        
     }
 
     /**
@@ -141,5 +156,10 @@ public class ShopControllerController implements Initializable {
     private void onActionBtSearch(ActionEvent event) {
         MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
         ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
+    }
+
+    @FXML
+    private void onMouseClickedLogo(MouseEvent event) {
+        StyleMainPageController.show(stage, statement);
     }
 }

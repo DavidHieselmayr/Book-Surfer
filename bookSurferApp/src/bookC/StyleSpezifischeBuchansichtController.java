@@ -25,6 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
@@ -40,6 +41,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import loginAndRegisterStuff.CurrentUser;
 import loginAndRegisterStuff.User;
 import modelBookSurfer.Buch;
 import modelBookSurfer.Kommentar;
@@ -141,6 +143,8 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     private ImageView ivCover;
     @FXML
     private GridPane gPKommentare;
+    @FXML
+    private Button btKaufen;
 
     public void displayKommentare() {
         List<Kommentar> kommentare = Kommentar.getKommentareVonBuch(this.buch.getBuchid(), statement);
@@ -180,6 +184,9 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     }
 
     public void displayInformation() {
+        if(CurrentUser.getCurrentUser().isAlreadyBuyed(buch.getBuchid())){
+            btKaufen.setText("Lesen");
+        }
         lbTitel.setText(buch.getTitel());
         lbReleaseDatum.setText(buch.getReleasedatum().toString());
         lbKapitelanzahl.setText(String.valueOf(buch.getKapitelanzahl()));
@@ -209,6 +216,17 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
         Kommentar.addKommentarToDB(statement, this.tfKommentar.getText(), this.buch.getBuchid());
         tfKommentar.setText("");
         this.displayKommentare();
+    }
+
+    @FXML
+    private void onMouseClickedLogo(MouseEvent event) {
+        StyleMainPageController.show(stage, statement);
+    }
+
+    @FXML
+    private void onActionBtKaufen(ActionEvent event) {
+        CurrentUser.getCurrentUser().buyBook(buch.getBuchid(), buch.getPreis());
+        btKaufen.setText("Lesen");
     }
 
 }

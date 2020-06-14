@@ -27,7 +27,7 @@
          <children>
             <BorderPane prefHeight="100.0" prefWidth="900.0">
                <left>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#onMouseClickedLogo" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                      <image>
                         <Image url="@white.png" />
                      </image>
@@ -39,7 +39,7 @@
                <right>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btSearch" mnemonicParsing="false" onAction="#onActionBtSearch" text="Button" />
+                        <Button fx:id="btSearch" mnemonicParsing="false" onAction="#onActionBtSearch" text="Suchen" />
                      </children>
                   </VBox>
                </right>
@@ -52,7 +52,7 @@
          <content>
             <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: gray;">
                <children>
-                  <GridPane prefHeight="415.0" prefWidth="909.0">
+                  <GridPane minHeight="300.0" prefHeight="300.0" prefWidth="910.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.5999755859375" minWidth="10.0" prefWidth="223.5999755859375" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="676.4000244140625" minWidth="10.0" prefWidth="676.4000244140625" />
@@ -63,7 +63,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" minHeight="400.0" prefWidth="377.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 0px 2px 0px 0px; -fx-border-color: #99ffcc;" GridPane.hgrow="ALWAYS">
                            <children>
-                              <ImageView fx:id="ivCover" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="ivCover" fitHeight="150.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../data/bilder/buch/biedermannunddiebrandstifter.jpg" />
                                  </image>
@@ -73,16 +73,17 @@
                               <Insets top="15.0" />
                            </GridPane.margin>
                         </VBox>
-                        <GridPane prefHeight="408.0" prefWidth="627.0" GridPane.columnIndex="1">
+                        <GridPane prefHeight="349.0" prefWidth="673.0" GridPane.columnIndex="1">
                           <columnConstraints>
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="51.80002441406248" minHeight="0.0" prefHeight="23.800048828125" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
+                            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
                           </rowConstraints>
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titel" />
@@ -93,6 +94,7 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Preis" GridPane.rowIndex="3" />
                               <Text fx:id="lbKapitelanzahl" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Text fx:id="lbPreis" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Button fx:id="btKaufen" mnemonicParsing="false" onAction="#onActionBtKaufen" text="Kaufen" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>
                      </children>
@@ -121,7 +123,7 @@
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Button>
-                              <TextArea fx:id="tfKommentar" prefHeight="86.0" prefWidth="272.0" GridPane.columnIndex="1" />
+                              <TextArea fx:id="tfKommentar" prefHeight="86.0" prefWidth="272.0" promptText="Kommentar schreiben" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane fx:id="gPKommentare" prefHeight="182.0" prefWidth="801.0" GridPane.rowIndex="1">
