@@ -13,13 +13,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleMainPageController">
+<VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookC.StyleMainPageController">
    <children>
       <GridPane VBox.vgrow="ALWAYS">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" prefWidth="225.99999389648437" />
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="440.5999877929688" />
-            <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" prefWidth="235.0000122070312" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="500.0" vgrow="SOMETIMES" />
@@ -27,7 +26,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="600.0" prefWidth="100.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                <children>
-                  <GridPane>
+                  <GridPane prefHeight="532.0" prefWidth="579.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -36,20 +35,20 @@
                       <RowConstraints minHeight="205.5999755859375" prefHeight="471.3999969482422" vgrow="ALWAYS" />
                     </rowConstraints>
                      <children>
-                        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="426.0" style="-fx-background-color: gray;">
+                        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="61.0" prefWidth="566.0" style="-fx-background-color: gray;">
                            <children>
-                              <GridPane alignment="CENTER" prefHeight="66.0" prefWidth="452.0">
+                              <GridPane alignment="CENTER" prefHeight="61.0" prefWidth="466.0">
                                 <columnConstraints>
-                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="80.0" prefWidth="100.0" />
-                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="372.0" minWidth="10.0" percentWidth="80.0" prefWidth="372.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="86.199951171875" minWidth="10.0" prefWidth="79.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
                                     <TextField fx:id="tfSearch" alignment="CENTER" prefHeight="30.0" prefWidth="285.0">
                                        <font>
-                                          <Font name="Nunito Sans Light" size="12.0" />
+                                          <Font name="Nunito Sans Light" size="16.0" />
                                        </font>
                                     </TextField>
                                     <Button fx:id="btSearch" alignment="CENTER" mnemonicParsing="false" onAction="#onActionBtSearch" text="Suchen" GridPane.columnIndex="1" />
@@ -93,83 +92,6 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #99ffcc;" GridPane.columnIndex="2">
-               <children>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints vgrow="ALWAYS" />
-                      <RowConstraints vgrow="ALWAYS" />
-                      <RowConstraints vgrow="ALWAYS" />
-                        <RowConstraints vgrow="ALWAYS" />
-                        <RowConstraints vgrow="ALWAYS" />
-                        <RowConstraints vgrow="ALWAYS" />
-                        <RowConstraints vgrow="ALWAYS" />
-                        <RowConstraints vgrow="ALWAYS" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Genres" textFill="WHITE">
-                           <font>
-                              <Font name="Nunito Sans Light" size="28.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Fantasy" textFill="WHITE" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Nunito Sans Light" size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Roman" textFill="WHITE" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Nunito Sans Light" size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Krimi" textFill="WHITE" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Nunito Sans Light" size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Autor" textFill="WHITE" GridPane.rowIndex="5">
-                           <font>
-                              <Font name="Nunito Sans Light" size="28.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="100.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="J.K Rowling" textFill="WHITE" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Nunito Sans Light" size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Albert Einstein" textFill="WHITE" GridPane.rowIndex="7">
-                           <font>
-                              <Font name="Nunito Sans Light" size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                     </children>
-                  </GridPane>
-               </children>
-            </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #99ffcc;">
                <children>
                   <GridPane prefHeight="291.0" prefWidth="180.0">
@@ -188,14 +110,6 @@
                            </font>
                            <GridPane.margin>
                               <Insets top="15.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label text="Bücher" textFill="WHITE" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Nunito Sans Light" size="26.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
                         <ImageView fitHeight="180.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
