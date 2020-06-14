@@ -55,7 +55,7 @@ glücklich endet. Die unterhaltsame Grundstimmung entsteht durch eine übertrieb
 kritische Zwecke haben kann.', next value for seq_genre);
 
 INSERT INTO genre (name, beschreibung, genreid) VALUES ('Liebesroman', 'Unter einem Liebesroman versteht man einen Roman, dessen zentrales Thema die Liebe ist. 
-Obwohl viele Liebesromane der Trivialliteratur zuzurechnen sind (siehe weiter unten), schließt der Begriff grundsätzlich auch Werke der Hochliteratur ein. Zu den 
+Obwohl viele Liebesromane der Trivialliteratur zuzurechnen sind, schließt der Begriff grundsätzlich auch Werke der Hochliteratur ein. Zu den 
 historischen Vorläufern des modernen Liebesromans – sowohl in seiner trivialliterarischen als auch in seiner hochliterarischen Form – zählen der barocke Schäferroman, 
 der galante Roman und der englische Sittenroman des 18. und 19. Jahrhunderts.', next value for seq_genre);
 
@@ -69,6 +69,8 @@ im Unterschied zu Musiktheater und Tanztheater.', next value for seq_genre);
 
 INSERT INTO genre (name, beschreibung, genreid) VALUES ('Drama', 'Drama ist ein Oberbegriff für Texte mit verteilten Rollen. Die Dramatik ist neben der Epik und der Lyrik 
 eine der drei grundlegenden literarischen Gattungen.', next value for seq_genre);
+
+INSERT INTO genre (name, beschreibung, genreid) VALUES ('Epik', 'Epik, auch erzählende Literatur genannt, ist neben Dramatik und Lyrik eine der drei großen Gattungen der Literatur und umfasst erzählende Literatur in Vers- oder Prosaform.', next value for seq_genre);
 
 /*
 Buch Daten einfügen
@@ -116,3 +118,22 @@ INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl)
 INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Erster Akt', 2, next value for seq_kapitel, 6, 'Zwischenspiel/Erster_Akt.txt');
 INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Zweiter Akt', 3, next value for seq_kapitel, 6, 'Zwischenspiel/Zweiter_Akt.txt');
 INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Akt', 4, next value for seq_kapitel, 6, 'Zwischenspiel/Dritter_Akt.txt');
+
+
+INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (2, 3);
+INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (3, 3);
+INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (4, 3);
+INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (1, 4);
+INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (5, 1);
+INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (6, 2);
+
+
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(2, 6);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(2, 7);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(3, 6);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(3, 3);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(4, 6);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(1, 8);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(5, 4);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(6, 6);
+INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(6, 3);
