@@ -30,8 +30,8 @@ import modelBookSurfer.Genre;
  */
 public class StyleUserInterfaceController implements Initializable {
     
-    private static Stage stage;
-    private static Statement statement;
+    static Stage stage;
+    static Statement statement;
     private static final String VIEWNAME = "StyleUserInterface.fxml";
     
     
