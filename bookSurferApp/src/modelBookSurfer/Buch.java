@@ -50,7 +50,7 @@ public class Buch {
     }
     
     static public List<Buch> getBuecherOfGenre(){
-        
+        return null;
     }
     
     static public List<Buch> getBuecherByUserInput(String userInput, Statement statement){

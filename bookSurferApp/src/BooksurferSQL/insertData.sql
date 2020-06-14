@@ -120,20 +120,20 @@ INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl)
 INSERT INTO kapitel (ueberschrift, nummer, kapitelid, buch_buchid, textdateiurl) VALUES ('Dritter Akt', 4, next value for seq_kapitel, 6, 'Zwischenspiel/Dritter_Akt.txt');
 
 
-INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (2, 3);
-INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (3, 3);
-INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (4, 3);
-INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (1, 4);
-INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (5, 1);
-INSERT INTO relation3 (buch_buchid, autor_autorid) VALUES (6, 2);
+INSERT INTO relation_3 (buch_buchid, autor_autorid) VALUES (2, 3);
+INSERT INTO relation_3 (buch_buchid, autor_autorid) VALUES (3, 3);
+INSERT INTO relation_3 (buch_buchid, autor_autorid) VALUES (4, 3);
+INSERT INTO relation_3 (buch_buchid, autor_autorid) VALUES (1, 4);
+INSERT INTO relation_3 (buch_buchid, autor_autorid) VALUES (5, 1);
+INSERT INTO relation_3 (buch_buchid, autor_autorid) VALUES (6, 2);
 
 
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(2, 6);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(2, 7);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(3, 6);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(3, 3);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(4, 6);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(1, 8);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(5, 4);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(6, 6);
-INSERT INTO relation2 (buch_buchid, genre_genreid) VALUES(6, 3);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(2, 6);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(2, 7);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(3, 6);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(3, 3);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(4, 6);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(1, 8);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(5, 4);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(6, 6);
+INSERT INTO relation_2 (buch_buchid, genre_genreid) VALUES(6, 3);
