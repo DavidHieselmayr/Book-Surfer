@@ -81,7 +81,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="51.80002441406248" minHeight="0.0" prefHeight="23.800048828125" vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname" />
@@ -91,7 +91,7 @@
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Geburtsdatum" GridPane.rowIndex="2" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Biografie" GridPane.rowIndex="3" />
                               <Text fx:id="lbKapitelanzahl" strokeType="OUTSIDE" strokeWidth="0.0" text="1862-05-15" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Text fx:id="lbPreis" strokeType="OUTSIDE" strokeWidth="0.0" text="Geboren am 15.5.1862 in Wien; gestorben am 21.10.1931 in Wien. Sein Vater Johann Schnitzler, aus einer einfachen jüdischen Familie stammend, kam über Budapest nach Wien, heiratete in eine prominente Familie ein und wurde ein angesehener Arzt als Leiter der Allgemeinen Poliklinik.&lt;br&gt; Sein Sohn Arthur besuchte von 1871 bis 1879 das Akademische Gymnasium und  studierte ebenfalls Medizin (Promotion 1885). Er arbeitete an der Zeitschrift &quot;Internationale Klinische Rundschau&quot; mit und interessierte sich schon früh für Psychologie.  Als Sekundararzt bei dem Psychiater Theodor Meynert setzte er Hypnose und Suggestion experimentell ein." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Text fx:id="lbPreis" strokeType="OUTSIDE" strokeWidth="0.0" text="Geboren am 15.5.1862 in Wien; gestorben am 21.10.1931 in Wien. Sein Vater Johann Schnitzler, aus einer einfachen jüdischen Familie stammend, kam über Budapest nach Wien, heiratete in eine prominente Familie ein und wurde ein angesehener Arzt als Leiter der Allgemeinen Poliklinik.&lt;br&gt; Sein Sohn Arthur besuchte von 1871 bis 1879 das Akademische Gymnasium und  studierte ebenfalls Medizin (Promotion 1885). Er arbeitete an der Zeitschrift &quot;Internationale Klinische Rundschau&quot; mit und interessierte sich schon früh für Psychologie.  Als Sekundararzt bei dem Psychiater Theodor Meynert setzte er Hypnose und Suggestion experimentell ein." wrappingWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>

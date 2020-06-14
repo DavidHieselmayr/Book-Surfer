@@ -24,7 +24,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import modelBookSurfer.Autor;
 import modelBookSurfer.Buch;
+import searchDbs.MainpageSearch;
 
 /**
  * FXML Controller class
@@ -37,9 +39,9 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     private TextField tfSearch;
     @FXML
     private Button btSearch;
-    private Buch buch;
+    private Autor autor;
     
-    private final static String VIEWNAME = "StyleSpezifischeBuchansicht.fxml";
+    private final static String VIEWNAME = "StyleSpezifischeAutorAnsicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
     private static Statement statement;
     private static Stage stage;
@@ -61,7 +63,7 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
      * neue erstellt werden soll.
      * @param statement Datenbankverbindung
      */
-    public static void show(Stage stage, Statement statement, Buch buch) {
+    public static void show(Stage stage, Statement statement, Autor autor) {
         try {
             // View & Controller erstellen
             FXMLLoader loader = new FXMLLoader(StyleSpezifischeAutorAnsichtController.class.getResource(VIEWNAME));
@@ -75,7 +77,7 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
                 stage = new Stage();
             }
             stage.setScene(scene);
-            stage.setTitle(buch.getTitel());
+            stage.setTitle(autor.getVorname() + " " + autor.getNachname());
 
             // Controller ermitteln
             StyleSpezifischeAutorAnsichtController ssbController = (StyleSpezifischeAutorAnsichtController) loader.getController();
@@ -85,7 +87,7 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
 
             StyleSpezifischeAutorAnsichtController.stage = stage;
             
-            ssbController.buch = buch;
+            ssbController.autor = autor;
             
             ssbController.displayInformation();
 
@@ -113,20 +115,15 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     @FXML
     private Text lbPreis;
     @FXML
-    private TextField tfKommentar;
-    @FXML
-    private Button btKommentar;
-    @FXML
     private ImageView ivCover;
     
     public void displayInformation(){
-        lbTitel.setText(buch.getTitel());
-        lbReleaseDatum.setText(buch.getReleasedatum().toString());
-        lbKapitelanzahl.setText(String.valueOf(buch.getKapitelanzahl()));
-        lbPreis.setText(String.valueOf(buch.getPreis()));
-        System.out.println(buch.getBuchid());
-        Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
-        //Image i = new Image("file:../../data/bilder/buch/2.jpg");
+        lbTitel.setText(autor.getVorname());
+        lbReleaseDatum.setText(autor.getNachname());
+        lbKapitelanzahl.setText(autor.getGebdatum().toString());
+        lbPreis.setText(autor.getBiographie());
+        
+        Image i = new Image("file:../../data/bilder/buch/" + autor.getAutorid()+".jpg");
         ivCover.setImage(i);
     }
 
@@ -140,10 +137,7 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {
+        MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
+        ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
     }
-
-    @FXML
-    private void onActionBtKommentar(ActionEvent event) {
-    }
-    
 }

@@ -58,7 +58,7 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <GridPane prefHeight="412.0">
+                        <GridPane fx:id="gPGenre" prefHeight="412.0">
                           <columnConstraints>
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-Infinity" />

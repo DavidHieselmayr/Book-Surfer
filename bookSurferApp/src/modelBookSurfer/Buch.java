@@ -49,6 +49,10 @@ public class Buch {
         this.setPreis(preis);
     }
     
+    static public List<Buch> getBuecherOfGenre(){
+        
+    }
+    
     static public List<Buch> getBuecherByUserInput(String userInput, Statement statement){
         List<Buch> buecher = new LinkedList<>();
         String sql = "Select * from APP.buch where lower(titel) like '%"+userInput.toLowerCase()+"%'";

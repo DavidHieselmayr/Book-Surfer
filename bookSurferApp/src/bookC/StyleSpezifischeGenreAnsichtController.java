@@ -25,6 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelBookSurfer.Buch;
+import searchDbs.MainpageSearch;
 
 /**
  * FXML Controller class
@@ -39,7 +40,7 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
     private Button btSearch;
     private Buch buch;
     
-    private final static String VIEWNAME = "StyleSpezifischeBuchansicht.fxml";
+    private final static String VIEWNAME = "StyleSpezifischeGenreAnsicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
     private static Statement statement;
     private static Stage stage;
@@ -140,10 +141,7 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {
+        MainpageSearch ms = MainpageSearch.findAll(tfSearch.getText(), statement);
+        ShopControllerController.show(stage, statement, tfSearch.getText(), ms);
     }
-
-    @FXML
-    private void onActionBtKommentar(ActionEvent event) {
-    }
-    
 }
