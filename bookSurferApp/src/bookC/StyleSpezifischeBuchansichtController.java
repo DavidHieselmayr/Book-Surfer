@@ -226,7 +226,7 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     @FXML
     private void onActionBtKaufen(ActionEvent event) {
         if (btKaufen.getText().equals("Lesen")) {
-                StyleReadingVisionController.show(stage, statement,buch);
+            StyleReadingVisionController.show(stage, statement, buch);
         } else {
             CurrentUser.getCurrentUser().buyBook(buch.getBuchid(), buch.getPreis());
             btKaufen.setText("Lesen");

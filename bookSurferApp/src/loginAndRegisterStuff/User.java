@@ -27,14 +27,14 @@ public class User {
         this.setPassword(password);
         this.setUsername(username);
     }
-    
-    public boolean isAlreadyBuyed(int buchid){
+
+    public boolean isAlreadyBuyed(int buchid) {
         String sql = "SELECT buch_buchid FROM relation_1 where user_uid = " + this.userid;
-        
+
         try {
             ResultSet rSet = statement.executeQuery(sql);
-            while(rSet.next()){
-                if(rSet.getInt(1) == buchid){
+            while (rSet.next()) {
+                if (rSet.getInt(1) == buchid) {
                     return true;
                 }
             }
@@ -43,43 +43,43 @@ public class User {
         }
         return false;
     }
-    
-    public List<Buch> getGekaufteBuecher(){
-        List <Buch> buecher = new LinkedList<>();
-        List <Integer> buchids = new LinkedList<>(); 
-        
+
+    public List<Buch> getGekaufteBuecher() {
+        List<Buch> buecher = new LinkedList<>();
+        List<Integer> buchids = new LinkedList<>();
+
         String sql = "SELECT buch_buchid FROM relation_1 where user_uid = " + this.userid;
-        
+
         try {
             ResultSet rSet = statement.executeQuery(sql);
-            while(rSet.next()){
+            while (rSet.next()) {
                 buchids.add(rSet.getInt(1));
             }
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        for(int buchid: buchids){
+
+        for (int buchid : buchids) {
             buecher.add(Buch.getBuchByID(statement, buchid));
         }
         return buecher;
     }
-    
-    public void buyBook(int buchid, double kaufbetrag){
+
+    public void buyBook(int buchid, double kaufbetrag) {
         try {
             /*
             user_uid      decimal(6) NOT NULL,
             buch_buchid   decimal(6) NOT NULL,
             kaufdatum     timestamp
-            */
+             */
             CurrentUser.getCurrentUser().setGuthaben(kaufbetrag);
         } catch (InputException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Timestamp t = new Timestamp(System.currentTimeMillis());
-        
-        String sql = "INSERT INTO relation_1(user_uid, buch_buchid, kaufdatum) VALUES ("+CurrentUser.getCurrentUser().getUserid()+", "+buchid+", '"+t.toString()+"')";
+
+        String sql = "INSERT INTO relation_1(user_uid, buch_buchid, kaufdatum) VALUES (" + CurrentUser.getCurrentUser().getUserid() + ", " + buchid + ", '" + t.toString() + "')";
 
         try {
             statement.execute(sql);
@@ -87,17 +87,17 @@ public class User {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static User getUserByUserID(Statement statement, int userid){
+
+    public static User getUserByUserID(Statement statement, int userid) {
         User user;
-        String sql = "Select * from APP.\"User\" where \"UID\" = "+userid;
+        String sql = "Select * from APP.\"User\" where \"UID\" = " + userid;
 
         try {
             ResultSet rSet = statement.executeQuery(sql);
 
             while (rSet.next()) {
                 user = new User(statement, rSet.getString("benutzername"), rSet.getString("passwort"));
-                return user;  
+                return user;
             }
         } catch (SQLException ex) {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
@@ -234,7 +234,7 @@ public class User {
 //        System.out.println(mat.matches());
 //        return mat.matches();
 
-    return true;
+        return true;
 
     }
 
@@ -247,7 +247,7 @@ public class User {
 
     public void setGuthaben(double abzug) throws InputException {
         this.guthaben = guthaben - abzug;
-        String sql = "UPDATE APP.\"User\" SET geld = " + this.guthaben + " where benutzername = '" + this.username+"'";
+        String sql = "UPDATE APP.\"User\" SET geld = " + this.guthaben + " where benutzername = '" + this.username + "'";
 
         try {
             statement.execute(sql);
@@ -258,11 +258,12 @@ public class User {
     }
 
     public double getGuthaben() throws InputException {
-        String sql = "Select geld from APP.\"User\" where benutzername = '" + this.username+"'";
+        String sql = "Select geld from APP.\"User\" where benutzername = '" + this.username + "'";
         try {
             ResultSet rs = statement.executeQuery(sql);
-            while(rs.next())
+            while (rs.next()) {
                 return rs.getDouble(1);
+            }
         } catch (SQLException ex) {
             throw new InputException("Guthabenabfrage hat nicht funktioniert!");
         }
@@ -274,7 +275,7 @@ public class User {
     }
 
     public void setUserid() {
-        String sql = "Select \"UID\" from APP.\"User\" where benutzername = '" + this.username+"'";
+        String sql = "Select \"UID\" from APP.\"User\" where benutzername = '" + this.username + "'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);
@@ -286,6 +287,5 @@ public class User {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
 }

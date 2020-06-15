@@ -29,12 +29,11 @@ import modelBookSurfer.Genre;
  * @author Nexo
  */
 public class StyleUserInterfaceController implements Initializable {
-    
+
     static Stage stage;
     static Statement statement;
     private static final String VIEWNAME = "StyleUserInterface.fxml";
-    
-    
+
     public static void show(Stage stage, Statement statement) {
         try {
             // View & Controller erstellen
@@ -58,7 +57,7 @@ public class StyleUserInterfaceController implements Initializable {
             StyleUserInterfaceController.statement = statement;
 
             StyleUserInterfaceController.stage = stage;
-            
+
             ssbController.displayInformation();
 
             // View initialisieren
@@ -80,8 +79,8 @@ public class StyleUserInterfaceController implements Initializable {
     private Text tBenutzername;
     @FXML
     private Text tGuthaben;
-    
-    public void displayInformation(){
+
+    public void displayInformation() {
         tBenutzername.setText(CurrentUser.getCurrentUser().getUsername());
         try {
             tGuthaben.setText(String.valueOf(CurrentUser.getCurrentUser().getGuthaben()));
@@ -96,11 +95,11 @@ public class StyleUserInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onMouseClickedLogo(MouseEvent event) {
         StyleMainPageController.show(stage, statement);
     }
-    
+
 }

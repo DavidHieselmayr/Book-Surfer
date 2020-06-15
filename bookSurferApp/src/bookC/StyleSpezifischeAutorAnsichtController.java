@@ -44,7 +44,7 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     @FXML
     private Button btSearch;
     private Autor autor;
-    
+
     private final static String VIEWNAME = "StyleSpezifischeAutorAnsicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
     private static Statement statement;
@@ -90,9 +90,9 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
             StyleSpezifischeAutorAnsichtController.statement = statement;
 
             StyleSpezifischeAutorAnsichtController.stage = stage;
-            
+
             ssbController.autor = autor;
-            
+
             ssbController.displayInformation();
 
             // View initialisieren
@@ -122,21 +122,21 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     private ImageView ivCover;
     @FXML
     private GridPane gPBuecher;
-    
-    public void displayInformation(){
+
+    public void displayInformation() {
         lbTitel.setText(autor.getVorname());
         lbReleaseDatum.setText(autor.getNachname());
         lbKapitelanzahl.setText(autor.getGebdatum().toString());
         lbPreis.setText(autor.getBiographie());
-        
-        Image i = new Image("file:../../data/bilder/autor/" + autor.getAutorid()+".jpg");
+
+        Image i = new Image("file:../../data/bilder/autor/" + autor.getAutorid() + ".jpg");
         ivCover.setImage(i);
-        
-        List<Buch> buecher= Buch.getBuecherOfAutor(statement, autor.getAutorid());
+
+        List<Buch> buecher = Buch.getBuecherOfAutor(statement, autor.getAutorid());
         int index = 0;
-        for(Buch buch : buecher){
+        for (Buch buch : buecher) {
             Button bt = new Button(buch.getTitel());
-            bt.setOnAction(e->StyleSpezifischeBuchansichtController.show(stage, statement, buch));
+            bt.setOnAction(e -> StyleSpezifischeBuchansichtController.show(stage, statement, buch));
             gPBuecher.add(bt, 0, index);
             index++;
         }
@@ -148,7 +148,7 @@ public class StyleSpezifischeAutorAnsichtController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {

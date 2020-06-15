@@ -33,7 +33,7 @@ public class RegisterController {
     private static Statement mystatement;
     private static Stage stage;
     private static Statement statement;
-    
+
     @FXML
     private TextField tfErrorMsg;
     @FXML
@@ -102,7 +102,7 @@ public class RegisterController {
     @FXML
     private void actionRegister(ActionEvent event) {
         try {
-            User.register(statement, tfUsername.getText(), tfPassword.getText(),tfPassword1.getText());
+            User.register(statement, tfUsername.getText(), tfPassword.getText(), tfPassword1.getText());
             LoginController.show(stage, statement);
         } catch (InputException ex) {
             tfErrorMsg.setText(ex.getMessage());

@@ -23,7 +23,7 @@ public class MainpageSearch {
         this.setSearchValue(userInput);
         this.setStatement(statement);
     }
-    
+
     public static MainpageSearch findAll(String userInput, Statement statement) {
         MainpageSearch ms = new MainpageSearch(userInput, statement);
         ms.searchAuthor();
@@ -31,7 +31,8 @@ public class MainpageSearch {
         ms.searchGenre();
         return ms;
     }
-      private void searchAuthor() {
+
+    private void searchAuthor() {
         this.autoren = Autor.getAutorsByUserInput(searchValue, statement);
     }
 
@@ -74,7 +75,5 @@ public class MainpageSearch {
     public void setAutoren(List<Autor> autoren) {
         this.autoren = autoren;
     }
-    
-    
 
 }

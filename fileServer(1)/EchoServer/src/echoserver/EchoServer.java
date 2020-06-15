@@ -21,40 +21,38 @@ public class EchoServer {
                 OutputStream os = newSocket.getOutputStream();
                 System.out.println("Connection established with  " + newSocket.getRemoteSocketAddress());
                 try {
-            
-                
-                String path = null;
-                try {
-                    path = (String) ois.readObject();
-                    System.out.println(path);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                FileInputStream fr = new FileInputStream(path);
-                byte b[] = new byte[100];
-                int index;
-                while ((index = fr.read()) != -1) {
-                    os.write(index);
-                }
-                os.flush();
-                os.close();
-                System.out.println("File übermittelt");
-               
-            
-        } catch (IOException ex) {
-            Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
 
-                if (!newSocket.isClosed()) {
-                    newSocket.close();
+                    String path = null;
+                    try {
+                        path = (String) ois.readObject();
+                        System.out.println(path);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    FileInputStream fr = new FileInputStream(path);
+                    byte b[] = new byte[100];
+                    int index;
+                    while ((index = fr.read()) != -1) {
+                        os.write(index);
+                    }
+                    os.flush();
+                    os.close();
+                    System.out.println("File übermittelt");
+
+                } catch (IOException ex) {
+                    Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+
+                        if (!newSocket.isClosed()) {
+                            newSocket.close();
+                        }
+                        os.close();
+                        ois.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-                os.close();
-                ois.close();
-            } catch (IOException ex) {
-                Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
             } catch (IOException e) {
                 System.out.println("Exception caught when trying to listen on port "
                         + portNumber + " or listening for a connection");
@@ -63,5 +61,4 @@ public class EchoServer {
         }
     }
 
-    
 }

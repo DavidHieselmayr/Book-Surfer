@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.InputException;
 import loginAndRegisterStuff.User;
+
 /**
  * FXML Controller class
  *

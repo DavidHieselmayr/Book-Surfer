@@ -50,8 +50,7 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
     @FXML
     private Button btSearch;
     private Genre genre;
-   
-    
+
     private final static String VIEWNAME = "StyleSpezifischeGenreAnsicht.fxml";
     private static final NumberFormat NUMBERFORMAT_2DEC;
     private static Statement statement;
@@ -97,9 +96,9 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
             StyleSpezifischeGenreAnsichtController.statement = statement;
 
             StyleSpezifischeGenreAnsichtController.stage = stage;
-            
+
             ssbController.genre = genre;
-            
+
             ssbController.displayInformation();
 
             // View initialisieren
@@ -123,21 +122,21 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
     private Text tBeschreibung;
     @FXML
     private GridPane gPGenre;
-    
-    public void displayInformation(){
+
+    public void displayInformation() {
         tTitel.setText(this.genre.getName());
         this.tBeschreibung.setText(genre.getBeschreibung());
         List<Buch> buecher = Buch.getBuecherOfGenre(statement, genre.getGenreid());
         int index = 0;
-        for(Buch buch:buecher){
+        for (Buch buch : buecher) {
             ImageView iv = new ImageView();
-            
-            Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
+
+            Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid() + ".jpg");
             iv.setFitHeight(200);
             iv.setFitWidth(150);
             iv.setImage(i);
-            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, e->StyleSpezifischeBuchansichtController.show(stage, statement, buch));
-            gPGenre.add(iv, index%2, (int)Math.floor(index/2));
+            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> StyleSpezifischeBuchansichtController.show(stage, statement, buch));
+            gPGenre.add(iv, index % 2, (int) Math.floor(index / 2));
             //gPGenre.add(iv, 0, index);
             index++;
         }
@@ -149,7 +148,7 @@ public class StyleSpezifischeGenreAnsichtController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {

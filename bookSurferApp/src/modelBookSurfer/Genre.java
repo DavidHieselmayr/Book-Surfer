@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modelBookSurfer;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,17 +15,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
 import java.util.regex.*;
+
 /**
  *
  * @author fabia
  */
 public class Genre {
+
     /*
     name           varchar(32),
     beschreibung   varchar(1024),
     genreid        decimal(6) NOT NULL
-    */
-    
+     */
+
     private String name;
     private String beschreibung;
     private int genreid;
@@ -36,16 +39,16 @@ public class Genre {
         this.setName(name);
         this.setStatement(statement);
     }
-    
-    static public List<Genre> getGenresByUserInput(String userInput, Statement statement){
+
+    static public List<Genre> getGenresByUserInput(String userInput, Statement statement) {
         List<Genre> genres = new LinkedList<>();
-        String sql = "Select * from APP.genre where lower(name) like '%"+userInput.toLowerCase()+"%'";
+        String sql = "Select * from APP.genre where lower(name) like '%" + userInput.toLowerCase() + "%'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);
 
             while (rSet.next()) {
-                genres.add(new Genre(rSet.getString("name"),rSet.getString("beschreibung"),rSet.getInt("genreid"),  statement));
+                genres.add(new Genre(rSet.getString("name"), rSet.getString("beschreibung"), rSet.getInt("genreid"), statement));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,6 +87,5 @@ public class Genre {
     public void setStatement(Statement statement) {
         this.statement = statement;
     }
-    
-    
+
 }

@@ -16,28 +16,28 @@ import java.util.logging.Logger;
 import javafx.scene.control.TextField;
 import java.util.regex.*;
 
-
 /**
  *
  * @author fabia
  */
 public class Autor {
+
     /*
     vorname      VARCHAR(32),
     nachname     VARCHAR(32),
     gebdatum     DATE,
     authorid     decimal(6) NOT NULL,
     biographie   VARCHAR(4000)
-    */
-    
+     */
+
     private String vorname;
     private String nachname;
     private Date gebdatum;
     private int autorid;
     private String biographie;
     private Statement statement;
-    
-    public Autor(Statement statement,int autorid, String vorname, String nachname, Date gebdatum,  String biographie){
+
+    public Autor(Statement statement, int autorid, String vorname, String nachname, Date gebdatum, String biographie) {
         this.setStatement(statement);
         this.setVorname(vorname);
         this.setNachname(nachname);
@@ -45,10 +45,10 @@ public class Autor {
         this.setAutorid(autorid);
         this.setBiographie(biographie);
     }
-    
-    static public List<Autor> getAutorsByUserInput(String userInput, Statement statement){
+
+    static public List<Autor> getAutorsByUserInput(String userInput, Statement statement) {
         List<Autor> autoren = new LinkedList<>();
-        String sql = "Select * from APP.autor where lower(vorname) like '%"+userInput.toLowerCase()+"%' or lower(nachname) like '%"+userInput.toLowerCase()+"%'";
+        String sql = "Select * from APP.autor where lower(vorname) like '%" + userInput.toLowerCase() + "%' or lower(nachname) like '%" + userInput.toLowerCase() + "%'";
 
         try {
             ResultSet rSet = statement.executeQuery(sql);

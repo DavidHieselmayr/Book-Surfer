@@ -31,6 +31,7 @@ import loginAndRegisterStuff.CurrentUser;
 import modelBookSurfer.Buch;
 import searchDbs.MainpageSearch;
 //import loginAndRegisterStuff.UserRegister;
+
 /**
  * FXML Controller class
  *
@@ -44,7 +45,7 @@ public class StyleMainPageController {
     private TextField tfSearch;
     @FXML
     private Button btSearch;
-    
+
     private Stage stage;
 
     // Helper
@@ -104,22 +105,22 @@ public class StyleMainPageController {
     private ImageView ivLogo;
     @FXML
     private GridPane gPGekaufteBuecher;
-    
-    private void displayGekaufteBuecher(){
+
+    private void displayGekaufteBuecher() {
         List<Buch> buecher = CurrentUser.getCurrentUser().getGekaufteBuecher();
         int index = 0;
-        for(Buch buch : buecher){
+        for (Buch buch : buecher) {
             ImageView iv = new ImageView();
-            
-            Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid()+".jpg");
+
+            Image i = new Image("file:../../data/bilder/buch/" + buch.getBuchid() + ".jpg");
             iv.setFitHeight(200);
             iv.setFitWidth(150);
             iv.setImage(i);
-            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, e->StyleSpezifischeBuchansichtController.show(stage, statement, buch));
-            gPGekaufteBuecher.add(iv, index%2, (int)Math.floor(index/2));
+            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> StyleSpezifischeBuchansichtController.show(stage, statement, buch));
+            gPGekaufteBuecher.add(iv, index % 2, (int) Math.floor(index / 2));
             index++;
         }
-        if(buecher.isEmpty()){
+        if (buecher.isEmpty()) {
             Text t = new Text();
             t.setText("Noch kein Buch gekauft.");
             gPGekaufteBuecher.add(t, 0, 0);

@@ -80,13 +80,13 @@ public class StyleReadingVisionController implements Initializable {
 
     @FXML
     private void actionBackPage(ActionEvent event) {
-        setKapitel(this.kapitel-1);
+        setKapitel(this.kapitel - 1);
         insertIntoTextBook();
     }
 
     @FXML
     private void actionForward(ActionEvent event) {
-        setKapitel(this.kapitel+1);
+        setKapitel(this.kapitel + 1);
         insertIntoTextBook();
     }
 
@@ -171,7 +171,7 @@ public class StyleReadingVisionController implements Initializable {
         String url = richtigesKapitel.getTextdateiurl();
 
         try {
-            File file = new File("data/buecher/"+url); //Pfad noch ändern
+            File file = new File("data/buecher/" + url); //Pfad noch ändern
             br = new FileInputStream(file);
             String string = "";
             int b;
@@ -192,12 +192,12 @@ public class StyleReadingVisionController implements Initializable {
             }
         }
     }
-    
-    private static String toASCII(int value){
+
+    private static String toASCII(int value) {
         int length = 4;
         StringBuilder builder = new StringBuilder(length);
-        for(int i = length - 1; i >= 0; i--){
-            builder.append((char)((value >> (8*i)) & 0xFF));
+        for (int i = length - 1; i >= 0; i--) {
+            builder.append((char) ((value >> (8 * i)) & 0xFF));
         }
         return builder.toString();
     }

@@ -10,7 +10,7 @@ package loginAndRegisterStuff;
  * @author fabia
  */
 public class CurrentUser {
-    
+
     private static User currentUser;
 
     public static User getCurrentUser() {

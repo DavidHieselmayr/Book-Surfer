@@ -9,10 +9,11 @@ package loginAndRegisterStuff;
  *
  * @author fabia
  */
-public class InputException extends Exception{
+public class InputException extends Exception {
+
     private String type;
-    
-    public InputException(String msg){
+
+    public InputException(String msg) {
         super(msg);
     }
 }

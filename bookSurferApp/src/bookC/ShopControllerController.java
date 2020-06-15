@@ -41,13 +41,13 @@ public class ShopControllerController implements Initializable {
     private TextField tfSearch;
     @FXML
     private Button btSearch;
-    
+
     private static Stage stage;
     private static Statement statement;
     private static final String VIEWNAME = "shopController.fxml";
-    
+
     private MainpageSearch ms;
-    
+
     public static void show(Stage stage, Statement statement, String userInput, MainpageSearch ms) {
         try {
             // View & Controller erstellen
@@ -66,12 +66,11 @@ public class ShopControllerController implements Initializable {
 
             // Controller ermitteln
             ShopControllerController shopController = (ShopControllerController) loader.getController();
-            
-            
+
             shopController.ms = ms;
-            
+
             shopController.tfSearch.setText(userInput);
-            
+
             shopController.printSearchResult();
             // Datenbankzugriff merken
             ShopControllerController.statement = statement;
@@ -99,49 +98,49 @@ public class ShopControllerController implements Initializable {
     private GridPane contentGenres;
     @FXML
     private GridPane contentAutoren;
-    
-    public void printSearchResult(){
+
+    public void printSearchResult() {
         int index = 0;
-        
+
         String padding = "-fx-padding: 10px; -fx-border-insets: 10px; -fx-background-insets: 10px;";
-        
-        for(Autor autor : ms.getAutoren()){
-            
-            Button bt = new Button(autor.getVorname() +" "+ autor.getNachname());
-            bt.setOnAction(e->StyleSpezifischeAutorAnsichtController.show(stage, statement, autor));
-            contentAutoren.add(bt, 0, index );
+
+        for (Autor autor : ms.getAutoren()) {
+
+            Button bt = new Button(autor.getVorname() + " " + autor.getNachname());
+            bt.setOnAction(e -> StyleSpezifischeAutorAnsichtController.show(stage, statement, autor));
+            contentAutoren.add(bt, 0, index);
             index++;
         }
         index = 0;
-        for(Buch buch : ms.getBuecher()){
-            
+        for (Buch buch : ms.getBuecher()) {
+
             Button bt = new Button(buch.getTitel());
-            
+
             bt.setOnAction(e -> StyleSpezifischeBuchansichtController.show(stage, statement, buch));
-            
-            contentBuecher.add(bt, 0, index );
+
+            contentBuecher.add(bt, 0, index);
             index++;
         }
         index = 0;
-        for(Genre genre : ms.getGenres()){
-            
+        for (Genre genre : ms.getGenres()) {
+
             Button bt = new Button(genre.getName());
-            bt.setOnAction(e->StyleSpezifischeGenreAnsichtController.show(stage, statement, genre));
-            
-            contentGenres.add(bt, 0, index );
+            bt.setOnAction(e -> StyleSpezifischeGenreAnsichtController.show(stage, statement, genre));
+
+            contentGenres.add(bt, 0, index);
             index++;
         }
-        
-        for(Node child: contentGenres.getChildren()){
+
+        for (Node child : contentGenres.getChildren()) {
             child.setStyle(padding);
         }
-        for(Node child: contentBuecher.getChildren()){
+        for (Node child : contentBuecher.getChildren()) {
             child.setStyle(padding);
         }
-        for(Node child: contentAutoren.getChildren()){
+        for (Node child : contentAutoren.getChildren()) {
             child.setStyle(padding);
         }
-        
+
     }
 
     /**
@@ -150,7 +149,7 @@ public class ShopControllerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onActionBtSearch(ActionEvent event) {

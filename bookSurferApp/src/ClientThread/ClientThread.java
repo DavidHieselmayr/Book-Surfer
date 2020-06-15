@@ -24,15 +24,14 @@ import modelBookSurfer.Kapitel;
  * @author fabia
  */
 public class ClientThread extends Thread {
-    
+
     private static String hostName = "127.0.0.1";
     private static int portNumber = 6014;
     private int buchid;
     private Statement statement;
-    
 
     public ClientThread(int buchid, Statement statement) {
-        this.buchid =buchid;
+        this.buchid = buchid;
         this.statement = statement;
     }
 
@@ -80,5 +79,5 @@ public class ClientThread extends Thread {
 
         }
     }
-    
+
 }

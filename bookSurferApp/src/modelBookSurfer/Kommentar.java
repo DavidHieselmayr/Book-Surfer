@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modelBookSurfer;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,19 +17,21 @@ import java.util.logging.Logger;
 import javafx.scene.control.TextField;
 import java.util.regex.*;
 import loginAndRegisterStuff.CurrentUser;
+
 /**
  *
  * @author fabia
  */
 public class Kommentar {
+
     /*
      text          varchar(1000),
     überschrift   varchar(32),
     sterne        decimal(2),
     kommentarid   decimal(6) NOT NULL,
     user_uid      decimal(6) NOT NULL
-    */
-    
+     */
+
     private Statement statement;
     private String text;
     private String ueberschrift;
@@ -47,10 +50,10 @@ public class Kommentar {
         this.setUserid(userid);
         this.setBuchid(buchid);
     }
-    
-    public static void addKommentarToDB(Statement statement, String kommentar, int buchid){
+
+    public static void addKommentarToDB(Statement statement, String kommentar, int buchid) {
         Timestamp t = new Timestamp(System.currentTimeMillis());
-        String sql = "INSERT INTO APP.kommentar(text, ueberschrift, sterne, user_uid, buchid, erstelldatum, kommentarid) VALUES ('"+kommentar+"', null, 0, "+CurrentUser.getCurrentUser().getUserid()+", "+buchid+", '"+t.toString()+"', next value for seq_kommentar)";
+        String sql = "INSERT INTO APP.kommentar(text, ueberschrift, sterne, user_uid, buchid, erstelldatum, kommentarid) VALUES ('" + kommentar + "', null, 0, " + CurrentUser.getCurrentUser().getUserid() + ", " + buchid + ", '" + t.toString() + "', next value for seq_kommentar)";
 
         try {
             statement.execute(sql);
@@ -58,8 +61,8 @@ public class Kommentar {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static List<Kommentar> getKommentareVonBuch(int buchid, Statement statement){
+
+    public static List<Kommentar> getKommentareVonBuch(int buchid, Statement statement) {
         List<Kommentar> kommentare = new LinkedList<>();
         String sql = "Select * from APP.kommentar where buchid = " + buchid + " ORDER BY erstelldatum DESC";
 
@@ -67,7 +70,7 @@ public class Kommentar {
             ResultSet rSet = statement.executeQuery(sql);
 
             while (rSet.next()) {
-                kommentare.add(new Kommentar(statement, rSet.getString("text"), rSet.getString("ueberschrift"), rSet.getInt("sterne"), rSet.getInt("kommentarid"), rSet.getInt("user_uid"), rSet.getInt("buchid"),rSet.getTimestamp("erstelldatum")));
+                kommentare.add(new Kommentar(statement, rSet.getString("text"), rSet.getString("ueberschrift"), rSet.getInt("sterne"), rSet.getInt("kommentarid"), rSet.getInt("user_uid"), rSet.getInt("buchid"), rSet.getTimestamp("erstelldatum")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Autor.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,6 +141,5 @@ public class Kommentar {
     public void setErstelldatum(Timestamp erstelldatum) {
         this.erstelldatum = erstelldatum;
     }
-    
-    
+
 }
