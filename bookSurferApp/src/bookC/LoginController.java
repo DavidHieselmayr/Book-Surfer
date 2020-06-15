@@ -20,7 +20,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.InputException;
-import loginAndRegisterStuff.UserLogin;
 import loginAndRegisterStuff.User;
 /**
  * FXML Controller class
