@@ -8,6 +8,7 @@ package bookC;
 import static bookC.StyleUserInterfaceController.stage;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.net.URL;
 import java.sql.Statement;
+import java.util.Base64;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,6 +31,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import loginAndRegisterStuff.CurrentUser;
 import modelBookSurfer.Buch;
@@ -43,14 +46,14 @@ public class StyleReadingVisionController implements Initializable {
 
     private static Stage stage;
     private static Statement statement;
-    private static final String VIEWNAME = "StyleUserInterface.fxml";
+    private static final String VIEWNAME = "styleReadingVision.fxml";
     private Integer kapitel = 1;
     private static Buch buch;
 
     @FXML
     private TextField tfSeite;
     @FXML
-    private TextArea tfReadingVision;
+    private Text tfReadingVision;
 
     /**
      * Initializes the controller class.
@@ -77,13 +80,13 @@ public class StyleReadingVisionController implements Initializable {
 
     @FXML
     private void actionBackPage(ActionEvent event) {
-        setKapitel(-1);
+        setKapitel(this.kapitel-1);
         insertIntoTextBook();
     }
 
     @FXML
     private void actionForward(ActionEvent event) {
-        setKapitel(1);
+        setKapitel(this.kapitel+1);
         insertIntoTextBook();
     }
 
@@ -153,7 +156,7 @@ public class StyleReadingVisionController implements Initializable {
     }
 
     public void insertIntoTextBook() {
-        BufferedReader br = null;
+        InputStream br = null;
         List<Kapitel> kapitel = new LinkedList<>();
 
         kapitel = Kapitel.getKapitelToBuch(buch.getBuchid(), statement);
@@ -169,11 +172,14 @@ public class StyleReadingVisionController implements Initializable {
 
         try {
             File file = new File("data/buecher/"+url); //Pfad noch ändern
-            br = new BufferedReader(new FileReader(file));
-            String string;
-            while ((string = br.readLine()) != null) {
-                tfReadingVision.appendText(string);
+            br = new FileInputStream(file);
+            String string = "";
+            int b;
+            while ((b = br.read()) != -1) {
+                string += toASCII(b);
             }
+            System.out.println(string);
+            tfReadingVision.setText(string);
         } catch (FileNotFoundException ex) {
             System.out.println("File not found!");
         } catch (IOException ex) {
@@ -185,6 +191,15 @@ public class StyleReadingVisionController implements Initializable {
                 Logger.getLogger(StyleReadingVisionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    private static String toASCII(int value){
+        int length = 4;
+        StringBuilder builder = new StringBuilder(length);
+        for(int i = length - 1; i >= 0; i--){
+            builder.append((char)((value >> (8*i)) & 0xFF));
+        }
+        return builder.toString();
     }
 
     public void setBuch(Buch buch) {

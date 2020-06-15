@@ -40,7 +40,6 @@ public class Buch {
     seitenanzahl    decimal(4),
     kapitelanzahl   decimal(2)
      */
-
     private String titel;
     private int buchid;
     private String klappentext;
@@ -62,18 +61,9 @@ public class Buch {
     }
 
     public void storageBuchLocal() {
-        List<Kapitel> kapitel = Kapitel.getKapitelToBuch(buchid, statement);
-        Socket echoServerSocket = null;
-        String hostName = "127.0.0.1";
-        int portNumber = 6014;
 
-       
-            
-            for (Kapitel k : kapitel) {
-                Thread t = new Thread(new ClientThread(k));
-                t.start();
-            }
-
+        Thread t = new ClientThread(this.buchid, statement);
+        t.start();
     }
 
     static public List<Buch> getBuecherOfAutor(Statement statement, int autorid) {

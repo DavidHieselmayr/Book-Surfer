@@ -227,15 +227,12 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
     private void onActionBtKaufen(ActionEvent event) {
         if (btKaufen.getText().equals("Lesen")) {
                 StyleReadingVisionController.show(stage, statement,buch);
-                
-          
         } else {
             CurrentUser.getCurrentUser().buyBook(buch.getBuchid(), buch.getPreis());
             btKaufen.setText("Lesen");
-            btKaufen.setDisable(false);
-            buch.storageBuchLocal();
             btKaufen.setDisable(true);
-
+            buch.storageBuchLocal();
+            btKaufen.setDisable(false);
         }
     }
 

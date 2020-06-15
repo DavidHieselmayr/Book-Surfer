@@ -18,47 +18,25 @@ import java.util.logging.Logger;
  *
  * @author fabia
  */
-public class ServerThread implements Runnable{
-    
+public class ServerThread extends Thread {
+
     private Socket newSocket;
-    
-    public ServerThread(Socket socket) {
+    private ObjectInputStream ois;
+    private OutputStream os;
+
+    public ServerThread(Socket socket, ObjectInputStream ois, OutputStream os) {
         this.newSocket = socket;
+        this.ois = ois;
+        this.os = os;
     }
 
     @Override
     public void run() {
-        newSocket();
+
+        
     }
-    
+
     public void newSocket() {
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(newSocket.getInputStream());
-            OutputStream os = newSocket.getOutputStream();
-            String path = null;
-            try {
-                path = (String) ois.readObject();
-                System.out.println(path);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            FileInputStream fr = new FileInputStream(path);
-            byte b[] = new byte[100];
-            while (fr.read(b) >= 0) {
-                os.write(b);
-            }
-            os.flush();
-            os.close();
-            System.out.println("File übermittelt");
-        } catch (IOException ex) {
-            Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                ois.close();
-            } catch (IOException ex) {
-                Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+
     }
 }
