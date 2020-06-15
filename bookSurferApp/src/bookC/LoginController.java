@@ -28,7 +28,7 @@ import loginAndRegisterStuff.User;
  * @author Nexo
  */
 
-public class StyleBookController {
+public class LoginController {
     // Verbindung zur Datenbank
 
     private Statement statement;
@@ -68,9 +68,9 @@ public class StyleBookController {
      */
     public static void show(Stage stage, Statement statement) {
         try {
-            StyleBookController.mystatement = statement;
+            LoginController.mystatement = statement;
             // View & Controller erstellen
-            FXMLLoader loader = new FXMLLoader(StyleBookController.class.getResource(VIEWNAME));
+            FXMLLoader loader = new FXMLLoader(LoginController.class.getResource(VIEWNAME));
             Parent root = (Parent) loader.load();
 
             // Scene erstellen
@@ -84,7 +84,7 @@ public class StyleBookController {
             stage.setTitle("BookSurfer");
 
             // Controller ermitteln
-            StyleBookController bookSurferC = (StyleBookController) loader.getController();
+            LoginController bookSurferC = (LoginController) loader.getController();
 
             // Datenbankzugriff merken
             bookSurferC.statement = statement;
@@ -96,12 +96,12 @@ public class StyleBookController {
             stage.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("Something wrong with " + VIEWNAME + "!");
             ex.printStackTrace(System.err);
             System.exit(1);
         } catch (Exception ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace(System.err);
             System.exit(2);
         }

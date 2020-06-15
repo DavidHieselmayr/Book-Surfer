@@ -51,7 +51,7 @@ public class ShopControllerController implements Initializable {
     public static void show(Stage stage, Statement statement, String userInput, MainpageSearch ms) {
         try {
             // View & Controller erstellen
-            FXMLLoader loader = new FXMLLoader(MainPageController.class.getResource(VIEWNAME));
+            FXMLLoader loader = new FXMLLoader(ShopControllerController.class.getResource(VIEWNAME));
             Parent root = (Parent) loader.load();
 
             // Scene erstellen
@@ -83,12 +83,12 @@ public class ShopControllerController implements Initializable {
             stage.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("Something wrong with " + VIEWNAME + "!");
             ex.printStackTrace(System.err);
             System.exit(1);
         } catch (Exception ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace(System.err);
             System.exit(2);
         }

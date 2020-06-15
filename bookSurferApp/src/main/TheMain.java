@@ -6,7 +6,7 @@
 package main;
 
 
-import bookC.StyleBookController;
+import bookC.LoginController;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -31,7 +31,7 @@ public class TheMain extends Application {
       Connection connection = DriverManager.getConnection(url, user, pwd);
       Statement statement = connection.createStatement();
 
-      StyleBookController.show(stage, statement);
+      LoginController.show(stage, statement);
     
     }catch (SQLException ex) {
       Logger.getLogger(TheMain.class.getName()).log(Level.SEVERE, null, ex);

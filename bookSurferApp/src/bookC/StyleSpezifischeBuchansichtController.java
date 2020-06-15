@@ -117,12 +117,12 @@ public class StyleSpezifischeBuchansichtController implements Initializable {
             stage.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             System.err.println("Something wrong with " + VIEWNAME + "!");
             ex.printStackTrace(System.err);
             System.exit(1);
         } catch (Exception ex) {
-            Logger.getLogger(StyleBookController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace(System.err);
             System.exit(2);
         }
